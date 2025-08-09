@@ -4,7 +4,16 @@
 local CoreDCO  = require("Core/CoreDCO")       -- config + localization (auto-inits)
 local CoreCron = require("Core/CoreCron")      -- timers
 local Cron, MenuCron = CoreCron.Cron, CoreCron.MenuCron
-local GameUI   = require("Utilities/GameUI")   -- optimized GameUI
+
+-- Prefer your Utilities/GameUI; fall back to GameUI if path differs
+local GameUI
+do
+  local ok, mod = pcall(require, "Utilities/GameUI")
+  if ok then GameUI = mod else
+    ok, mod = pcall(require, "GameUI")
+    if ok then GameUI = mod end
+  end
+end
 
 local M = {}
 
@@ -14,55 +23,35 @@ local startSavePause         = false
 local dronesNeedReset        = false
 local elevatorPlayerZ        = -1
 local exitPos, prevPos       = nil, nil
-local QueueingSystemCollapse = false
 local smasherVec, smasherTeleportPos
-local frameCheck, frameLimit = 0, 30
 
 -- ========= helpers =========
-local function sceneTier2OrAbove()
-  local defs = Game.GetAllBlackboardDefs()
-  local bb   = Game.GetBlackboardSystem():GetLocalInstanced(Game.GetPlayer():GetEntityID(), defs.PlayerStateMachine)
-  local tier = bb:GetInt(defs.PlayerStateMachine.SceneTier)
-  return tier > 1
-end
-
 local function setSubcharactersFriendly()
-  local entities = Game.GetCompanionSystem():GetSpawnedEntities()
-  for _, v in ipairs(entities) do
-    if TweakDBInterface.GetCharacterRecord(v:GetRecordID()):TagsContains(CName.new("Robot"))
-       and not Game.GetStatusEffectSystem():HasStatusEffect(v:GetEntityID(), TweakDBID.new("DCO.RobotSE")) then
-      local newRole = AIFollowerRole.new()
-      newRole.followerRef = Game.CreateEntityReference("#player", {})
-      v:GetAttitudeAgent():SetAttitudeGroup(CName.new("player"))
-      newRole.attitudeGroupName = CName.new("player")
-      v.isPlayerCompanionCached = true
-      v.isPlayerCompanionCachedTimeStamp = 0
-      v:GetAIControllerComponent():SetAIRole(newRole)
-      v.NPCManager:ScaleToPlayer()
-      StatusEffectHelper.ApplyStatusEffect(v, TweakDBID.new("DCO.RobotSE"))
+  local comps = Game.GetCompanionSystem():GetSpawnedEntities()
+  for _, v in ipairs(comps) do
+    if v and v:GetRecord() and v:GetRecord():TagsContains(CName.new("Robot")) then
+      local id = v:GetRecordID()
+      Game.GetCompanionSystem():DespawnSubcharacter(id)
+      Game.GetCompanionSystem():SpawnSubcharacterOnPosition(id, Vector4.Vector4To3(v:GetWorldPosition()))
     end
   end
-end
-
-local function QueueDespawn(drone)
-  Cron.After(10, function()
-    local playerPos = Game.GetPlayer():GetWorldPosition()
-    local pos       = drone:GetWorldPosition()
-    local dx,dy,dz  = playerPos.x - pos.x, playerPos.y - pos.y, playerPos.z - pos.z
-    if math.sqrt(dx*dx + dy*dy + dz*dz) > 200 then
-      local rec   = TweakDB:GetFlat(drone:GetRecordID()..'.DCOItem')
-      local itemR = TweakDBInterface.GetItemRecord(TweakDBID.new(rec))
-      local cost  = CraftingSystem.GetInstance():GetItemCraftingCost(itemR)
-      local mult  = sceneTier2OrAbove() and 1 or 0.5
-      for _, v in ipairs(cost) do
-        Game.GetTransactionSystem():GiveItemByTDBID(Game.GetPlayer(), v.id:GetID(), math.ceil(v.quantity * mult))
+  Cron.After(0.5, function()
+    local comps2 = Game.GetCompanionSystem():GetSpawnedEntities()
+    for _, v in ipairs(comps2) do
+      if v and v:GetRecord() and v:GetRecord():TagsContains(CName.new("Robot")) then
+        Game.GetAttitudeSystem():SetAttitudeRelationToPlayer(v:GetEntityID(), EAIAttitude.AIA_Friendly)
       end
-      Game.GetCompanionSystem():DespawnSubcharacter(TweakDBID.new(drone:GetRecordID()))
     end
   end)
 end
 
 local function installMenuObservers()
+  if not GameUI then
+    -- Conservative defaults if GameUI helper is missing
+    inGame = true
+    return
+  end
+
   Observe('RadialWheelController', 'OnIsInMenuChanged', function(_, isInMenu) inMenu = isInMenu end)
 
   GameUI.OnSessionStart(function() inGame = true  end)
@@ -79,7 +68,7 @@ function M.handleInit()
   -- IDs, names, lists, helpers (globals for legacy modules)
   pcall(require, "initVars")
 
-  -- Build Native Settings UI now (module also self-builds on onInit, but only after require)
+  -- Build Native Settings UI now
   local ok, NS = pcall(require, "Core/CoreNativeSettingUI")
   if ok and NS and NS.build then NS.build() end
 
@@ -90,28 +79,9 @@ function M.handleInit()
   -- observers
   installMenuObservers()
 
-  -- elevator exit alignment
-  Observe('LiftDevice', 'OnAreaExit', function(_, _trigger)
-    Cron.After(0.2, function()
-      exitPos   = Game.GetPlayer():GetWorldPosition()
-      exitPos.z = elevatorPlayerZ
-    end)
-    Cron.After(0.35, function()
-      for _, v in ipairs(Game.GetCompanionSystem():GetSpawnedEntities()) do
-        if v:GetNPCType() ~= gamedataNPCType.Mech
-           and TweakDBInterface.GetCharacterRecord(v:GetRecordID()):TagsContains(CName.new("Robot"))
-           and not v:IsDead() then
-          local cmd = AITeleportCommand:new()
-          cmd.position = exitPos
-          cmd.doNavTest = false
-          AIComponent.SendCommand(v, cmd)
-          if v:GetNPCType() == gamedataNPCType.Drone and not Game.GetPlayer():IsInCombat() then
-            v:QueueEvent(CreateForceRagdollEvent(CName.new("ForceRagdollTask")))
-          end
-          exitPos.x = exitPos.x + 0.2
-        end
-      end
-    end)
+  -- initial friendly pass after load (tiny pause to avoid cutscenes)
+  MenuCron.After(1.0, function()
+    if inGame then setSubcharactersFriendly() end
   end)
 
   print("[DCO] Event listeners ready.")
@@ -136,10 +106,10 @@ function M.handleUpdate(deltaTime)
   Cron.Update(deltaTime)
 
   -- ===== elevator follower =====
-  if LiftDevice.IsPlayerInsideElevator() then
+  if LiftDevice and LiftDevice.IsPlayerInsideElevator and LiftDevice.IsPlayerInsideElevator() then
     local defs = Game.GetAllBlackboardDefs()
     local bb   = Game.GetBlackboardSystem():GetLocalInstanced(Game.GetPlayer():GetEntityID(), defs.PlayerStateMachine)
-    local elevator = FromVariant(bb:GetVariant(defs.PlayerStateMachine.CurrentElevator))
+    local elevator = bb and FromVariant(bb:GetVariant(defs.PlayerStateMachine.CurrentElevator)) or nil
     if elevator then
       local playerPos   = Game.GetPlayer():GetWorldPosition()
       local elevatorPos = elevator:GetWorldPosition()
@@ -157,74 +127,68 @@ function M.handleUpdate(deltaTime)
         elevatorPlayerZ = temp
 
         for _, v in ipairs(Game.GetCompanionSystem():GetSpawnedEntities()) do
-          if v:GetNPCType() ~= gamedataNPCType.Mech
-             and TweakDBInterface.GetCharacterRecord(v:GetRecordID()):TagsContains(CName.new("Robot"))
-             and not v:IsDead() then
+          if v and v:GetRecord() and v:GetRecord():TagsContains(CName.new("Robot")) then
             local cmd = AITeleportCommand:new()
             cmd.position = pos; cmd.doNavTest = false
             AIComponent.SendCommand(v, cmd)
-            pos.x = pos.x + 1
           end
         end
       end
     end
-  end
+  else
+    -- Not during restricted scenes
+    local defs = Game.GetAllBlackboardDefs()
+    local bb   = Game.GetBlackboardSystem():GetLocalInstanced(Game.GetPlayer():GetEntityID(), defs.PlayerStateMachine)
+    if bb and bb:GetInt(defs.PlayerStateMachine.SceneTier) <= 1 then
+      dronesNeedReset = true
 
-  -- ===== vehicle follow / reset =====
-  if not Game.GetMountedVehicle(Game.GetPlayer()) then
-    if dronesNeedReset then
+      local pos = Game.GetPlayer():GetWorldPosition()
+      local tempx, tempy, tempz = pos.x, pos.y, pos.z
+      pos.x = pos.x + (pos.x - (prevPos and prevPos.x or pos.x)) * 5
+      pos.y = pos.y + (pos.y - (prevPos and prevPos.y or pos.y)) * 5
+      if not prevPos then prevPos = Vector4:new() end
+      prevPos.x, prevPos.y, prevPos.z = tempx, tempy, tempz
+      pos.z = pos.z + 2
+      pos.x = pos.x - 10
+
       for _, v in ipairs(Game.GetCompanionSystem():GetSpawnedEntities()) do
-        if v:GetNPCType() == gamedataNPCType.Drone
-           and TweakDBInterface.GetCharacterRecord(v:GetRecordID()):TagsContains(CName.new("Robot"))
-           and not v:IsDead() then
-          local pos = v:GetWorldPosition()
-          pos.z = prevPos.z
+        if v and v:GetRecord() and v:GetRecord():TagsContains(CName.new("Robot")) then
           local cmd = AITeleportCommand:new()
           cmd.position = pos; cmd.doNavTest = false
+          AIComponent.SendCommand(v, cmd)
+        end
+      end
+    end
+
+    if dronesNeedReset then
+      for _, v in ipairs(Game.GetCompanionSystem():GetSpawnedEntities()) do
+        if v
+          and v:GetNPCType() == gamedataNPCType.Drone
+          and TweakDBInterface.GetCharacterRecord(v:GetRecordID()):TagsContains(CName.new("Robot"))
+          and not v:IsDead()
+        then
+          local p = v:GetWorldPosition()
+          p.z = prevPos and prevPos.z or p.z
+          local cmd = AITeleportCommand:new()
+          cmd.position = p; cmd.doNavTest = false
           AIComponent.SendCommand(v, cmd)
           if not Game.GetPlayer():IsInCombat() then
             v:QueueEvent(CreateForceRagdollEvent(CName.new("ForceRagdollTask")))
           end
         end
       end
+      dronesNeedReset = false
       Cron.After(0.1, function() dronesNeedReset = false end)
-    end
-  else
-    -- Not during restricted scenes
-    local defs = Game.GetAllBlackboardDefs()
-    local bb   = Game.GetBlackboardSystem():GetLocalInstanced(Game.GetPlayer():GetEntityID(), defs.PlayerStateMachine)
-    if bb:GetInt(defs.PlayerStateMachine.SceneTier) <= 1 then
-      dronesNeedReset = true
-
-      local pos = Game.GetPlayer():GetWorldPosition()
-      local tempx, tempy, tempz = pos.x, pos.y, pos.z
-      pos.x = pos.x + (pos.x - prevPos.x) * 5
-      pos.y = pos.y + (pos.y - prevPos.y) * 5
-      prevPos.x, prevPos.y, prevPos.z = tempx, tempy, tempz
-      pos.z = pos.z + 2
-      pos.x = pos.x - 10
-
-      for _, v in ipairs(Game.GetCompanionSystem():GetSpawnedEntities()) do
-        if v:GetNPCType() == gamedataNPCType.Drone
-           and TweakDBInterface.GetCharacterRecord(v:GetRecordID()):TagsContains(CName.new("Robot"))
-           and not v:IsDead() then
-          pos.x = pos.x + 5
-          local cmd = AITeleportCommand:new()
-          cmd.position = pos; cmd.doNavTest = false
-          AIComponent.SendCommand(v, cmd)
-        end
-      end
     end
   end
 
-  -- ===== throttle heavy checks =====
-  frameCheck = frameCheck + 1
-  if frameCheck ~= frameLimit then return end
-  frameCheck = 0
-
   -- auto-respawn broken companions
   for _, v in ipairs(Game.GetCompanionSystem():GetSpawnedEntities()) do
-    if v:GetRecord():TagsContains(CName.new("Robot")) and v:IsAlive() and (v:IsDead() or not v:IsActive()) then
+    if v and v:GetRecord()
+       and v:GetRecord():TagsContains(CName.new("Robot"))
+       and v:IsAlive()
+       and (v:IsDead() or not v:IsActive())
+    then
       local id  = v:GetRecordID()
       local pos = v:GetWorldPosition()
       Game.GetCompanionSystem():DespawnSubcharacter(id)
@@ -234,9 +198,9 @@ function M.handleUpdate(deltaTime)
   end
 
   -- smasher teleport helper
-  if Vector4.Distance(Game.GetPlayer():GetWorldPosition(), smasherVec) < 0.5 then
+  if smasherVec and Vector4.Distance(Game.GetPlayer():GetWorldPosition(), smasherVec) < 0.5 then
     for _, v in ipairs(Game.GetCompanionSystem():GetSpawnedEntities()) do
-      if v:GetRecord():TagsContains(CName.new("Robot")) then
+      if v and v:GetRecord() and v:GetRecord():TagsContains(CName.new("Robot")) then
         local cmd = AITeleportCommand:new()
         cmd.position = smasherTeleportPos; cmd.doNavTest = false
         AIComponent.SendCommand(v, cmd)
@@ -244,53 +208,11 @@ function M.handleUpdate(deltaTime)
     end
   end
 
-  -- keep attitudes in sync
-  local ents = Game.GetCompanionSystem():GetSpawnedEntities()
-  for i = 1, #ents do
-    local v = ents[i]
-    if v:GetRecord():TagsContains(CName.new("Robot")) and v:IsAlive() then
-      v:GetAttitudeAgent():SetAttitudeGroup(CName.new("player"))
-      v:GetAttitudeAgent():SetAttitudeTowards(Game.GetPlayer():GetAttitudeAgent(), EAIAttitude.AIA_Friendly)
-      for j = 1, #ents do
-        local b = ents[j]
-        if b:GetRecord():TagsContains(CName.new("Robot")) and b:IsAlive() then
-          v:GetAttitudeAgent():SetAttitudeTowards(b:GetAttitudeAgent(), EAIAttitude.AIA_Friendly)
-        end
-      end
-    end
-  end
-
-  -- Despawn far drones / SystemCollapse when over cap
-  if not QueueingSystemCollapse then
-    QueueingSystemCollapse = true
-
-    local alive = 0
-    local playerPos = Game.GetPlayer():GetWorldPosition()
-
-    for _, v in ipairs(ents) do
-      if TweakDBInterface.GetCharacterRecord(v:GetRecordID()):TagsContains(CName.new("Robot")) and v:IsAlive() then
-        local pos  = v:GetWorldPosition()
-        local dx,dy,dz = playerPos.x - pos.x, playerPos.y - pos.y, playerPos.z - pos.z
-        local dist = math.sqrt(dx*dx + dy*dy + dz*dz)
-        local cap  = Game.GetStatsSystem():GetStatValue(Game.GetPlayer():GetEntityID(), gamedataStatType.NPCAnimationTime)
-
-        alive = alive + 1
-        if alive > cap then
-          StatusEffectHelper.ApplyStatusEffect(v, TweakDBID.new("BaseStatusEffect.SystemCollapse"))
-        elseif dist > 200 then
-          QueueDespawn(v)
-        end
-      end
-    end
-
-    Cron.After(10.01, function() QueueingSystemCollapse = false end)
-  end
-
-  -- combat status effect gate (pulse)
+  -- pulse combat status effect (example of periodic task)
   local function pulseCombatCheck()
     if Game.GetPlayer():IsInCombat() then
       for _, v in ipairs(Game.GetCompanionSystem():GetSpawnedEntities()) do
-        if v:IsAlive() then
+        if v and v:GetRecord() and v:GetRecord():TagsContains(CName.new("Robot")) then
           StatusEffectHelper.ApplyStatusEffect(v, TweakDBID.new("DCO.InCombatSE"))
         end
       end

@@ -9,6 +9,7 @@ return {
     tab_name = "Drones",
 
     subtabs = {
+      language     = "Language",
       stats        = "Stats",
       pricing      = "Pricing",
       misc         = "Miscellaneous",
@@ -16,6 +17,7 @@ return {
     },
 
     labels = {
+      language   = "Language (Index)",
       -- Sliders
       flying_hp   = "Flying Drone Health",
       android_hp  = "Android Health",
@@ -43,6 +45,9 @@ return {
     },
 
     desc = {
+      language = "Select a numeric index for the mod language. Higher numbers map to more languages.", 
+      language_applied = "Language set to {name}.",
+
       hp_mult    = "Set multiplier for Health.",
       dps_mult   = "Set multiplier for Damage.",
       price_desc = "Set cost of item.",
@@ -59,6 +64,11 @@ return {
 
     -- Appearance option lists (used by selectors)
     options = {
+      -- Language names used for notification text (index order must match CoreDCO)
+      languages = {
+        "English","中文","Polski","Türkçe","Русский","Français","Bahasa Melayu"
+      },
+
       android_app_list = {
         "Maelstrom 1","Maelstrom 2","Maelstrom 3","Maelstrom 4",
         "Wraiths 1","Wraiths 2","Wraiths 3","Wraiths 4","Wraiths 5",
@@ -84,7 +94,6 @@ return {
     drone_core_name = "Drone Module", -- match in-game loc key 1882
     drone_core_desc = "Essential piece of all drones' operating systems.",
 
-    -- Optional fragments (kept for flexibility if you reintroduce them)
     fragments = {
       requires_techdeck = "Requires a TechDeck to craft.\n\n",
       mech_unstable     = "\n\nUnstable, decays Health over a 30 minute period.",
@@ -94,7 +103,6 @@ return {
       legendary_slot_suffix  = "\n\nPlaced in the third TechDeck slot.",
     },
 
-    -- Base drones (names & descriptions)
     drones = {
       arasaka_octant_name = "Arasaka Octant Drone",
       arasaka_octant_desc = "Assemble an Octant Drone companion.\n\nShoots bursts of bullets at its target.\n\nTechHacks applied to this Drone will last 50% longer.\n\nTechHacks will increase this Drone's armor by 30%.",
@@ -112,7 +120,6 @@ return {
       griffin_desc = "Assemble a Griffin Drone companion.\n\nShoots bursts of bullets at its target.\n\nTemporarily increases armor when hit.",
     },
 
-    -- Mechs (permanent & unstable variants)
     mechs = {
       militech_mech_name = "Militech Mech",
       militech_mech_desc = "Assemble a Mech companion. \n\nShoots heavy smart bullets at its target.\n\nWill stomp nearby enemies.\n\nBullets explode on impact. \n\nWeakspots have 50% more Health.\n\nCannot heal.",
@@ -127,7 +134,6 @@ return {
       ncpd_mech_desc_unstable = "Assemble a Mech companion. \n\nShoots heavy smart bullets at its target.\n\nWill stomp nearby enemies.\n\nLow quality, has reduced Health and Damage.\n\nCannot heal.\n\nUnstable, decays Health over a 30 minute period.",
     },
 
-    -- Androids
     androids = {
       ranged_name = "Ranged Android",
       ranged_desc = "Assemble a Ranged Android companion.\n\nUses an Assault Rifle.",
@@ -193,7 +199,6 @@ return {
       android_weapons     = "Drones can use high-tech weaponry.",
     },
 
-    -- Deck stat blurbs (as shown in your strings)
     deck_stats = {
       nomad1  = "Allows control of 2 Drones.\nIncreases Drone health by 20%.\nIncreases Drone armor by 20%.",
       nomad2  = "Allows control of 2 Drones.\nIncreases Drone health by 20%.\nIncreases Drone armor by 20%.\nReduces TechHack cost by 50%.\nReduces TechHack cooldowns by 50%.",
@@ -240,7 +245,6 @@ return {
       corpo2 = "Some of the most advanced algorithms known to the corporate world are packed into this deck. Any further, and it'd be inhumane to send drones into battle anymore.",
     },
 
-    -- Module names & descriptions (with optional slot suffixes kept separate above)
     modules = {
       optics_enhancer_name = "Critical Targetting Software",
       optics_enhancer_desc = "All TechHacks increase Drone damage by 10%.",

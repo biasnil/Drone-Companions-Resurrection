@@ -1,66 +1,90 @@
-R = { 
-    description = "DCO"
-}
+-- Values/Set Values.lua
+-- Applies config-driven TweakDB values for DCO.
+-- No globals; safe to require from EventListener after TDB is ready.
 
-function DCO:new()
+local CoreDCO = require("Core/CoreDCO")
 
-	TweakDB:SetFlat("DCO.DroneCorePrice.value", Drone_Core_Price)
-	
-	TweakDB:SetFlat("DCO.FlyingDroneHPBonus.value", 1.8 * FlyingHP)
-	TweakDB:SetFlat("DCO.FlyingDroneDPSBonus.value", 1.5*FlyingDPS)
-	
-	TweakDB:SetFlat("DCO.AndroidHPBonus.value", 1.2 * AndroidHP)
-	TweakDB:SetFlat("DCO.AndroidDPSBonus.value", 1.5*AndroidDPS)
-	
-	TweakDB:SetFlat("DCO.MechHPBonus.value", 1.2 * MechHP)
-	TweakDB:SetFlat("DCO.MechDPSBonus.value", 1.5*MechDPS)
-	
-	if Permanent_Mechs then
-		TweakDB:SetFlat("DCO.Tier1MechNCPDItemLogicPackageDescription.localizedDescription", NCPD_Mech_Permanent_Desc)
-		TweakDB:SetFlat("DCO.Tier1MechArasakaItemLogicPackageDescription.localizedDescription", Arasaka_Mech_Permanent_Desc)
-		TweakDB:SetFlat("DCO.Tier1MechMilitechItemLogicPackageDescription.localizedDescription", Militech_Mech_Permanent_Desc)
-		
-		TweakDB:SetFlat("DCO.MechRegenAbility_inline2.valuePerSec", 0)
-		TweakDB:SetFlat("DCO.MechRegenAbility_inline4.valuePerSec", 0)
-		
-	else
-		TweakDB:SetFlat("DCO.Tier1MechNCPDItemLogicPackageDescription.localizedDescription", NCPD_Mech_Desc)
-		TweakDB:SetFlat("DCO.Tier1MechArasakaItemLogicPackageDescription.localizedDescription", Arasaka_Mech_Desc)
-		TweakDB:SetFlat("DCO.Tier1MechMilitechItemLogicPackageDescription.localizedDescription", Militech_Mech_Desc)	
-		
-		TweakDB:SetFlat("DCO.MechRegenAbility_inline2.valuePerSec", 0.056)
-		TweakDB:SetFlat("DCO.MechRegenAbility_inline4.valuePerSec", 0.056)
-		
-	end
-		
-		
-	--Fix bug
-	CName.add("gang__android_ma_bls_ina_se5_07_droid_01")
-	CName.add("gang__android_ma_bls_ina_se5_07_droid_02")
-	
-	for i=1, DroneRecords do
-	--[[
-		TweakDB:SetFlat("DCO.Tier1AndroidMelee"..i..".appearanceName", boxeyes)
-		TweakDB:SetFlat("DCO.Tier1AndroidRanged"..i..".appearanceName", tanktop)
-		TweakDB:SetFlat("DCO.Tier1AndroidShotgunner"..i..".appearanceName", patriot)
-		TweakDB:SetFlat("DCO.Tier1AndroidHeavy"..i..".appearanceName", gasmask)
-		TweakDB:SetFlat("DCO.Tier1AndroidNetrunner"..i..".appearanceName", wires)
-		TweakDB:SetFlat("DCO.Tier1AndroidSniper"..i..".appearanceName", cleansaka)
-	]]
-		TweakDB:SetFlat("DCO.Tier1AndroidMelee"..i..".appearanceName", CName.new(android_appearances[MeleeAndroidAppearance]))
-		TweakDB:SetFlat("DCO.Tier1AndroidRanged"..i..".appearanceName", CName.new(android_appearances[RangedAndroidAppearance]))
-		TweakDB:SetFlat("DCO.Tier1AndroidShotgunner"..i..".appearanceName", CName.new(android_appearances[ShotgunnerAndroidAppearance]))
-		TweakDB:SetFlat("DCO.Tier1AndroidHeavy"..i..".appearanceName", CName.new(android_appearances[TechieAndroidAppearance]))
-		TweakDB:SetFlat("DCO.Tier1AndroidNetrunner"..i..".appearanceName", CName.new(android_appearances[NetrunnerAndroidAppearance]))
-		TweakDB:SetFlat("DCO.Tier1AndroidSniper"..i..".appearanceName", CName.new(android_appearances[SniperAndroidAppearance]))
-	end
-	
-	for i=1, DroneRecords do
-		--TweakDB:SetFlat("DCO.Tier1Bombus"..i..".appearanceName", "zetatech_bombus__basic_surveillance_drone_01")
-		TweakDB:SetFlat("DCO.Tier1Bombus"..i..".appearanceName", CName.new(bombus_appearances[BombusAppearance])) --"zetatech_bombus__basic_surveillance_drone_01")
-	end
-
+-- Try to fetch appearance maps / counts from initVars (if it returns a table)
+local Vars = {}
+do
+  local ok, mod = pcall(require, "initVars")
+  if ok and type(mod) == "table" then Vars = mod end
 end
 
+local android_appearances = Vars.android_appearances or _G.android_appearances or {}
+local bombus_appearances  = Vars.bombus_appearances  or _G.bombus_appearances  or {}
+local DroneRecords        = Vars.DroneRecords        or _G.DroneRecords        or 8 -- sensible fallback
 
-return DCO:new()
+local function get(k) return CoreDCO:get(k, CoreDCO.DEFAULTS[k]) end
+local function L(k, vars) return CoreDCO:L(k, vars) end
+
+local function setDesc(path, keyBase, permanent)
+  local key = permanent and ("crafting.mechs." .. keyBase .. "_desc")
+                     or  ("crafting.mechs." .. keyBase .. "_desc_unstable")
+  -- Set as raw localized string; adjust if you store LocKeys instead
+  TweakDB:SetFlat(path, L(key))
+end
+
+local function apply()
+  -- --- Scalars / prices -----------------------------------------------
+  TweakDB:SetFlat("DCO.DroneCorePrice.value", get("Drone_Core_Price"))
+
+  TweakDB:SetFlat("DCO.FlyingDroneHPBonus.value",  1.8 * get("FlyingHP"))
+  TweakDB:SetFlat("DCO.FlyingDroneDPSBonus.value", 1.5 * get("FlyingDPS"))
+
+  TweakDB:SetFlat("DCO.AndroidHPBonus.value",  1.2 * get("AndroidHP"))
+  TweakDB:SetFlat("DCO.AndroidDPSBonus.value", 1.5 * get("AndroidDPS"))
+
+  TweakDB:SetFlat("DCO.MechHPBonus.value",  1.2 * get("MechHP"))
+  TweakDB:SetFlat("DCO.MechDPSBonus.value", 1.5 * get("MechDPS"))
+
+  -- --- Mech permanence / regen + descriptions -------------------------
+  local permanent = get("Permanent_Mechs") == true
+
+  setDesc("DCO.Tier1MechNCPDItemLogicPackageDescription.localizedDescription",   "ncpd_mech",    permanent)
+  setDesc("DCO.Tier1MechArasakaItemLogicPackageDescription.localizedDescription","arasaka_mech", permanent)
+  setDesc("DCO.Tier1MechMilitechItemLogicPackageDescription.localizedDescription","militech_mech", permanent)
+
+  if permanent then
+    TweakDB:SetFlat("DCO.MechRegenAbility_inline2.valuePerSec", 0)
+    TweakDB:SetFlat("DCO.MechRegenAbility_inline4.valuePerSec", 0)
+  else
+    TweakDB:SetFlat("DCO.MechRegenAbility_inline2.valuePerSec", 0.056)
+    TweakDB:SetFlat("DCO.MechRegenAbility_inline4.valuePerSec", 0.056)
+  end
+
+  -- --- Known missing CNames (bugfix) ----------------------------------
+  if CName and CName.add then
+    CName.add("gang__android_ma_bls_ina_se5_07_droid_01")
+    CName.add("gang__android_ma_bls_ina_se5_07_droid_02")
+  end
+
+  -- --- Android appearances --------------------------------------------
+  local melee      = android_appearances[get("MeleeAndroidAppearance")]
+  local ranged     = android_appearances[get("RangedAndroidAppearance")]
+  local shotgunner = android_appearances[get("ShotgunnerAndroidAppearance")]
+  local techie     = android_appearances[get("TechieAndroidAppearance")]
+  local netrunner  = android_appearances[get("NetrunnerAndroidAppearance")]
+  local sniper     = android_appearances[get("SniperAndroidAppearance")]
+
+  for i = 1, DroneRecords do
+    if melee      then TweakDB:SetFlat(("DCO.Tier1AndroidMelee%s.appearanceName"):format(i),      CName.new(melee)) end
+    if ranged     then TweakDB:SetFlat(("DCO.Tier1AndroidRanged%s.appearanceName"):format(i),     CName.new(ranged)) end
+    if shotgunner then TweakDB:SetFlat(("DCO.Tier1AndroidShotgunner%s.appearanceName"):format(i), CName.new(shotgunner)) end
+    if techie     then TweakDB:SetFlat(("DCO.Tier1AndroidHeavy%s.appearanceName"):format(i),      CName.new(techie)) end
+    if netrunner  then TweakDB:SetFlat(("DCO.Tier1AndroidNetrunner%s.appearanceName"):format(i),  CName.new(netrunner)) end
+    if sniper     then TweakDB:SetFlat(("DCO.Tier1AndroidSniper%s.appearanceName"):format(i),     CName.new(sniper)) end
+  end
+
+  -- --- Bombus appearance ----------------------------------------------
+  local bombus = bombus_appearances[get("BombusAppearance")]
+  if bombus then
+    for i = 1, DroneRecords do
+      TweakDB:SetFlat(("DCO.Tier1Bombus%s.appearanceName"):format(i), CName.new(bombus))
+    end
+  end
+
+  return true
+end
+
+return apply()

@@ -14,13 +14,28 @@ local CoreDCO = {
 CoreDCO.CONFIG_PATH = "Data/config.json"
 
 -- Use CET's global json if present; otherwise try lua-json
-local _json = rawget(_G, "json")
-if not _json then pcall(function() _json = require("json") end) end
+local _json = json
+if not _json then
+  local ok, lib = pcall(require, "json")
+  if ok then _json = lib end
+end
+
+----------------------------------------------------------------------
+-- Language maps (numeric index <-> code)
+----------------------------------------------------------------------
+local LANG_CYCLE = { [1]="en", [2]="zh", [3]="pl", [4]="tr", [5]="ru", [6]="fr", [7]="ms" }
+local LANG_REV   = (function()
+  local r = {}
+  for i, code in pairs(LANG_CYCLE) do r[code] = i end
+  return r
+end)()
 
 ----------------------------------------------------------------------
 -- Defaults
 ----------------------------------------------------------------------
 CoreDCO.DEFAULTS = {
+  -- store both for compat; index is the primary knob
+  LanguageIndex              = 1,
   Language                   = "en",
 
   Immersive_Damage_Effects   = false,
@@ -121,7 +136,7 @@ local function scheduleSave(self)
 end
 
 ----------------------------------------------------------------------
--- Localization embedded (loads Localization/<lang>.lua)
+-- Localization embedded (loads Localization/<code>.lua)
 ----------------------------------------------------------------------
 local function _tryRequire(modname)
   local ok, t = pcall(require, modname)
@@ -129,6 +144,9 @@ local function _tryRequire(modname)
 end
 
 local function _getByPath(tbl, path)
+  if type(path) ~= "string" or path == "" then
+    return nil
+  end
   local node = tbl
   for seg in string.gmatch(path, "[^%.]+") do
     node = node and node[seg] or nil
@@ -150,7 +168,10 @@ end
 
 CoreDCO._loc = { lang = "en", tables = {}, current = nil }
 
-function CoreDCO:_loadLangTable(code)
+function CoreDCO:_loadLangTable(codeOrIndex)
+  local code = codeOrIndex
+  if type(code) == "number" then code = LANG_CYCLE[code] or "en" end
+  code = tostring(code or "en")
   local t = _tryRequire("Localization/"..code)
   if not t and code:find("-", 1, true) then
     t = _tryRequire("Localization/"..code:match("^[^%-]+"))
@@ -159,7 +180,9 @@ function CoreDCO:_loadLangTable(code)
   return t
 end
 
-function CoreDCO:_setLangInternal(code)
+function CoreDCO:_setLangInternal(codeOrIndex)
+  local code = codeOrIndex
+  if type(code) == "number" then code = LANG_CYCLE[code] or "en" end
   code = tostring(code or "en")
   local cache = self._loc.tables
   local t = cache[code]
@@ -170,15 +193,28 @@ function CoreDCO:_setLangInternal(code)
   self._loc.lang, self._loc.current = code, t
 end
 
-function CoreDCO:setLang(code, autosave)
-  self:_setLangInternal(code)
+-- Accepts "en" or 1
+function CoreDCO:setLang(codeOrIndex, autosave)
+  self:_setLangInternal(codeOrIndex)
   if self.cfg then
-    self:set("Language", self._loc.lang, autosave ~= false)
+    local code  = self._loc.lang
+    local index = LANG_REV[code] or 1
+    -- keep both fields in sync
+    self.cfg.Language      = code
+    self.cfg.LanguageIndex = index
+    if autosave ~= false then
+      self._dirty = true
+      scheduleSave(self)
+    end
   end
   return self._loc
 end
 
 function CoreDCO:lang() return self._loc.lang end
+function CoreDCO:langIndex()
+  return (self.cfg and tonumber(self.cfg.LanguageIndex))
+      or LANG_REV[self._loc.lang] or 1
+end
 function CoreDCO:getStrings() return self._loc.current or {} end
 
 function CoreDCO:t(key, vars)
@@ -195,8 +231,14 @@ end
 CoreDCO.L = function(key, vars) return CoreDCO:t(key, vars) end
 
 function CoreDCO:_detectLang()
-  local fromCfg = self.cfg and self.cfg.Language
-  if fromCfg then return self:_setLangInternal(fromCfg) end
+  -- If config already specifies one, honor it
+  local cfg = self.cfg or {}
+  if cfg.LanguageIndex then
+    return self:_setLangInternal(cfg.LanguageIndex)
+  elseif cfg.Language then
+    return self:_setLangInternal(cfg.Language)
+  end
+  -- Else try game language
   local ok, mgr = pcall(Game.GetLocalizationManager or function() end)
   if ok and mgr and mgr.GetUntrustedLanguage then
     local code = mgr:GetUntrustedLanguage()
@@ -225,8 +267,20 @@ function CoreDCO.init(pathOverride)
   end
 
   CoreDCO.cfg = loadJSON(CoreDCO.CONFIG_PATH, {}) or {}
+
+  -- Migration / fill defaults
+  -- If only string provided, derive index; if only index provided, derive string
+  local hadChange = false
+  if type(CoreDCO.cfg.LanguageIndex) ~= "number" then
+    local idx = LANG_REV[CoreDCO.cfg.Language or ""] or CoreDCO.DEFAULTS.LanguageIndex
+    CoreDCO.cfg.LanguageIndex = idx; hadChange = true
+  end
+  if type(CoreDCO.cfg.Language) ~= "string" then
+    CoreDCO.cfg.Language = LANG_CYCLE[CoreDCO.cfg.LanguageIndex] or "en"; hadChange = true
+  end
+
   mergeMissing(CoreDCO.cfg, CoreDCO.DEFAULTS)
-  saveJSON(CoreDCO.CONFIG_PATH, CoreDCO.cfg)
+  if hadChange then saveJSON(CoreDCO.CONFIG_PATH, CoreDCO.cfg) end
 
   CoreDCO:_detectLang()
 
