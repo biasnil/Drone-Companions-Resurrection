@@ -1,0 +1,195 @@
+DCO.CanCauseBurn:
+  $base: Ability.CanCauseBurn
+  abilityPackage: DCO.CanCauseBurn_inline0
+
+DCO.CanCauseBurn_inline0:
+  $type: gamedataGameplayLogicPackage_Record
+  effectors:
+    - DCO.CanCauseBurn_inline1
+
+DCO.CanCauseBurn_inline1:
+  $type: gamedataApplyStatGroupEffector_Record
+  effectorClassName: ApplyStatGroupEffector
+  applicationTarget: Weapon
+  prereqRecord: DCO.CanCauseBurnMultiPrereq
+  statGroup: DCO.CanCauseBurn_inline3
+
+DCO.CanCauseBurn_inline2:
+  $type: gamedataStatPrereq_Record
+  prereqClassName: StatPrereq
+  comparisonType: Greater
+  statType: CanUseCoolingSystem
+  valueToCheck: 0
+
+DCO.CanCauseBurn_inline3:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.CanCauseBurn_inline4
+    - DCO.CanCauseBurn_inline5
+
+DCO.CanCauseBurn_inline4:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.ThermalDamage
+  value: 1
+
+DCO.CanCauseBurn_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.BurningApplicationRate
+  value: 25
+
+DCO.CanCauseBurnMultiPrereq:
+  $type: gamedataMultiPrereq_Record
+  prereqClassName: gameMultiPrereq
+  aggregationType: AND
+  nestedPrereqs:
+    - DCO.CanCauseBurn_inline2
+
+DCO.CanCauseShock:
+  $base: Ability.CanCauseElectrocution
+  abilityPackage: DCO.CanCauseShock_inline0
+
+DCO.CanCauseShock_inline0:
+  $type: gamedataGameplayLogicPackage_Record
+  effectors:
+    - DCO.CanCauseShock_inline1
+
+DCO.CanCauseShock_inline1:
+  $type: gamedataApplyStatGroupEffector_Record
+  effectorClassName: ApplyStatGroupEffector
+  applicationTarget: Weapon
+  prereqRecord: DCO.CanCauseShockMultiPrereq
+  statGroup: DCO.CanCauseShock_inline3
+
+DCO.CanCauseShock_inline2:
+  $type: gamedataStatPrereq_Record
+  prereqClassName: StatPrereq
+  comparisonType: Greater
+  statType: CanUseCoolingSystem
+  valueToCheck: 0
+
+DCO.CanCauseShock_inline3:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.CanCauseShock_inline4
+    - DCO.CanCauseShock_inline5
+
+DCO.CanCauseShock_inline4:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.ElectricDamage
+  value: 1
+
+DCO.CanCauseShock_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.ElectrocutedApplicationRate
+  value: 25
+
+DCO.CanCauseShockMultiPrereq:
+  $type: gamedataMultiPrereq_Record
+  prereqClassName: gameMultiPrereq
+  aggregationType: AND
+  nestedPrereqs:
+    - DCO.CanCauseShock_inline2
+
+DCO.CanCausePoison:
+  $base: Ability.CanCausePoison
+  abilityPackage: DCO.CanCausePoison_inline0
+
+DCO.CanCausePoison_inline0:
+  $type: gamedataGameplayLogicPackage_Record
+  effectors:
+    - DCO.CanCausePoison_inline1
+
+DCO.CanCausePoison_inline1:
+  $type: gamedataApplyStatGroupEffector_Record
+  effectorClassName: ApplyStatGroupEffector
+  applicationTarget: Weapon
+  prereqRecord: DCO.CanCausePoisonMultiPrereq
+  statGroup: DCO.CanCausePoison_inline3
+
+DCO.CanCausePoison_inline2:
+  $type: gamedataStatPrereq_Record
+  prereqClassName: StatPrereq
+  comparisonType: Greater
+  statType: CanUseCoolingSystem
+  valueToCheck: 0
+
+DCO.CanCausePoison_inline3:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.CanCausePoison_inline4
+    - DCO.CanCausePoison_inline5
+
+DCO.CanCausePoison_inline4:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.ChemicalDamage
+  value: 1
+
+DCO.CanCausePoison_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.PoisonedApplicationRate
+  value: 25
+
+DCO.CanCausePoisonMultiPrereq:
+  $type: gamedataMultiPrereq_Record
+  prereqClassName: gameMultiPrereq
+  aggregationType: AND
+  nestedPrereqs:
+    - DCO.CanCausePoison_inline2
+
+DCO.CanCauseBleed:
+  $base: Ability.CanCausePoison
+  abilityPackage: DCO.CanCauseBleed_inline0
+
+DCO.CanCauseBleed_inline0:
+  $type: gamedataGameplayLogicPackage_Record
+  effectors:
+    - DCO.CanCauseBleed_inline1
+
+DCO.CanCauseBleed_inline1:
+  $type: gamedataApplyStatGroupEffector_Record
+  effectorClassName: ApplyStatGroupEffector
+  applicationTarget: Weapon
+  prereqRecord: DCO.CanCauseBleedMultiPrereq
+  statGroup: DCO.CanCauseBleed_inline3
+
+DCO.CanCauseBleed_inline2:
+  $type: gamedataStatPrereq_Record
+  prereqClassName: StatPrereq
+  comparisonType: Greater
+  statType: CanUseCoolingSystem
+  valueToCheck: 0
+
+DCO.CanCauseBleed_inline3:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.CanCauseBleed_inline4
+    - DCO.CanCauseBleed_inline5
+
+DCO.CanCauseBleed_inline4:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.PhysicalDamage
+  value: 1
+
+DCO.CanCauseBleed_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.BleedingApplicationRate
+  value: 25
+
+DCO.CanCauseBleedMultiPrereq:
+  $type: gamedataMultiPrereq_Record
+  prereqClassName: gameMultiPrereq
+  aggregationType: AND
+  nestedPrereqs:
+    - DCO.CanCauseBleed_inline2

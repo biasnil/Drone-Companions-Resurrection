@@ -1,0 +1,27 @@
+DCO.AndroidSatara:
+  $base: Items.Preset_Satara_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidSatara_RPG
+DCO.AndroidSatara_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers:
+    - DCO.AndroidSataraNPCDamage
+    - DCO.AndroidSataraHitReaction
+    - DCO.AndroidSataraSpreadMaxAI
+DCO.AndroidSataraNPCDamage:   { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,         value: 1.0 }
+DCO.AndroidSataraHitReaction: { $type: gamedataConstantStatModifier_Record, modifierType: Additive,   statType: BaseStats.HitReactionFactor, value: -0.5 }
+DCO.AndroidSataraSpreadMaxAI: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.SpreadMaxAI,       value: 0.5 }
+
+DCO.AndroidIgla:
+  $base: Items.Preset_Igla_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidIgla_RPG
+DCO.AndroidIgla_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers:
+    - DCO.AndroidIglaNPCDamage
+    - DCO.AndroidIglaHitReaction
+    - DCO.AndroidIglaSpreadMaxAI
+DCO.AndroidIglaNPCDamage:     { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,         value: 1.0 }
+DCO.AndroidIglaHitReaction:   { $type: gamedataConstantStatModifier_Record, modifierType: Additive,   statType: BaseStats.HitReactionFactor, value: -0.5 }
+DCO.AndroidIglaSpreadMaxAI:   { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.SpreadMaxAI,       value: 0.5 }

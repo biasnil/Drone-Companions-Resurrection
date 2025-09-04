@@ -1,0 +1,80 @@
+DCO.AndroidDeathExplosion:
+  $base: Attacks.EMPGrenadeCommon
+  playerIncomingDamageMultiplier: 1.0
+  statModifiers:
+    - DCO.AndroidDeathExplosion_inline1
+    - DCO.AndroidDeathExplosion_inline3
+
+DCO.AndroidDeathExplosion_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.ElectricDamage
+  value: 1
+
+DCO.AndroidDeathExplosion_inline3:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.ElectricDamage
+  value: 0.75
+
+DCO.FlyingDroneDeathExplosion:
+  $base: Attacks.DroneOctantDeathExplosion
+  statModifiers:
+    - DCO.FlyingDroneDeathExplosion_inline1
+    - DCO.FlyingDroneDeathExplosion_inline3
+
+DCO.FlyingDroneDeathExplosion_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.PhysicalDamage
+  value: 1
+
+DCO.FlyingDroneDeathExplosion_inline3:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.MechDeathExplosion:
+  $base: DCO.FlyingDroneDeathExplosion
+  statModifiers:
+    - DCO.MechDeathExplosion_inline1
+    - DCO.MechDeathExplosion_inline2
+
+DCO.MechDeathExplosion_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.PhysicalDamage
+  value: 1
+
+DCO.MechDeathExplosion_inline2:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.75
+
+DCO.FlyingExplodeHackExplosion:
+  $base: DCO.FlyingDroneDeathExplosion
+  range: 5
+  effectTag: frag_explosion_underwater_shallow
+  statModifiers:
+    - DCO.FlyingDroneDeathExplosion_inline1
+    - DCO.FlyingDroneDeathExplosion_inline3
+    - DCO.FlyingExplodeHackExplosion_inline0
+
+DCO.FlyingExplodeHackExplosion_inline0:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 1.5
+
+DCO.BombusExplosionEffect:
+  $base: Attacks.FragGrenadeUnderwaterShallow
+  range: 3.5
+  effectTag: missile_explosion
+  statusEffects:
+    - DCO.BombusExplosionEffect_inline0
+
+DCO.BombusExplosionEffect_inline0:
+  $base: Attacks.BaseFragExplosion_inline0
+  statusEffect: BaseStatusEffect.Bleeding

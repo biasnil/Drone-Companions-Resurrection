@@ -1,0 +1,111 @@
+# NOTE: block style everywhere to avoid flow-map parser issues
+
+DCO.AndroidKenshin:
+  $base: Items.Preset_Kenshin_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidKenshin_RPG
+DCO.AndroidKenshin_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidKenshinNPCDamage, DCO.AndroidKenshinAccuracy, DCO.AndroidKenshinHitReaction ]
+DCO.AndroidKenshinNPCDamage:        { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidKenshinAccuracy:         { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidKenshinHitReaction:      { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidOmaha:
+  $base: Items.Preset_Omaha_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidOmaha_RPG
+DCO.AndroidOmaha_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidOmahaNPCDamage, DCO.AndroidOmahaAccuracy, DCO.AndroidOmahaHitReaction ]
+DCO.AndroidOmahaNPCDamage:          { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidOmahaAccuracy:           { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidOmahaHitReaction:        { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidBurya:
+  $base: Items.Preset_Burya_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidBurya_RPG
+DCO.AndroidBurya_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidBuryaNPCDamage, DCO.AndroidBuryaAccuracy, DCO.AndroidBuryaHitReaction ]
+DCO.AndroidBuryaNPCDamage:          { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidBuryaAccuracy:           { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidBuryaHitReaction:        { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidQuasar:
+  $base: Items.Preset_Quasar_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidQuasar_RPG
+DCO.AndroidQuasar_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidQuasarNPCDamage, DCO.AndroidQuasarAccuracy, DCO.AndroidQuasarHitReaction ]
+DCO.AndroidQuasarNPCDamage:         { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidQuasarAccuracy:          { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidQuasarHitReaction:       { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidLiberty:
+  $base: Items.Preset_Liberty_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidLiberty_RPG
+DCO.AndroidLiberty_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidLibertyNPCDamage, DCO.AndroidLibertyAccuracy, DCO.AndroidLibertyHitReaction ]
+DCO.AndroidLibertyNPCDamage:        { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidLibertyAccuracy:         { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidLibertyHitReaction:      { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidLexington:
+  $base: Items.Preset_Lexington_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidLexington_RPG
+DCO.AndroidLexington_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidLexingtonNPCDamage, DCO.AndroidLexingtonAccuracy, DCO.AndroidLexingtonHitReaction ]
+DCO.AndroidLexingtonNPCDamage:      { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidLexingtonAccuracy:       { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidLexingtonHitReaction:    { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidUnity:
+  $base: Items.Preset_Unity_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidUnity_RPG
+DCO.AndroidUnity_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidUnityNPCDamage, DCO.AndroidUnityAccuracy, DCO.AndroidUnityHitReaction ]
+DCO.AndroidUnityNPCDamage:          { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidUnityAccuracy:           { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidUnityHitReaction:        { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidNue:
+  $base: Items.Preset_Nue_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidNue_RPG
+DCO.AndroidNue_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidNueNPCDamage, DCO.AndroidNueAccuracy, DCO.AndroidNueHitReaction ]
+DCO.AndroidNueNPCDamage:            { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidNueAccuracy:             { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidNueHitReaction:          { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidNova:
+  $base: Items.Preset_Nova_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidNova_RPG
+DCO.AndroidNova_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidNovaNPCDamage, DCO.AndroidNovaAccuracy, DCO.AndroidNovaHitReaction ]
+DCO.AndroidNovaNPCDamage:           { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidNovaAccuracy:            { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidNovaHitReaction:         { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidOverture:
+  $base: Items.Preset_Overture_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidOverture_RPG
+DCO.AndroidOverture_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers: [ DCO.AndroidOvertureNPCDamage, DCO.AndroidOvertureAccuracy, DCO.AndroidOvertureHitReaction ]
+DCO.AndroidOvertureNPCDamage:       { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,        value: 0.6 }
+DCO.AndroidOvertureAccuracy:        { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,         value: 0.8 }
+DCO.AndroidOvertureHitReaction:     { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }

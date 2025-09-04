@@ -1,0 +1,23 @@
+DCO.AndroidNekomata:
+  $base: Items.Preset_Nekomata_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidNekomata_RPG
+DCO.AndroidNekomata_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers:
+    - DCO.AndroidNekomataNPCDamage
+    - DCO.AndroidNekomataAccuracy
+DCO.AndroidNekomataNPCDamage: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage, value: 1.0 }
+DCO.AndroidNekomataAccuracy:  { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,  value: 1.0 }
+
+DCO.AndroidGrad:
+  $base: Items.Preset_Grad_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidGrad_RPG
+DCO.AndroidGrad_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers:
+    - DCO.AndroidGradNPCDamage
+    - DCO.AndroidGradAccuracy
+DCO.AndroidGradNPCDamage: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage, value: 1.0 }
+DCO.AndroidGradAccuracy:  { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,  value: 1.0 }

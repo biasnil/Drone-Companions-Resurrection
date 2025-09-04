@@ -1,0 +1,351 @@
+DCO.Tier1AndroidRangedArchetype:
+  $base: ArchetypeData.AndroidRangedT2
+  abilityGroups:
+    - DCO.Tier1AndroidRangedArchetype_inline0
+DCO.Tier1AndroidRangedArchetype_inline0:
+  $type: gamedataGameplayAbilityGroup_Record
+  abilities: []
+DCO.Tier1AndroidRanged:
+  $type: gamedataSubCharacter_Record
+  archetypeData: DCO.Tier1AndroidRangedArchetype
+  primaryEquipment: DCO.Tier1AndroidRangedPrimaryEquipment
+  secondaryEquipment: DCO.Tier1AndroidRangedSecondaryEquipment
+DCO.Tier1AndroidRangedPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidRangedPrimaryPool
+DCO.Tier1AndroidRangedPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidRangedPrimaryPoolEntryBasic
+    - DCO.Tier1AndroidRangedPrimaryPoolEntryAdvanced
+DCO.Tier1AndroidRangedPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidRangedPrimaryPoolEntryBasic_inline1
+DCO.Tier1AndroidRangedPrimaryPoolEntryBasic_inline1:
+  $base: Character.ma_bls_se5_07_android_bodyguard_inline1
+  unequipCondition:
+    - DCO.AndroidUnequip2HCondition
+  onBodySlot: ""
+  item: DCO.AndroidSidewinder
+DCO.Tier1AndroidRangedPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidRangedPrimaryPoolEntryAdvanced_inline1
+DCO.Tier1AndroidRangedPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.ma_bls_se5_07_android_bodyguard_inline1
+  unequipCondition:
+    - DCO.AndroidUnequip2HCondition
+  onBodySlot: ""
+  item: DCO.AndroidYukimura
+DCO.Tier1AndroidRangedSecondaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidRangedSecondaryPool
+DCO.Tier1AndroidRangedSecondaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidRangedSecondaryPoolEntryBasic
+    - DCO.Tier1AndroidRangedSecondaryPoolEntryAdvanced
+DCO.Tier1AndroidRangedSecondaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidRangedSecondaryPoolEntryBasic_inline1
+DCO.Tier1AndroidRangedSecondaryPoolEntryBasic_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidLiberty
+DCO.Tier1AndroidRangedSecondaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidRangedSecondaryPoolEntryAdvanced_inline1
+DCO.Tier1AndroidRangedSecondaryPoolEntryAdvanced_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidYukimura
+
+DCO.Tier1AndroidMeleeArchetype:
+  $base: ArchetypeData.AndroidMeleeT2
+  abilityGroups:
+    - DCO.Tier1AndroidMeleeArchetype_inline0
+DCO.Tier1AndroidMeleeArchetype_inline0:
+  $type: gamedataGameplayAbilityGroup_Record
+  abilities: []
+DCO.Tier1AndroidMelee:
+  $type: gamedataSubCharacter_Record
+  archetypeData: DCO.Tier1AndroidMeleeArchetype
+  primaryEquipment: DCO.Tier1AndroidMeleePrimaryEquipment
+  secondaryEquipment: DCO.Tier1AndroidMeleeSecondaryEquipment
+DCO.Tier1AndroidMeleePrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidMeleePrimaryPool
+DCO.Tier1AndroidMeleePrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidMeleePrimaryPoolEntryBasic
+    - DCO.Tier1AndroidMeleePrimaryPoolEntryAdvanced
+DCO.Tier1AndroidMeleePrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidMeleePrimaryPoolEntryBasic_inline1
+DCO.Tier1AndroidMeleePrimaryPoolEntryBasic_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: DCO.AndroidKatana
+DCO.Tier1AndroidMeleePrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidMeleePrimaryPoolEntryAdvanced_inline1
+DCO.Tier1AndroidMeleePrimaryPoolEntryAdvanced_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: DCO.AndroidBaton
+DCO.Tier1AndroidMeleeSecondaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidMeleeSecondaryPool
+DCO.Tier1AndroidMeleeSecondaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidMeleeSecondaryPoolEntryBasic
+    - DCO.Tier1AndroidMeleeSecondaryPoolEntryAdvanced
+DCO.Tier1AndroidMeleeSecondaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidMeleeSecondaryPoolEntryBasic_inline1
+    - DCO.Tier1AndroidMeleeSecondaryPoolEntryBasic_inline2
+DCO.Tier1AndroidMeleeSecondaryPoolEntryBasic_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidAjax
+DCO.Tier1AndroidMeleeSecondaryPoolEntryBasic_inline2:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidOmaha
+DCO.Tier1AndroidMeleeSecondaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items: []
+
+DCO.Tier1AndroidShotgunnerArchetype:
+  $base: ArchetypeData.AndroidRangedT2
+  abilityGroups:
+    - DCO.Tier1AndroidShotgunnerArchetype_inline0
+DCO.Tier1AndroidShotgunnerArchetype_inline0:
+  $type: gamedataGameplayAbilityGroup_Record
+  abilities: []
+DCO.Tier1AndroidShotgunner:
+  $type: gamedataSubCharacter_Record
+  archetypeData: DCO.Tier1AndroidShotgunnerArchetype
+  primaryEquipment: DCO.Tier1AndroidShotgunnerPrimaryEquipment
+  secondaryEquipment: DCO.Tier1AndroidShotgunnerSecondaryEquipment
+DCO.Tier1AndroidShotgunnerPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidShotgunnerPrimaryPool
+DCO.Tier1AndroidShotgunnerPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidShotgunnerPrimaryPoolEntryBasic
+    - DCO.Tier1AndroidShotgunnerPrimaryPoolEntryAdvanced
+DCO.Tier1AndroidShotgunnerPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidShotgunnerPrimaryPoolEntryBasic_inline1
+DCO.Tier1AndroidShotgunnerPrimaryPoolEntryBasic_inline1:
+  $base: Character.ma_bls_se5_07_android_bodyguard_inline1
+  unequipCondition:
+    - DCO.AndroidUnequip2HCondition
+  onBodySlot: ""
+  item: DCO.AndroidSatara
+DCO.Tier1AndroidShotgunnerPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidShotgunnerPrimaryPoolEntryAdvanced_inline1
+DCO.Tier1AndroidShotgunnerPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.ma_bls_se5_07_android_bodyguard_inline1
+  unequipCondition:
+    - DCO.AndroidUnequip2HCondition
+  onBodySlot: ""
+  item: DCO.AndroidIgla
+DCO.Tier1AndroidShotgunnerSecondaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidShotgunnerSecondaryPool
+DCO.Tier1AndroidShotgunnerSecondaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidShotgunnerSecondaryPoolEntryBasic
+    - DCO.Tier1AndroidShotgunnerSecondaryPoolEntryAdvanced
+DCO.Tier1AndroidShotgunnerSecondaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidShotgunnerSecondaryPoolEntryBasic_inline1
+DCO.Tier1AndroidShotgunnerSecondaryPoolEntryBasic_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidUnity
+DCO.Tier1AndroidShotgunnerSecondaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidShotgunnerSecondaryPoolEntryAdvanced_inline1
+DCO.Tier1AndroidShotgunnerSecondaryPoolEntryAdvanced_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidQuasar
+
+DCO.Tier1AndroidNetrunnerArchetype:
+  $base: ArchetypeData.AndroidRangedT2
+  type: ArchetypeType.NetrunnerT3
+  abilityGroups:
+    - DCO.Tier1AndroidNetrunnerArchetype_inline0
+DCO.Tier1AndroidNetrunnerArchetype_inline0:
+  $type: gamedataGameplayAbilityGroup_Record
+  abilities: []
+DCO.Tier1AndroidNetrunner:
+  $type: gamedataSubCharacter_Record
+  archetypeData: DCO.Tier1AndroidNetrunnerArchetype
+  primaryEquipment: DCO.Tier1AndroidNetrunnerPrimaryEquipment
+  secondaryEquipment: DCO.Tier1AndroidNetrunnerSecondaryEquipment
+DCO.Tier1AndroidNetrunnerPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidNetrunnerPrimaryPool
+DCO.Tier1AndroidNetrunnerPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidNetrunnerPrimaryPoolEntryBasic
+    - DCO.Tier1AndroidNetrunnerPrimaryPoolEntryAdvanced
+DCO.Tier1AndroidNetrunnerPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidNetrunnerPrimaryPoolEntryBasic_inline1
+DCO.Tier1AndroidNetrunnerPrimaryPoolEntryBasic_inline1:
+  $base: Character.ma_bls_se5_07_android_bodyguard_inline1
+  unequipCondition:
+    - DCO.AndroidUnequip2HCondition
+  onBodySlot: ""
+  item: DCO.AndroidLexington
+DCO.Tier1AndroidNetrunnerPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidNetrunnerPrimaryPoolEntryAdvanced_inline1
+DCO.Tier1AndroidNetrunnerPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.ma_bls_se5_07_android_bodyguard_inline1
+  unequipCondition:
+    - DCO.AndroidUnequip2HCondition
+  onBodySlot: ""
+  item: DCO.AndroidYukimura
+DCO.Tier1AndroidNetrunnerSecondaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidNetrunnerSecondaryPool
+DCO.Tier1AndroidNetrunnerSecondaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidNetrunnerSecondaryPoolEntryBasic
+    - DCO.Tier1AndroidNetrunnerSecondaryPoolEntryAdvanced
+DCO.Tier1AndroidNetrunnerSecondaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidNetrunnerSecondaryPoolEntryBasic_inline1
+    - DCO.Tier1AndroidNetrunnerSecondaryPoolEntryBasic_inline2
+    - DCO.Tier1AndroidNetrunnerSecondaryPoolEntryBasic_inline3
+DCO.Tier1AndroidNetrunnerSecondaryPoolEntryBasic_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidUnity
+DCO.Tier1AndroidNetrunnerSecondaryPoolEntryBasic_inline2:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidNova
+DCO.Tier1AndroidNetrunnerSecondaryPoolEntryBasic_inline3:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidCopperhead
+DCO.Tier1AndroidNetrunnerSecondaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidNetrunnerSecondaryPoolEntryAdvanced_inline1
+    - DCO.Tier1AndroidNetrunnerSecondaryPoolEntryAdvanced_inline2
+DCO.Tier1AndroidNetrunnerSecondaryPoolEntryAdvanced_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidKenshin
+DCO.Tier1AndroidNetrunnerSecondaryPoolEntryAdvanced_inline2:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidAjax
+
+DCO.Tier1AndroidSniperArchetype:
+  $base: ArchetypeData.AndroidRangedT2
+  abilityGroups:
+    - DCO.Tier1AndroidSniperArchetype_inline0
+DCO.Tier1AndroidSniperArchetype_inline0:
+  $type: gamedataGameplayAbilityGroup_Record
+  abilities: []
+DCO.Tier1AndroidSniper:
+  $type: gamedataSubCharacter_Record
+  archetypeData: DCO.Tier1AndroidSniperArchetype
+  primaryEquipment: DCO.Tier1AndroidSniperPrimaryEquipment
+  secondaryEquipment: DCO.Tier1AndroidSniperSecondaryEquipment
+DCO.Tier1AndroidSniperPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidSniperPrimaryPool
+DCO.Tier1AndroidSniperPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidSniperPrimaryPoolEntryBasic
+    - DCO.Tier1AndroidSniperPrimaryPoolEntryAdvanced
+DCO.Tier1AndroidSniperPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidSniperPrimaryPoolEntryBasic_inline1
+DCO.Tier1AndroidSniperPrimaryPoolEntryBasic_inline1:
+  $base: Character.ma_bls_se5_07_android_bodyguard_inline1
+  unequipCondition:
+    - DCO.AndroidUnequip2HCondition
+  onBodySlot: ""
+  item: DCO.AndroidNekomata
+DCO.Tier1AndroidSniperPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidSniperPrimaryPoolEntryAdvanced_inline1
+DCO.Tier1AndroidSniperPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.ma_bls_se5_07_android_bodyguard_inline1
+  unequipCondition:
+    - DCO.AndroidUnequip2HCondition
+  onBodySlot: ""
+  item: DCO.AndroidGrad
+DCO.Tier1AndroidSniperSecondaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.Tier1AndroidSniperSecondaryPool
+DCO.Tier1AndroidSniperSecondaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.Tier1AndroidSniperSecondaryPoolEntryBasic
+    - DCO.Tier1AndroidSniperSecondaryPoolEntryAdvanced
+DCO.Tier1AndroidSniperSecondaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.Tier1AndroidSniperSecondaryPoolEntryBasic_inline1
+DCO.Tier1AndroidSniperSecondaryPoolEntryBasic_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidNue
+DCO.Tier1AndroidSniperSecondaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.Tier1AndroidSniperSecondaryPoolEntryAdvanced_inline1
+DCO.Tier1AndroidSniperSecondaryPoolEntryAdvanced_inline1:
+  $base: Character.CommunityCorpoSecondaryHandgunPool_inline3
+  item: DCO.AndroidOmaha

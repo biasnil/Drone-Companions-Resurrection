@@ -1,0 +1,32 @@
+DCO.AndroidKatana:
+  $base: Items.Preset_Katana_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidKatana_RPG
+
+DCO.AndroidKatana_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers:
+    - DCO.AndroidKatanaNPCDamage
+
+DCO.AndroidKatanaNPCDamage:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.NPCDamage
+  value: 1.3
+
+
+DCO.AndroidBaton:
+  $base: Items.Preset_Baton_Alpha
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidBaton_RPG
+
+DCO.AndroidBaton_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifiers:
+    - DCO.AndroidBatonNPCDamage
+
+DCO.AndroidBatonNPCDamage:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.NPCDamage
+  value: 1.3

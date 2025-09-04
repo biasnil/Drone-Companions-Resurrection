@@ -1,0 +1,227 @@
+DCO.Tier1BombusRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey#45199
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1BombusRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1BombusRecipePrice
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1BombusRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+  quality: Quality.Uncommon
+
+DCO.Tier1BombusRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1BombusItem
+
+DCO.Tier1BombusRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 600
+
+DCO.Tier1BombusItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey#45199
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1BombusItemLogicPackage
+  placementSlots: []
+  quality: Quality.Uncommon
+  CraftingData: DCO.Tier1BombusItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+
+DCO.Tier1BombusItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1BombusItemLogicPackageDescription
+
+DCO.Tier1BombusItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey#0
+
+DCO.Tier1BombusItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1BombusItem_inline1
+    - DCO.Tier1BombusItem_inline2
+    - DCO.Tier1BombusItem_inline3
+
+DCO.Tier1BombusItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.CommonMaterial1
+  amount: 20
+
+DCO.Tier1BombusItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.UncommonMaterial1
+  amount: 20
+
+DCO.Tier1BombusItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 2
+
+DCO.Tier1WyvernRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey#45200
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1WyvernRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1WyvernRecipePrice
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1WyvernRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+  quality: Quality.Rare
+
+DCO.Tier1WyvernRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1WyvernItem
+
+DCO.Tier1WyvernRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 2000
+
+DCO.Tier1WyvernItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey#45200
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1WyvernItemLogicPackage
+  placementSlots: []
+  quality: Quality.Rare
+  CraftingData: DCO.Tier1WyvernItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+
+DCO.Tier1WyvernItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1WyvernItemLogicPackageDescription
+
+DCO.Tier1WyvernItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey#0
+
+DCO.Tier1WyvernItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1WyvernItem_inline1
+    - DCO.Tier1WyvernItem_inline2
+    - DCO.Tier1WyvernItem_inline3
+
+DCO.Tier1WyvernItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.UncommonMaterial1
+  amount: 20
+
+DCO.Tier1WyvernItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.RareMaterial1
+  amount: 20
+
+DCO.Tier1WyvernItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 4
+
+DCO.Tier1GriffinRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey#45201
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1GriffinRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1GriffinRecipePrice
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1GriffinRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+  quality: Quality.Rare
+
+DCO.Tier1GriffinRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1GriffinItem
+
+DCO.Tier1GriffinRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 2000
+
+DCO.Tier1GriffinItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey#45201
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1GriffinItemLogicPackage
+  placementSlots: []
+  quality: Quality.Rare
+  CraftingData: DCO.Tier1GriffinItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+
+DCO.Tier1GriffinItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1GriffinItemLogicPackageDescription
+
+DCO.Tier1GriffinItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey#0
+
+DCO.Tier1GriffinItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1GriffinItem_inline1
+    - DCO.Tier1GriffinItem_inline2
+    - DCO.Tier1GriffinItem_inline3
+
+DCO.Tier1GriffinItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.UncommonMaterial1
+  amount: 20
+
+DCO.Tier1GriffinItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.RareMaterial1
+  amount: 20
+
+DCO.Tier1GriffinItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 4

@@ -1,0 +1,11 @@
+DCO.AndroidUnequip2HCondition:
+  $base: WeaponConditions.BaseRangedPrimaryWeaponUnequipCondition
+  condition: DCO.AndroidUnequip2HCondition_inline0
+
+DCO.AndroidUnequip2HCondition_inline0:
+  $base: WeaponConditions.BaseRangedPrimaryWeaponUnequipCondition_inline0
+  OR:
+    - Condition.StatusEffectCrippledHandLeft
+    - Condition.StatusEffectCrippledArmLeft
+    - Condition.StatusEffectDismemberedHandLeft
+    - Condition.StatusEffectDismemberedArmLeft
