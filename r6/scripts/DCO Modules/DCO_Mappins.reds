@@ -1,5 +1,3 @@
-// Mappins.reds (2.3-compatible)
-
 @addMethod(StealthMappinController)
 public func DCOFindArchetypeResource() -> ResRef {
   let npc: wref<NPCPuppet> = this.m_ownerNPC;
@@ -75,15 +73,12 @@ public func DCOFindArchetypeName() -> CName {
   return n"";
 }
 
-// NOTE: 2.3 uses callback versions: OnIntro/OnUpdate. Wrap those.
-
 @wrapMethod(StealthMappinController)
 protected cb func OnIntro() -> Bool {
   let ret = wrappedMethod();
 
   let npc: wref<NPCPuppet> = this.m_ownerNPC;
   if IsDefined(npc) && npc.GetRecord().TagsContains(n"Robot") && ScriptedPuppet.IsPlayerCompanion(npc) {
-    // Use the level icon as the texture target in 2.3
     inkImageRef.SetAtlasResource(this.m_levelIcon, this.DCOFindArchetypeResource());
     inkImageRef.SetTexturePart(this.m_levelIcon, this.DCOFindArchetypeName());
     inkWidgetRef.SetScale(this.m_levelIcon, new Vector2(0.30, 0.30));
@@ -102,8 +97,6 @@ protected cb func OnIntro() -> Bool {
 @wrapMethod(StealthMappinController)
 protected cb func OnUpdate() -> Bool {
   let ret = wrappedMethod();
-
-  // Keep icon/tint fresh if the NPC flips to companion mid-mission
   let npc: wref<NPCPuppet> = this.m_ownerNPC;
   if IsDefined(npc) && npc.GetRecord().TagsContains(n"Robot") && ScriptedPuppet.IsPlayerCompanion(npc) {
     inkImageRef.SetAtlasResource(this.m_levelIcon, this.DCOFindArchetypeResource());

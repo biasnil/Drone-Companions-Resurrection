@@ -1,0 +1,12 @@
+UIIcon.DCOTechDeckMod1: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod1_atlas.inkatlas") }
+UIIcon.DCOTechDeckMod2: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod2_atlas.inkatlas") }
+UIIcon.DCOTechDeckMod3: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod3_atlas.inkatlas") }
+UIIcon.DCOTechDeckMod4: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod4_atlas.inkatlas") }
+UIIcon.DCOTechDeckMod5: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod5_atlas.inkatlas") }
+UIIcon.DCOTechDeckMod6: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod6_atlas.inkatlas") }
+UIIcon.DCOTechDeckMod7: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod7_atlas.inkatlas") }
+UIIcon.DCOTechDeckMod8: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod8_atlas.inkatlas") }
+UIIcon.DCOTechDeckMod9: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\techdeckmod9_atlas.inkatlas") }
+UIIcon.DCOStreetTechDeck: { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\streettechdeck_atlas.inkatlas") }
+UIIcon.DCONomadTechDeck:  { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\nomadtechdeck_atlas.inkatlas") }
+UIIcon.DCOCorpoTechDeck:  { $type: gamedataUIIcon_Record, atlasPartName: CName("icon_part"), atlasResourcePath: ResRef("base\\icon\\corpotechdeck_atlas.inkatlas") }

@@ -1,0 +1,126 @@
+DCO.KerenzikovCaption:
+  $base: ChoiceCaptionParts.ClientInDistressIcon
+  texturePartID: UIIcon.kerenzikov_buff
+
+DCO.AndroidKerenzikov:
+  $type: gamedataObjectAction_Record
+  actionName: DCOKerenzikov
+  instigatorPrereqs:
+    - DCO.AndroidKerenzikovCooldownCheck
+  activationTime:
+    - DCO.AndroidKerenzikovActivationTime
+  objectActionType: ObjectActionType.PuppetQuickHack
+  interactionLayer: remote
+  priority: 3
+  costs:
+    - DCO.AndroidKerenzikovCost
+  rewards:
+    - RPGActionRewards.Engineering
+  hackCategory: ""
+  objectActionUI: DCO.AndroidKerenzikovInteraction
+  startEffects:
+    - DCO.AndroidKerenzikovCooldownEffect
+  completionEffects:
+    - DCO.AndroidKerenzikovEffect
+  isQuickHack: true
+  targetPrereqs:
+    - Prereqs.NPCIsAndroid
+
+DCO.AndroidKerenzikovCost:
+  $type: gamedataStatPoolCost_Record
+  costMods:
+    - DCO.AndroidKerenzikovCostStat
+    - DCO.TechHackCostReductionMod
+  statPool: BaseStatPools.Memory
+
+DCO.AndroidKerenzikovCostStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 6
+
+DCO.AndroidKerenzikovInteraction:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  caption: LocKey(3665)
+  captionIcon: DCO.KerenzikovCaption
+
+DCO.AndroidKerenzikovActivationTime:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+  value: 1
+
+DCO.AndroidKerenzikovEffect:
+  $base: QuickHack.SystemCollapseLvl3Hack_inline0
+  statusEffect: DCO.AndroidKerenzikovSE
+
+DCO.AndroidKerenzikovSE:
+  $base: BaseStatusEffect.SeeThroughWalls
+  duration: DCO.AndroidKerenzikovDuration
+  gameplayTags: [ Buff, Stealth, Quickhack, Robot ]
+  VFX: []
+  uiData: DCO.AndroidKerenzikovSEUIData
+  packages:
+    - DCO.AndroidKerenzikovPackage
+
+DCO.AndroidKerenzikovSEUIData:
+  $type: gamedataStatusEffectUIData_Record
+  displayName: Repair
+  priority: -9
+  iconPath: kerenzikov_buff
+
+DCO.AndroidKerenzikovPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.OctantArasakaTechHackArmor
+    - DCO.AndroidKerenzikov_HasKerenzikov
+  effectors:
+    - DCO.DroneHackDamageEffector
+
+DCO.AndroidKerenzikov_HasKerenzikov:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: AdditiveMultiplier
+  statType: BaseStats.HasKerenzikov
+  value: 1
+
+DCO.AndroidKerenzikovDuration:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.AndroidKerenzikovDurationStat
+
+DCO.AndroidKerenzikovDurationStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+  value: 30
+
+DCO.AndroidKerenzikovCooldown:
+  $base: BaseStatusEffect.SystemCollapseCooldown
+  duration: DCO.AndroidKerenzikovCooldownDuration
+  gameplayTags: [ Debuff ]
+  uiData: ""
+
+DCO.AndroidKerenzikovCooldownDuration:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.AndroidKerenzikovCooldownDurationStat
+    - DCO.DroneNomadReductionDuration
+
+DCO.AndroidKerenzikovCooldownDurationStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+  value: 90
+
+DCO.AndroidKerenzikovCooldownEffect:
+  $type: gamedataApplyStatusEffectEffector_Record
+  effectorClassName: ApplyStatusEffectEffector
+  prereqRecord: Prereqs.AlwaysTruePrereq
+  statusEffect: DCO.AndroidKerenzikovCooldown
+
+DCO.AndroidKerenzikovCooldownCheck:
+  $base: QuickHack.SystemCollapseHackBase_inline0
+  statusEffect: DCO.AndroidKerenzikovCooldown

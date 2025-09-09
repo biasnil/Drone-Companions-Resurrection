@@ -1,0 +1,120 @@
+DCO.OpticalZoom:
+  $type: gamedataObjectAction_Record
+  actionName: DCOOpticalZoom
+  instigatorPrereqs:
+    - DCO.OpticalZoomCooldownCheck
+  activationTime:
+    - DCO.OpticalZoomActivationTime
+  objectActionType: ObjectActionType.PuppetQuickHack
+  interactionLayer: remote
+  priority: 3
+  costs:
+    - DCO.OpticalZoomCost
+  rewards:
+    - RPGActionRewards.Engineering
+  hackCategory: ""
+  objectActionUI: DCO.OpticalZoomInteraction
+  startEffects:
+    - DCO.OpticalZoomCooldownEffect
+  completionEffects:
+    - DCO.OpticalZoomEffect
+  isQuickHack: true
+
+DCO.OpticalZoomCost:
+  $type: gamedataStatPoolCost_Record
+  costMods:
+    - DCO.OpticalZoomCostStat
+    - DCO.TechHackCostReductionMod
+  statPool: BaseStatPools.Memory
+
+DCO.OpticalZoomCostStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 4
+
+DCO.OpticalZoomInteraction:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  caption: LocKey(15009)
+  captionIcon: ChoiceCaptionParts.CameraTagSeenEnemiesIcon
+
+DCO.OpticalZoomActivationTime:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+  value: 1
+
+DCO.OpticalZoomEffect:
+  $base: QuickHack.SystemCollapseLvl3Hack_inline0
+  statusEffect: DCO.OpticalZoomSE
+
+DCO.OpticalZoomSE:
+  $base: BaseStatusEffect.SeeThroughWalls
+  duration: DCO.OpticalZoomDuration
+  gameplayTags: [ Buff, Stealth, Quickhack, Robot ]
+  VFX: []
+  uiData: DCO.OpticalZoomSEUIData
+  packages:
+    - DCO.OpticalZoomPackage
+
+DCO.OpticalZoomSEUIData:
+  $type: gamedataStatusEffectUIData_Record
+  displayName: Repair
+  priority: -9
+  iconPath: second_wind
+
+DCO.OpticalZoomPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.OctantArasakaTechHackArmor
+    - DCO.OpticalZoom_Accuracy
+  effectors:
+    - DCO.DroneHackDamageEffector
+
+DCO.OpticalZoom_Accuracy:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Accuracy
+  value: 20
+
+DCO.OpticalZoomDuration:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.OpticalZoomDurationStat
+
+DCO.OpticalZoomDurationStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+  value: 30
+
+DCO.OpticalZoomCooldown:
+  $base: BaseStatusEffect.SystemCollapseCooldown
+  duration: DCO.OpticalZoomCooldownDuration
+  gameplayTags: [ Debuff ]
+  uiData: ""
+
+DCO.OpticalZoomCooldownDuration:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.OpticalZoomCooldownDurationStat
+    - DCO.DroneNomadReductionDuration
+
+DCO.OpticalZoomCooldownDurationStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+  value: 60
+
+DCO.OpticalZoomCooldownEffect:
+  $type: gamedataApplyStatusEffectEffector_Record
+  effectorClassName: ApplyStatusEffectEffector
+  prereqRecord: Prereqs.AlwaysTruePrereq
+  statusEffect: DCO.OpticalZoomCooldown
+
+DCO.OpticalZoomCooldownCheck:
+  $base: QuickHack.SystemCollapseHackBase_inline0
+  statusEffect: DCO.OpticalZoomCooldown

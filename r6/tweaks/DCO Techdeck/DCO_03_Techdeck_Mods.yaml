@@ -1,0 +1,262 @@
+DCO.TechDeckMod1:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{Optics Enhancer}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot1
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Rare
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod1Package
+
+DCO.TechDeckMod1_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHackDamage
+  value: 1
+
+DCO.TechDeckMod1Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod1_inline1
+  UIData: DCO.TechDeckMod1PackageDesc
+
+DCO.TechDeckMod1PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Drone quickhacks deal more damage."
+
+
+DCO.TechDeckMod2:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{Malfunction Coordinator}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot1
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Rare
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod2Package
+
+DCO.TechDeckMod2_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneDeathExplosion
+  value: 0.5
+
+DCO.TechDeckMod2Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod2_inline1
+  UIData: DCO.TechDeckMod2PackageDesc
+
+DCO.TechDeckMod2PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Increases drone death-explosion damage."
+
+DCO.TechDeckMod3:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{Trigger Software}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot1
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Rare
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod3Package
+  objectActions:
+    - DCO.OpticalZoom
+
+DCO.TechDeckMod3Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats: []
+  UIData: DCO.TechDeckMod3PackageDesc
+
+DCO.TechDeckMod3PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Grants the Optical Zoom techhack."
+
+DCO.TechDeckMod4:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{Plate Energizer}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot2
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Epic
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod4Package
+
+DCO.TechDeckMod4_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneCloakHeal
+  value: 1
+
+DCO.TechDeckMod4Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod4_inline1
+  UIData: DCO.TechDeckMod4PackageDesc
+
+DCO.TechDeckMod4PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Cloaked drones regenerate health."
+
+DCO.TechDeckMod5:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{Extra Sensory Processor}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot2
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Epic
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod5Package
+
+DCO.TechDeckMod5Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats: []
+  UIData: DCO.TechDeckMod5PackageDesc
+
+DCO.TechDeckMod5PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Utility firmware for advanced drone control."
+
+DCO.TechDeckMod6:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{Insta Repair Unit}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot2
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Epic
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod6Package
+
+DCO.TechDeckMod6_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHealMod
+  value: 1
+
+DCO.TechDeckMod6Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod6_inline1
+  UIData: DCO.TechDeckMod6PackageDesc
+
+DCO.TechDeckMod6PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Enhances drone self-repair effects."
+
+DCO.TechDeckMod7:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{Mass Distortion Core}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot3
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Legendary
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod7Package
+
+DCO.TechDeckMod7_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneMassCloak
+  value: 1
+
+DCO.TechDeckMod7Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod7_inline1
+  UIData: DCO.TechDeckMod7PackageDesc
+
+DCO.TechDeckMod7PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Enables mass cloaking for drones."
+
+DCO.TechDeckMod8:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{Circuit Charger}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot3
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Legendary
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod8Package
+  objectActions:
+    - DCO.EWS
+
+DCO.TechDeckMod8Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats: []
+  UIData: DCO.TechDeckMod8PackageDesc
+
+DCO.TechDeckMod8PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Grants Emergency Weapons System (EWS)."
+
+DCO.TechDeckMod9:
+  $base: Items.BerserkFragment1
+  localizedName: "yyy{CPU Overloader}{}"
+  localizedDescription: ""
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot3
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Legendary
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod9Package
+
+DCO.TechDeckMod9_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneOverdriveSpeed
+  value: 1
+
+DCO.TechDeckMod9Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod9_inline1
+  UIData: DCO.TechDeckMod9PackageDesc
+
+DCO.TechDeckMod9PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: "Boosts drone overdrive speed."

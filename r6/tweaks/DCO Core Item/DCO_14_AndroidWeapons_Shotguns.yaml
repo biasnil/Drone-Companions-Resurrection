@@ -1,0 +1,59 @@
+DCO.AndroidSatara:
+  $base: Items.Preset_Satara_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidSatara_RPG
+
+DCO.AndroidSatara_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Dual_Shotgun_NPC_Stats
+    - Items.Base_Satara_NPC_Technical_Stats
+    - Items.Base_Satara_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidSataraNPCDamage
+    - DCO.AndroidSataraHitReaction
+    - DCO.AndroidSataraSpreadMaxAI
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.DualShotgunMinTBH
+    - AttackModifier.DualShotgunMinLineOfSight
+    - AttackModifier.DualShotgunNPCDamageMultiplier
+
+DCO.AndroidSataraNPCDamage:   { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,         value: 1.0 }
+DCO.AndroidSataraHitReaction: { $type: gamedataConstantStatModifier_Record, modifierType: Additive,   statType: BaseStats.HitReactionFactor, value: -0.5 }
+DCO.AndroidSataraSpreadMaxAI: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.SpreadMaxAI,       value: 0.5 }
+
+DCO.AndroidIgla:
+  $base: Items.Preset_Igla_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidIgla_RPG
+
+DCO.AndroidIgla_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Dual_Shotgun_NPC_Stats
+    - Items.Base_Igla_NPC_Technical_Stats
+    - Items.Base_Igla_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidIglaNPCDamage
+    - DCO.AndroidIglaHitReaction
+    - DCO.AndroidIglaSpreadMaxAI
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.DualShotgunMinTBH
+    - AttackModifier.DualShotgunMinLineOfSight
+    - AttackModifier.DualShotgunNPCDamageMultiplier
+
+DCO.AndroidIglaNPCDamage:     { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,         value: 1.0 }
+DCO.AndroidIglaHitReaction:   { $type: gamedataConstantStatModifier_Record, modifierType: Additive,   statType: BaseStats.HitReactionFactor, value: -0.5 }
+DCO.AndroidIglaSpreadMaxAI:   { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.SpreadMaxAI,       value: 0.5 }

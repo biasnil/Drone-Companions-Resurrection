@@ -1,0 +1,239 @@
+DCO.Tier1MechMilitechRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey#48900
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1MechMilitechRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1MechMilitechRecipePrice
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1MechMilitechRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+    - DCOCraftsDrone
+    - DCOCraftsMech
+  quality: Quality.Legendary
+
+DCO.Tier1MechMilitechRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1MechMilitechItem
+
+DCO.Tier1MechMilitechRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 20000
+
+DCO.Tier1MechMilitechItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey#48900
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1MechMilitechItemLogicPackage
+  placementSlots: []
+  quality: Quality.Legendary
+  CraftingData: DCO.Tier1MechMilitechItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+    - DCOCraftsDrone
+    - DCOCraftsMech
+
+DCO.Tier1MechMilitechItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1MechMilitechItemLogicPackageDescription
+
+DCO.Tier1MechMilitechItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey#0
+
+DCO.Tier1MechMilitechItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1MechMilitechItem_inline1
+    - DCO.Tier1MechMilitechItem_inline2
+    - DCO.Tier1MechMilitechItem_inline3
+
+DCO.Tier1MechMilitechItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.EpicMaterial1
+  amount: 50
+
+DCO.Tier1MechMilitechItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.LegendaryMaterial1
+  amount: 50
+
+DCO.Tier1MechMilitechItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 30
+
+DCO.Tier1MechArasakaRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey#48905
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1MechArasakaRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1MechArasakaRecipePrice
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1MechArasakaRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+    - DCOCraftsDrone
+    - DCOCraftsMech
+  quality: Quality.Legendary
+
+DCO.Tier1MechArasakaRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1MechArasakaItem
+
+DCO.Tier1MechArasakaRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 20000
+
+DCO.Tier1MechArasakaItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey#48905
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1MechArasakaItemLogicPackage
+  placementSlots: []
+  quality: Quality.Legendary
+  CraftingData: DCO.Tier1MechArasakaItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+    - DCOCraftsDrone
+    - DCOCraftsMech
+
+DCO.Tier1MechArasakaItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1MechArasakaItemLogicPackageDescription
+
+DCO.Tier1MechArasakaItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey#0 # This will be set dynamically in Lua based on Permanent_Mechs setting
+
+DCO.Tier1MechArasakaItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1MechArasakaItem_inline1
+    - DCO.Tier1MechArasakaItem_inline2
+    - DCO.Tier1MechArasakaItem_inline3
+
+DCO.Tier1MechArasakaItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.EpicMaterial1
+  amount: 50
+
+DCO.Tier1MechArasakaItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.LegendaryMaterial1
+  amount: 50
+
+DCO.Tier1MechArasakaItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 30
+
+DCO.Tier1MechNCPDRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey#48944
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1MechNCPDRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1MechNCPDRecipePrice
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1MechNCPDRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+    - DCOCraftsDrone
+    - DCOCraftsMech
+  quality: Quality.Epic
+
+DCO.Tier1MechNCPDRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1MechNCPDItem
+
+DCO.Tier1MechNCPDRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 10000
+
+DCO.Tier1MechNCPDItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey#48944
+  localizedDescription: LocKey#0
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1MechNCPDItemLogicPackage
+  placementSlots: []
+  quality: Quality.Epic
+  CraftingData: DCO.Tier1MechNCPDItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+    - DCOCraftsDrone
+    - DCOCraftsMech
+
+DCO.Tier1MechNCPDItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1MechNCPDItemLogicPackageDescription
+
+DCO.Tier1MechNCPDItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey#0   # This will be set dynamically in Lua based on Permanent_Mechs setting
+
+DCO.Tier1MechNCPDItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1MechNCPDItem_inline1
+    - DCO.Tier1MechNCPDItem_inline2
+    - DCO.Tier1MechNCPDItem_inline3
+
+DCO.Tier1MechNCPDItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.RareMaterial1
+  amount: 50
+
+DCO.Tier1MechNCPDItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.EpicMaterial1
+  amount: 50
+
+DCO.Tier1MechNCPDItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 20

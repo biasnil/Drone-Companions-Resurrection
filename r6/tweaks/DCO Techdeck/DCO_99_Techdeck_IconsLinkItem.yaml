@@ -1,0 +1,20 @@
+DCO.TechDeckMod1: { iconPath: DCOTechDeckMod1, icon: UIIcon.DCOTechDeckMod1 }
+DCO.TechDeckMod2: { iconPath: DCOTechDeckMod2, icon: UIIcon.DCOTechDeckMod2 }
+DCO.TechDeckMod3: { iconPath: DCOTechDeckMod3, icon: UIIcon.DCOTechDeckMod3 }
+DCO.TechDeckMod4: { iconPath: DCOTechDeckMod4, icon: UIIcon.DCOTechDeckMod4 }
+DCO.TechDeckMod5: { iconPath: DCOTechDeckMod5, icon: UIIcon.DCOTechDeckMod5 }
+DCO.TechDeckMod6: { iconPath: DCOTechDeckMod6, icon: UIIcon.DCOTechDeckMod6 }
+DCO.TechDeckMod7: { iconPath: DCOTechDeckMod7, icon: UIIcon.DCOTechDeckMod7 }
+DCO.TechDeckMod8: { iconPath: DCOTechDeckMod8, icon: UIIcon.DCOTechDeckMod8 }
+DCO.TechDeckMod9: { iconPath: DCOTechDeckMod9, icon: UIIcon.DCOTechDeckMod9 }
+
+DCO.StreetDeck1: { iconPath: DCOStreetTechDeck, icon: UIIcon.DCOStreetTechDeck }
+DCO.StreetDeck2: { iconPath: DCOStreetTechDeck, icon: UIIcon.DCOStreetTechDeck }
+DCO.StreetDeck3: { iconPath: DCOStreetTechDeck, icon: UIIcon.DCOStreetTechDeck }
+
+DCO.NomadDeck1:  { iconPath: DCONomadTechDeck,  icon: UIIcon.DCONomadTechDeck  }
+DCO.NomadDeck2:  { iconPath: DCONomadTechDeck,  icon: UIIcon.DCONomadTechDeck  }
+DCO.NomadDeck3:  { iconPath: DCONomadTechDeck,  icon: UIIcon.DCONomadTechDeck  }
+
+DCO.CorpoDeck1:  { iconPath: DCOCorpoTechDeck,  icon: UIIcon.DCOCorpoTechDeck  }
+DCO.CorpoDeck2:  { iconPath: DCOCorpoTechDeck,  icon: UIIcon.DCOCorpoTechDeck  }

@@ -1,0 +1,54 @@
+DCO.AndroidKatana:
+  $base: Items.Preset_Katana_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidKatana_RPG
+
+DCO.AndroidKatana_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Katana_NPC_Stats
+    - Items.Base_Katana_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidKatanaNPCDamage
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - Items.Base_Blade_NPC_RPG_Data_inline0
+
+DCO.AndroidKatanaNPCDamage:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.NPCDamage
+  value: 1.3
+
+
+DCO.AndroidBaton:
+  $base: Items.Preset_Baton_Alpha
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidBaton_RPG
+
+DCO.AndroidBaton_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Baton_NPC_Stats
+    - Items.Baton_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidBatonNPCDamage
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - Items.Base_Blunt_NPC_RPG_Data_inline0
+
+DCO.AndroidBatonNPCDamage:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.NPCDamage
+  value: 1.3

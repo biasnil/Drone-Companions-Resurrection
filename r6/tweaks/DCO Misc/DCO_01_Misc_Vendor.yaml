@@ -1,0 +1,402 @@
+SCReq$(n):
+  $instances:
+    - { n: 1 }
+    - { n: 2 }
+    - { n: 3 }
+    - { n: 4 }
+    - { n: 5 }
+    - { n: 6 }
+    - { n: 7 }
+    - { n: 8 }
+    - { n: 9 }
+    - { n: 10 }
+    - { n: 11 }
+    - { n: 12 }
+    - { n: 13 }
+    - { n: 14 }
+    - { n: 15 }
+    - { n: 16 }
+    - { n: 17 }
+    - { n: 18 }
+    - { n: 19 }
+    - { n: 20 }
+    - { n: 21 }
+    - { n: 22 }
+    - { n: 23 }
+    - { n: 24 }
+    - { n: 25 }
+    - { n: 26 }
+    - { n: 27 }
+    - { n: 28 }
+    - { n: 29 }
+    - { n: 30 }
+    - { n: 31 }
+    - { n: 32 }
+    - { n: 33 }
+    - { n: 34 }
+    - { n: 35 }
+    - { n: 36 }
+    - { n: 37 }
+    - { n: 38 }
+    - { n: 39 }
+    - { n: 40 }
+    - { n: 41 }
+    - { n: 42 }
+    - { n: 43 }
+    - { n: 44 }
+    - { n: 45 }
+    - { n: 46 }
+    - { n: 47 }
+    - { n: 48 }
+    - { n: 49 }
+    - { n: 50 }
+  $base: Vendors.GlenCredAvailability
+  valueToCheck: $(n)
+
+DCO.DroneCoreLoot:
+  $type: gamedataLootItem_Record
+  dropChance: 1
+  dropCountMax: 3
+  dropCountMin: 1
+  itemID: DCO.DroneCore
+
+Loot.NPCGenericMechanical:
+  lootItems:
+    - !append-once DCO.DroneCoreLoot
+  maxItemsToLoot: 2
+  minItemsToLoot: 2
+
+DCO.NomadTechDeck1Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq1
+  item: DCO.NomadDeck1
+  quantity: [ Vendors.IsPresent ]
+
+DCO.NomadTechDeck2Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq20
+  item: DCO.NomadDeck2
+  quantity: [ Vendors.IsPresent ]
+
+DCO.NomadTechDeck3Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq40
+  item: DCO.NomadDeck3
+  quantity: [ Vendors.IsPresent ]
+
+DCO.StreetTechDeck1Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq1
+  item: DCO.StreetDeck1
+  quantity: [ Vendors.IsPresent ]
+
+DCO.StreetTechDeck2Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq20
+  item: DCO.StreetDeck2
+  quantity: [ Vendors.IsPresent ]
+
+DCO.StreetTechDeck3Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq40
+  item: DCO.StreetDeck3
+  quantity: [ Vendors.IsPresent ]
+
+DCO.CorpoTechDeck1Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq24
+  item: DCO.CorpoDeck1
+  quantity: [ Vendors.IsPresent ]
+
+DCO.CorpoTechDeck2Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq48
+  item: DCO.CorpoDeck2
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod1Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq1
+  item: DCO.TechDeckMod1
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod2Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq1
+  item: DCO.TechDeckMod2
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod3Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq1
+  item: DCO.TechDeckMod3
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod4Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq20
+  item: DCO.TechDeckMod4
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod5Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq20
+  item: DCO.TechDeckMod5
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod6Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq20
+  item: DCO.TechDeckMod6
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod7Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq40
+  item: DCO.TechDeckMod7
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod8Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq40
+  item: DCO.TechDeckMod8
+  quantity: [ Vendors.IsPresent ]
+
+DCO.TechDeckMod9Vendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq40
+  item: DCO.TechDeckMod9
+  quantity: [ Vendors.IsPresent ]
+
+DCO.DroneCoreVendorItemQuantity:
+  $type: gamedataRandomStatModifier_Record
+  statType: BaseStats.Quantity
+  modifierType: Additive
+  min: 200
+  max: 400
+
+DCO.DroneCoreVendorItem:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq1
+  item: DCO.DroneCore
+  quantity:
+    - DCO.DroneCoreVendorItemQuantity
+
+DCO.Tier1BombusRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq1
+  item: DCO.Tier1BombusRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1OctantArasakaRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq30
+  item: DCO.Tier1OctantArasakaRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1OctantMilitechRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq30
+  item: DCO.Tier1OctantMilitechRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1GriffinRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq10
+  item: DCO.Tier1GriffinRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1WyvernRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq10
+  item: DCO.Tier1WyvernRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1AndroidRangedRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq10
+  item: DCO.Tier1AndroidRangedRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1AndroidMeleeRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq10
+  item: DCO.Tier1AndroidMeleeRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1AndroidHeavyRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq30
+  item: DCO.Tier1AndroidHeavyRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1AndroidShotgunnerRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq10
+  item: DCO.Tier1AndroidShotgunnerRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1AndroidSniperRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq30
+  item: DCO.Tier1AndroidSniperRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1AndroidNetrunnerRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq30
+  item: DCO.Tier1AndroidNetrunnerRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1MechMilitechRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq50
+  item: DCO.Tier1MechMilitechRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1MechArasakaRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq50
+  item: DCO.Tier1MechArasakaRecipe
+  quantity: [ Vendors.IsPresent ]
+
+DCO.Tier1MechNCPDRecipeVendor:
+  $type: gamedataVendorItem_Record
+  availabilityPrereq: SCReq30
+  item: DCO.Tier1MechNCPDRecipe
+  quantity: [ Vendors.IsPresent ]
+
+Vendors.bls_ina_se1_ripperdoc_01:
+  itemStock: &RD_Nomad3_Mod6
+    - !append-once DCO.NomadTechDeck3Vendor
+    - !append-once DCO.TechDeckMod6Vendor
+
+Vendors.bls_ina_se1_ripperdoc_02:
+  itemStock: *RD_Nomad3_Mod6
+
+Vendors.hey_spr_ripperdoc_01:
+  itemStock:
+    - !append-once DCO.TechDeckMod8Vendor
+
+Vendors.pac_wwd_ripperdoc_01:
+  itemStock:
+    - !append-once DCO.CorpoTechDeck1Vendor
+    - !append-once DCO.TechDeckMod7Vendor
+
+Vendors.std_arr_ripperdoc_01:
+  itemStock:
+    - !append-once DCO.NomadTechDeck2Vendor
+    - !append-once DCO.TechDeckMod4Vendor
+
+Vendors.std_rcr_ripperdoc_01:
+  itemStock:
+    - !append-once DCO.TechDeckMod5Vendor
+
+Vendors.wat_kab_ripperdoc_03:
+  itemStock:
+    - !append-once DCO.TechDeckMod3Vendor
+
+Vendors.wat_lch_ripperdoc_01:
+  itemStock:
+    - !append-once DCO.StreetTechDeck2Vendor
+    - !append-once DCO.TechDeckMod1Vendor
+
+Vendors.wat_nid_ripperdoc_01:
+  itemStock:
+    - !append-once DCO.NomadTechDeck1Vendor
+
+Vendors.wbr_jpn_ripperdoc_01:
+  itemStock:
+    - !append-once DCO.StreetTechDeck1Vendor
+
+Vendors.wbr_jpn_ripperdoc_02:
+  itemStock:
+    - !append-once DCO.TechDeckMod2Vendor
+
+Vendors.cct_dtn_ripdoc_01:
+  itemStock:
+    - !append-once DCO.CorpoTechDeck2Vendor
+    - !append-once DCO.TechDeckMod9Vendor
+
+Vendors.wbr_hil_ripdoc_01:
+  itemStock:
+    - !append-once DCO.StreetTechDeck3Vendor
+
+Vendors.wat_kab_junkshop_01:
+  itemStock: &CoreOnly
+    - !append-once DCO.DroneCoreVendorItem
+
+Vendors.bls_ina_se1_junkshop_01:
+  itemStock: *CoreOnly
+
+Vendors.bls_ina_se5_junkshop_01:
+  itemStock: *CoreOnly
+
+Vendors.wbr_jpn_techstore_01:
+  itemStock: *CoreOnly
+
+Vendors.wat_kab_gunsmith_01:
+  itemStock: &FlyingList
+    - !append-once DCO.DroneCoreVendorItem
+    - !append-once DCO.Tier1BombusRecipeVendor
+    - !append-once DCO.Tier1GriffinRecipeVendor
+    - !append-once DCO.Tier1WyvernRecipeVendor
+
+Vendors.wat_kab_gunsmith_02:
+  itemStock: *FlyingList
+
+Vendors.wat_lch_gunsmith_01:
+  itemStock: *FlyingList
+
+Vendors.wat_nid_gunsmith_01:
+  itemStock: *FlyingList
+
+Vendors.bls_ina_se1_gunsmith_01a:
+  itemStock: &OctantList
+    - !append-once DCO.DroneCoreVendorItem
+    - !append-once DCO.Tier1OctantArasakaRecipeVendor
+    - !append-once DCO.Tier1OctantMilitechRecipeVendor
+
+Vendors.bls_ina_se1_gunsmith_02:
+  itemStock: *OctantList
+
+Vendors.std_arr_gunsmith_01:
+  itemStock: &AndroidSimple
+    - !append-once DCO.DroneCoreVendorItem
+    - !append-once DCO.Tier1AndroidRangedRecipeVendor
+    - !append-once DCO.Tier1AndroidMeleeRecipeVendor
+    - !append-once DCO.Tier1AndroidShotgunnerRecipeVendor
+
+Vendors.std_rcr_gunsmith_01:
+  itemStock: *AndroidSimple
+
+Vendors.wbr_jpn_gunsmith_01:
+  itemStock: *AndroidSimple
+
+Vendors.hey_gle_gunsmith_01:
+  itemStock: &AndroidAdvanced
+    - !append-once DCO.DroneCoreVendorItem
+    - !append-once DCO.Tier1AndroidHeavyRecipeVendor
+    - !append-once DCO.Tier1AndroidSniperRecipeVendor
+
+Vendors.hey_rey_gunsmith_01:
+  itemStock: *AndroidAdvanced
+
+Vendors.hey_spr_gunsmith_01:
+  itemStock: *AndroidAdvanced
+
+Vendors.bls_ina_se5_gunsmith_01:
+  itemStock: &MechNCPD
+    - !append-once DCO.DroneCoreVendorItem
+    - !append-once DCO.Tier1MechNCPDRecipeVendor
+
+Vendors.cct_dtn_guns_01:
+  itemStock: &MechList
+    - !append-once DCO.DroneCoreVendorItem
+    - !append-once DCO.Tier1MechMilitechRecipeVendor
+    - !append-once DCO.Tier1MechArasakaRecipeVendor
+
+Vendors.pac_wwd_gunsmith_01:
+  itemStock: &NetrunnerList
+    - !append-once DCO.DroneCoreVendorItem
+    - !append-once DCO.Tier1AndroidNetrunnerRecipeVendor

@@ -1,0 +1,65 @@
+DCO.TechDeck_OnEquip_Base:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.Stat.HasCyberdeck
+  UIData: DCO.TechDeck_OnEquip_Base_UI
+
+DCO.Stat.HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 1
+
+DCO.TechDeck_OnEquip_Base_UI:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: Techdeck drone control enabled
+
+DCO.NotAndroidPrereq:
+  $base: Prereqs.NPCIsAndroid
+  invert: true
+
+DCO.DroneNumber:              { $base: BaseStats.NPCAnimationTime }
+DCO.DroneHP:                  { $base: BaseStats.NPCCorpoEquipItemDuration }
+DCO.DroneArmor:               { $base: BaseStats.NPCCorpoUnequipItemDuration }
+DCO.DroneAccuracy:            { $base: BaseStats.NPCEquipItemDuration }
+DCO.DroneNomadCooldown:       { $base: BaseStats.NPCGangEquipItemDuration }
+DCO.DroneStatusEffect:        { $base: BaseStats.CanUseCoolingSystem }
+DCO.DroneAndroidDilation:     { $base: BaseStats.NPCLoopDuration }
+DCO.DroneDeathExplosion:      { $base: BaseStats.NPCRecoverDuration }
+DCO.DroneCheapCost:           { $base: BaseStats.NPCUnequipItemDuration }
+DCO.DroneDamage:              { $base: BaseStats.NPCStartupDuration }
+DCO.DroneAndroidRegen:        { $base: BaseStats.CanCallDrones }
+DCO.DroneOverdriveAll:        { $base: BaseStats.CanElectrocuteNullifyStats }
+DCO.DroneAndroidWeapons:      { $base: BaseStats.CanCatchUp }
+DCO.DroneFlyingExplosions:    { $base: BaseStats.HasWallRunSkill }
+DCO.TechHackCostReduction:    { $base: BaseStats.CanCloseCombat }
+DCO.DroneCloakHeal:           { $base: BaseStats.CallReinforcement }
+DCO.DroneHealMod:             { $base: BaseStats.HasTimedImmunity }
+DCO.DroneMassCloak:           { $base: BaseStats.CanAskToHolsterWeapon }
+DCO.DroneHackDamage:          { $base: BaseStats.CanUseRetractableShield }
+DCO.DroneOverdriveSpeed:      { $base: BaseStats.CanUseTerrainCamo }
+DCO.DroneWeakspotHP:          { $base: BaseStats.CanUseZoom }
+DCO.DroneTechHackDuration:    { $base: BaseStats.CanUpgradeToLegendaryQuality }
+DCO.DroneOctantArasakaStat:   { $base: BaseStats.CanHeartattackQuickHack }
+DCO.DroneHealOnKill:          { $base: BaseStats.CanUseHolographicCamo }
+
+DCO.TechHackCostReductionMod:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: -1
+
+DCO.DroneNomadReductionDuration:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+  value: -0.5
+
+DCO.OctantArasakaTechHackArmor:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Armor
+  value: 30
+
+DCO.HighlightSE:
+  $base: BaseStatusEffect.Ping

@@ -1,44 +1,56 @@
-@replaceMethod(CraftingDataView)
+@wrapMethod(CraftingDataView)
 public func FilterItem(item: ref<IScriptable>) -> Bool {
+  let ok = wrappedMethod(item);
+  if ok { return true; }
+
   let itemRecord: ref<Item_Record>;
   let itemData: ref<ItemCraftingData> = item as ItemCraftingData;
   let recipeData: ref<RecipeData> = item as RecipeData;
+
   if IsDefined(itemData) {
     itemRecord = TweakDBInterface.GetItemRecord(ItemID.GetTDBID(InventoryItemData.GetID(itemData.inventoryItem)));
-  } else {
-    if IsDefined(recipeData) {
-      itemRecord = recipeData.id;
-    };
+  } else if IsDefined(recipeData) {
+    itemRecord = recipeData.id;
   };
+  if !IsDefined(itemRecord) { return ok; };
+
   switch this.m_itemFilterType {
     case ItemFilterCategory.RangedWeapons:
-      return itemRecord.TagsContains(WeaponObject.GetRangedWeaponTag());
+      if itemRecord.TagsContains(WeaponObject.GetRangedWeaponTag()) { return true; };
+      break;
     case ItemFilterCategory.MeleeWeapons:
-      return itemRecord.TagsContains(WeaponObject.GetMeleeWeaponTag());
+      if itemRecord.TagsContains(WeaponObject.GetMeleeWeaponTag()) { return true; };
+      break;
     case ItemFilterCategory.Clothes:
-      return itemRecord.TagsContains(n"Clothing");
+      if itemRecord.TagsContains(n"Clothing") { return true; };
+      break;
     case ItemFilterCategory.Consumables:
-      return itemRecord.TagsContains(n"Consumable") || itemRecord.TagsContains(n"Ammo");
+      if itemRecord.TagsContains(n"Consumable") || itemRecord.TagsContains(n"Ammo") { return true; };
+      break;
     case ItemFilterCategory.Grenades:
-      return itemRecord.TagsContains(n"Grenade");
+      if itemRecord.TagsContains(n"Grenade") { return true; };
+      break;
     case ItemFilterCategory.Attachments:
-      return itemRecord.TagsContains(n"itemPart") && /*!itemRecord.TagsContains(n"Fragment") &&*/ !itemRecord.TagsContains(n"SoftwareShard");
+      if itemRecord.TagsContains(n"itemPart") && !itemRecord.TagsContains(n"SoftwareShard") { return true; };
+      break;
     case ItemFilterCategory.Programs:
-      return itemRecord.TagsContains(n"SoftwareShard");
+      if itemRecord.TagsContains(n"SoftwareShard") { return true; };
+      break;
     case ItemFilterCategory.Cyberware:
-	return itemRecord.TagsContains(n"Robot");
-      //return itemRecord.TagsContains(n"Cyberware") || itemRecord.TagsContains(n"Fragment");
+      if itemRecord.TagsContains(n"Robot") { return true; };
+      break;
     case ItemFilterCategory.AllItems:
-      return true;
+      return ok;
   };
-  return true;
+  return ok;
 }
-  
-@replaceMethod(ItemCategoryFliter)
+
+@wrapMethod(ItemCategoryFliter)
 public final static func IsOfCategoryType(filter: ItemFilterCategory, data: wref<gameItemData>) -> Bool {
-  if !IsDefined(data) {
-    return false;
-  };
+  let ok = wrappedMethod(filter, data);
+  if ok { return true; };
+  if !IsDefined(data) { return false; };
+
   switch filter {
     case ItemFilterCategory.RangedWeapons:
       return data.HasTag(WeaponObject.GetRangedWeaponTag());
@@ -47,60 +59,80 @@ public final static func IsOfCategoryType(filter: ItemFilterCategory, data: wref
     case ItemFilterCategory.Clothes:
       return data.HasTag(n"Clothing");
     case ItemFilterCategory.Consumables:
-      return data.HasTag(n"Consumable");
+      return data.HasTag(n"Consumable") || data.HasTag(n"Ammo");
     case ItemFilterCategory.Grenades:
       return data.HasTag(n"Grenade");
     case ItemFilterCategory.Attachments:
-      return data.HasTag(n"itemPart") && /*!data.HasTag(n"Fragment") &&*/ !data.HasTag(n"SoftwareShard");
+      return data.HasTag(n"itemPart") && !data.HasTag(n"SoftwareShard");
     case ItemFilterCategory.Programs:
       return data.HasTag(n"SoftwareShard");
     case ItemFilterCategory.Cyberware:
-	return data.HasTag(n"Robot");
-      //return data.HasTag(n"Cyberware") || data.HasTag(n"Fragment");
+      return data.HasTag(n"Robot");
     case ItemFilterCategory.Quest:
       return data.HasTag(n"Quest");
     case ItemFilterCategory.Junk:
       return data.HasTag(n"Junk");
     case ItemFilterCategory.AllItems:
-      return true;
+      return ok;
   };
   return false;
 }
 
 @wrapMethod(CraftingSystem)
 public final const func GetItemCraftingCost(record: wref<Item_Record>, const craftingData: script_ref<[wref<RecipeElement_Record>]>) -> [IngredientData] {
-  let baseIngredients: array<IngredientData>;
-  let tempStat: Float;
-  let reducedBy: Int32 = 0;
-  let statsSystem: ref<StatsSystem> = GameInstance.GetStatsSystem(this.GetGameInstance());
+  let original: array<IngredientData>;
   let i: Int32 = 0;
   while i < ArraySize(Deref(craftingData)) {
-    ArrayPush(baseIngredients, this.CreateIngredientData(Deref(craftingData)[i]));
+    ArrayPush(original, this.CreateIngredientData(Deref(craftingData)[i]));
     i += 1;
   };
-  tempStat = statsSystem.GetStatValue(Cast<StatsObjectID>(this.m_playerCraftBook.GetOwner().GetEntityID()), gamedataStatType.CraftingCostReduction);
+
+  let result: [IngredientData] = wrappedMethod(record, craftingData);
+
+  let statsSystem: ref<StatsSystem> = GameInstance.GetStatsSystem(this.GetGameInstance());
+  let tempStat: Float = statsSystem.GetStatValue(Cast<StatsObjectID>(this.m_playerCraftBook.GetOwner().GetEntityID()), gamedataStatType.CraftingCostReduction);
   if tempStat > 0.00 {
     i = 0;
-    while i < ArraySize(baseIngredients) {
-      if baseIngredients[i].quantity > 1 {
-        if Equals(baseIngredients[i].id.GetID(), t"DCO.DroneCore") || (IsDefined(baseIngredients[i].id) && baseIngredients[i].id.TagsContains(n"DroneCore")) {
-          reducedBy = baseIngredients[i].quantity - CeilF(Cast<Float>(baseIngredients[i].quantity) * (1.00 - tempStat));
+    while i < ArraySize(result) {
+      if result[i].quantity > 0 && IsDefined(result[i].id) && (Equals(result[i].id.GetID(), t"DCO.DroneCore") || result[i].id.TagsContains(n"DroneCore")) {
+        let j: Int32 = 0;
+        while j < ArraySize(original) {
+          if IsDefined(original[j].id) && Equals(original[j].id.GetID(), result[i].id.GetID()) {
+            let diff: Int32 = original[j].quantity - result[i].quantity;
+            if diff > 0 { result[i].quantity += diff; };
+            break;
+          };
+          j += 1;
         };
       };
       i += 1;
     };
   };
-  baseIngredients = wrappedMethod(record, craftingData);
-  if tempStat > 0.00 && reducedBy > 0 {
-    i = 0;
-    while i < ArraySize(baseIngredients) {
-      if baseIngredients[i].quantity > 1 {
-        if Equals(baseIngredients[i].id.GetID(), t"DCO.DroneCore") || (IsDefined(baseIngredients[i].id) && baseIngredients[i].id.TagsContains(n"DroneCore")) {
-          baseIngredients[i].quantity += reducedBy;
-        };
-      };
-      i += 1;
-    };
-  };
-  return baseIngredients;
+  return result;
+}
+
+private func DCO_IsDcoPlan(record: wref<Item_Record>) -> Bool {
+  return IsDefined(record) && (record.TagsContains(n"Robot") || record.TagsContains(n"DCOPlan") || record.TagsContains(n"DCOBlueprint"));
+}
+
+private func DCO_CountAliveBots(game: GameInstance) -> Int32 {
+  let count: Int32 = 0;
+  let spawned: array<wref<Entity>>;
+  let cs = GameInstance.GetCompanionSystem(game);
+  if IsDefined(cs) {
+    cs.GetSpawnedEntities(spawned);
+  }
+  let i: Int32 = 0;
+  while i < ArraySize(spawned) {
+    let go: wref<GameObject> = spawned[i] as GameObject;
+    let sp: wref<ScriptedPuppet> = go as ScriptedPuppet;
+    if IsDefined(sp) {
+      let rec = TweakDBInterface.GetCharacterRecord(sp.GetRecordID());
+      if IsDefined(rec) && rec.TagsContains(n"Robot") && !sp.IsDead() {
+        count += 1;
+      }
+    }
+    i += 1;
+  }
+  return count;
 }

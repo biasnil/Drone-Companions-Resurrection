@@ -1,0 +1,31 @@
+DCO.DroneCore:
+  $base: Items.EpicMaterial1
+  localizedName: "yyy{Drone Module}{Essential piece of all drones' operating systems.}"
+  localizedDescription: LocKey#49555
+  displayName: LocKey#1882
+  tags:
+    - Robot
+  iconPath: perkpoints_remover
+  buyPrice:
+    - Price.BasePrice
+    - DCO.DroneCorePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.DroneCorePrice
+
+DCO.DroneCorePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 600 
+
+DCO.BombusStartingItem:
+  $type: InventoryItem
+  quantity: 1
+  item: DCO.Tier1BombusRecipe
+
+DCO.DroneCoreStartingItem:
+  $type: InventoryItem
+  quantity: 10
+  item: DCO.DroneCore
+

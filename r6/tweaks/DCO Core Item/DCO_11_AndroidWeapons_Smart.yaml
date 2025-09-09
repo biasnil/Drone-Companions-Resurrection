@@ -1,0 +1,63 @@
+DCO.AndroidSidewinder:
+  $base: Items.Preset_Sidewinder_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidSidewinder_RPG
+
+DCO.AndroidSidewinder_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Assault_Rifle_NPC_Stats
+    - Items.Base_NPC_SmartGun_Stats
+    - Items.Base_Sidewinder_Technical_Stats
+    - Items.Base_Sidewinder_SmartGun_Projectile_Stats
+    - Items.Base_Sidewinder_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidSidewinderNPCDamage
+    - DCO.AndroidSidewinderSmartVel
+    - DCO.AndroidSidewinderHitReaction
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.AssaultRifleMinTBH
+    - AttackModifier.AssaultRifleMinLineOfSight
+    - Items.Base_Smart_Assault_Rifle_NPC_Data_inline0
+
+DCO.AndroidSidewinderNPCDamage: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,                    value: 2.0 }
+DCO.AndroidSidewinderSmartVel:  { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.SmartGunNPCProjectileVelocity, value: 2.0 }
+DCO.AndroidSidewinderHitReaction: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor,            value: 0.5 }
+
+DCO.AndroidYukimura:
+  $base: Items.Preset_Yukimura_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidYukimura_RPG
+
+DCO.AndroidYukimura_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Handgun_NPC_Stats
+    - Items.Base_NPC_SmartGun_Stats
+    - Items.Base_Yukimura_Technical_Stats
+    - Items.Base_Yukimura_SmartGun_Projectile_Stats
+    - Items.Base_Yukimura_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidYukimuraNPCDamage
+    - DCO.AndroidYukimuraSmartVel
+    - DCO.AndroidYukimuraHitReaction
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.HandgunMinTBH
+    - AttackModifier.HandgunMinLineOfSight
+    - Items.Base_Smart_Handgun_NPC_Data_inline0
+
+DCO.AndroidYukimuraNPCDamage: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,                    value: 1.8 }
+DCO.AndroidYukimuraSmartVel:  { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.SmartGunNPCProjectileVelocity, value: 2.0 }
+DCO.AndroidYukimuraHitReaction: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor,            value: 0.5 }

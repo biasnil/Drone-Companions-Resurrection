@@ -1,0 +1,115 @@
+DCO.AndroidAjax:
+  $base: Items.Preset_Ajax_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidAjax_RPG
+DCO.AndroidAjax_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Assault_Rifle_NPC_Stats
+    - Items.Base_Ajax_Technical_Stats
+    - Items.Base_Ajax_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidAjaxNPCDamage
+    - DCO.AndroidAjaxAccuracy
+    - DCO.AndroidAjaxHitReaction
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.AssaultRifleMinTBH
+    - AttackModifier.AssaultRifleMinLineOfSight
+    - Items.Base_Power_Assault_Rifle_NPC_Data_inline0
+    - AttackModifier.WeaponArmorPenetrationFull
+
+DCO.AndroidAjaxNPCDamage:   { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,       value: 0.5 }
+DCO.AndroidAjaxAccuracy:    { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,        value: 0.8 }
+DCO.AndroidAjaxHitReaction: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidCopperhead:
+  $base: Items.Preset_Copperhead_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidCopperhead_RPG
+DCO.AndroidCopperhead_RPG:
+  $type: gamedataRPGDataPackage_Record  
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Assault_Rifle_NPC_Stats
+    - Items.Base_Ajax_Technical_Stats
+    - Items.Base_Ajax_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidCopperheadNPCDamage
+    - DCO.AndroidCopperheadAccuracy
+    - DCO.AndroidCopperheadHitReaction
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.AssaultRifleMinTBH
+    - AttackModifier.AssaultRifleMinLineOfSight
+    - Items.Base_Power_Assault_Rifle_NPC_Data_inline0
+    - AttackModifier.WeaponArmorPenetrationFull
+
+DCO.AndroidCopperheadNPCDamage:   { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,       value: 0.5 }
+DCO.AndroidCopperheadAccuracy:    { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,        value: 0.8 }
+DCO.AndroidCopperheadHitReaction: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidUmbra:
+  $base: Items.Preset_Umbra_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidUmbra_RPG
+DCO.AndroidUmbra_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Assault_Rifle_NPC_Stats
+    - Items.Base_Umbra_Technical_Stats
+    - Items.Base_Umbra_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidUmbraNPCDamage
+    - DCO.AndroidUmbraAccuracy
+    - DCO.AndroidUmbraHitReaction
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.AssaultRifleMinTBH
+    - AttackModifier.AssaultRifleMinLineOfSight
+    - Items.Base_Power_Assault_Rifle_NPC_Data_inline0
+DCO.AndroidUmbraNPCDamage:   { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,       value: 0.5 }
+DCO.AndroidUmbraAccuracy:    { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,        value: 0.8 }
+DCO.AndroidUmbraHitReaction: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }
+
+DCO.AndroidMasamune:
+  $base: Items.Preset_Masamune_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidMasamune_RPG
+DCO.AndroidMasamune_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Assault_Rifle_NPC_Stats
+    - Items.Base_Masamune_Technical_Stats
+    - Items.Base_Masamune_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidMasamuneNPCDamage
+    - DCO.AndroidMasamuneAccuracy
+    - DCO.AndroidMasamuneHitReaction
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.AssaultRifleMinTBH
+    - AttackModifier.AssaultRifleMinLineOfSight
+    - Items.Base_Power_Assault_Rifle_NPC_Data_inline0
+DCO.AndroidMasamuneNPCDamage:   { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage,       value: 0.5 }
+DCO.AndroidMasamuneAccuracy:    { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,        value: 0.8 }
+DCO.AndroidMasamuneHitReaction: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.HitReactionFactor, value: 0.5 }

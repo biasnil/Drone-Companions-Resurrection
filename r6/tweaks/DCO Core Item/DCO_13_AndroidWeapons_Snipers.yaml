@@ -1,0 +1,58 @@
+DCO.AndroidNekomata:
+  $base: Items.Preset_Nekomata_Military
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidNekomata_RPG
+
+DCO.AndroidNekomata_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Sniper_Rifle_NPC_Stats
+    - Items.Base_Tech_Sniper_Rifle_NPC_Data_inline0
+    - Items.Base_Nekomata_NPC_Technical_Stats
+    - Items.Base_Nekomata_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidNekomataNPCDamage
+    - DCO.AndroidNekomataAccuracy
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.SniperRifleMinTBH
+    - AttackModifier.SniperRifleMinLineOfSight
+    - AttackModifier.SniperRifleNPCDamageMultiplier
+    - Items.Base_Tech_Sniper_Rifle_NPC_Data_inline1
+
+DCO.AndroidNekomataNPCDamage: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage, value: 1.0 }
+DCO.AndroidNekomataAccuracy:  { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,  value: 1.0 }
+
+DCO.AndroidGrad:
+  $base: Items.Preset_Grad_Neon
+  enableNpcRPGData: True
+  npcRPGData: DCO.AndroidGrad_RPG
+
+DCO.AndroidGrad_RPG:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.NPCQualityRandomization
+    - Items.Base_Sniper_Rifle_NPC_Stats
+    - Items.Base_Grad_Technical_Stats
+    - Items.Base_Grad_NPC_Damage_Stats
+  statModifiers:
+    - DCO.AndroidGradNPCDamage
+    - DCO.AndroidGradAccuracy
+    - Items.Base_NPC_RPG_Data_inline0
+    - Items.Base_NPC_RPG_Data_inline1
+    - Items.Base_NPC_RPG_Data_inline2
+    - Items.Base_NPC_RPG_Data_inline3
+    - Items.Base_NPC_RPG_Data_inline4
+    - Items.Base_NPC_RPG_Data_inline5
+    - AttackModifier.SniperRifleMinTBH
+    - AttackModifier.SniperRifleMinLineOfSight
+    - AttackModifier.SniperRifleNPCDamageMultiplier
+    - Items.Base_Power_Sniper_Rifle_NPC_Data_inline0
+
+DCO.AndroidGradNPCDamage: { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.NPCDamage, value: 1.0 }
+DCO.AndroidGradAccuracy:  { $type: gamedataConstantStatModifier_Record, modifierType: Multiplier, statType: BaseStats.Accuracy,  value: 1.0 }
