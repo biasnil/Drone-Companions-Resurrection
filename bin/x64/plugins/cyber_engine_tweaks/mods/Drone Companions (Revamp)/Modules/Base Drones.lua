@@ -1,6 +1,35 @@
 local DCO = { description = "DCO" }
 
 function DCO:new()
+  TweakDB:SetFlat("DCO.DroneCore.localizedName", "yyy{"..Drone_Core_String.."}")
+  TweakDB:SetFlat("DCO.DroneCore.localizedDescription", "ymca{"..Drone_Core_Desc.."}")
+
+  TweakDB:SetFlat("DCO.Tier1OctantArasakaItem.localizedName", "yyy{"..Arasaka_Octant_String.."}")
+  TweakDB:SetFlat("DCO.Tier1OctantArasakaRecipe.localizedName", "yyy{"..Arasaka_Octant_String.."}")
+
+  TweakDB:SetFlat("DCO.Tier1OctantMilitechItem.localizedName", "yyy{"..Militech_Octant_String.."}")
+  TweakDB:SetFlat("DCO.Tier1OctantMilitechRecipe.localizedName", "yyy{"..Militech_Octant_String.."}")
+
+  TweakDB:SetFlat("DCO.Tier1MechNCPDItem.localizedName", "yyy{"..NCPD_Mech_String.."}")
+  TweakDB:SetFlat("DCO.Tier1MechNCPDRecipe.localizedName", "yyy{"..NCPD_Mech_String.."}")
+
+  TweakDB:SetFlat("DCO.Tier1AndroidRangedItem.localizedName", "yyy{"..Android_Ranged_String.."}")
+  TweakDB:SetFlat("DCO.Tier1AndroidRangedRecipe.localizedName", "yyy{"..Android_Ranged_String.."}")
+
+  TweakDB:SetFlat("DCO.Tier1AndroidMeleeItem.localizedName", "yyy{"..Android_Melee_String.."}")
+  TweakDB:SetFlat("DCO.Tier1AndroidMeleeRecipe.localizedName", "yyy{"..Android_Melee_String.."}")
+
+  TweakDB:SetFlat("DCO.Tier1AndroidShotgunnerItem.localizedName", "yyy{"..Android_Shotgunner_String.."}")
+  TweakDB:SetFlat("DCO.Tier1AndroidShotgunnerRecipe.localizedName", "yyy{"..Android_Shotgunner_String.."}")
+
+  TweakDB:SetFlat("DCO.Tier1AndroidNetrunnerItem.localizedName", "yyy{"..Android_Netrunner_String.."}")
+  TweakDB:SetFlat("DCO.Tier1AndroidNetrunnerRecipe.localizedName", "yyy{"..Android_Netrunner_String.."}")
+
+  TweakDB:SetFlat("DCO.Tier1AndroidHeavyItem.localizedName", "yyy{"..Android_Techie_String.."}")
+  TweakDB:SetFlat("DCO.Tier1AndroidHeavyRecipe.localizedName", "yyy{"..Android_Techie_String.."}")
+
+  TweakDB:SetFlat("DCO.Tier1AndroidSniperItem.localizedName", "yyy{"..Android_Sniper_String.."}")
+  TweakDB:SetFlat("DCO.Tier1AndroidSniperRecipe.localizedName", "yyy{"..Android_Sniper_String.."}")
 
   local rules = TweakDB:GetFlat("ReactionPresets.Mechanical_Aggressive.rules")
   local toremove = {42, 38, 34, 32, 31, 26, 24, 14, 10, 9, 7, 6, 4, 3, 0}
@@ -12,10 +41,13 @@ function DCO:new()
   createSubCharacter("DCO.Tier1MechNCPD",    "Character.Mech_NPC_Base",        "NCPD",     LocKey(48944ull))
   createSubCharacter("DCO.Tier1MechMilitech","Character.Mech_NPC_Base",        "Militech", LocKey(48900ull))
   createSubCharacter("DCO.Tier1MechArasaka", "Character.Mech_NPC_Base",        "Arasaka",  LocKey(48905ull))
+  
   createSubCharacter("DCO.Tier1OctantArasaka","Character.Drone_Octant_Base",   "Arasaka",  LocKey(45202ull))
   createSubCharacter("DCO.Tier1OctantMilitech","Character.Drone_Octant_Base",  "Militech", LocKey(45202ull))
+  
   createSubCharacter("DCO.Tier1Wyvern",      "Character.Drone_Wyvern_Base",    "Militech", LocKey(45200ull))
   createSubCharacter("DCO.Tier1Griffin",     "Character.Drone_Griffin_Base",   "Militech", LocKey(45201ull))
+  
   createSubCharacter("DCO.Tier1Bombus",      "Character.Drone_Bombus_Base",    "Militech", LocKey(45199ull))
 
   local androidDefs = {
