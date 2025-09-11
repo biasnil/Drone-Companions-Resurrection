@@ -1,5 +1,7 @@
 DCO.ExplodeEffect:
-  $base: QuickHack.SystemCollapseLvl3Hack_inline0
+  $type: gamedataObjectActionEffect_Record
+  effectorToTrigger: QuickHack.SystemCollapseLvl3Hack_inline1
+  recipient: ObjectActionReference.Target
   statusEffect: DCO.ExplodeSE
 
 DCO.ExplodeSE:

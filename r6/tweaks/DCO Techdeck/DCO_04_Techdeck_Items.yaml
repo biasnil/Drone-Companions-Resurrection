@@ -5,7 +5,7 @@ DCO.StreetDeck1:
   blueprint: DCO.TechDeckBlueprint
   objectActions:
     - DCO.Shutdown
-    - DCO.SelfDestruct
+    - DCO.Explode
     - DCO.DroneHeal
   quality: Quality.Rare
   tags:

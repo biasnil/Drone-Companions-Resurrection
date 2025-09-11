@@ -1,14 +1,14 @@
 DCO.Tier1AndroidRangedRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#42656
-  localizedName: "yyy{Ranged Android}{}"
+  localizedName: "yyy{Android_Ranged_String}"
+  localizedDescription: "ymca{Android_Ranged_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidRangedRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidRangedRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1AndroidRangedRecipe_inline1
   tags:
@@ -32,8 +32,8 @@ DCO.Tier1AndroidRangedRecipePrice:
 DCO.Tier1AndroidRangedItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#42656
-  localizedName: "yyy{Ranged Android}{}"
-  localizedDescription: LocKey#0
+  localizedName: "yyy{Android_Ranged_String}"
+  localizedDescription: "ymca{Android_Ranged_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -81,14 +81,14 @@ DCO.Tier1AndroidRangedItem_inline3:
 DCO.Tier1AndroidMeleeRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#50547
-  localizedName: "yyy{Melee Android}{}"
+  localizedName: "yyy{Android_Melee_String}"
+  localizedDescription: "ymca{Android_Melee_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidMeleeRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidMeleeRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1AndroidMeleeRecipe_inline1
   tags:
@@ -112,8 +112,8 @@ DCO.Tier1AndroidMeleeRecipePrice:
 DCO.Tier1AndroidMeleeItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#50547
-  localizedName: "yyy{Melee Android}{}"
-  localizedDescription: LocKey#0
+  localizedName: "yyy{Android_Melee_String}"
+  localizedDescription: "ymca{Android_Melee_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -161,14 +161,14 @@ DCO.Tier1AndroidMeleeItem_inline3:
 DCO.Tier1AndroidShotgunnerRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#50544
-  localizedName: "yyy{Shotgunner Android}{}"
+  localizedName: "yyy{Android_Shotgunner_String}"
+  localizedDescription: "ymca{Android_Shotgunner_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidShotgunnerRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidShotgunnerRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1AndroidShotgunnerRecipe_inline1
   tags:
@@ -192,8 +192,8 @@ DCO.Tier1AndroidShotgunnerRecipePrice:
 DCO.Tier1AndroidShotgunnerItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#50544
-  localizedName: "yyy{Shotgunner Android}{}"
-  localizedDescription: LocKey#0
+  localizedName: "yyy{Android_Shotgunner_String}"
+  localizedDescription: "ymca{Android_Shotgunner_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:

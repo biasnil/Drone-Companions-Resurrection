@@ -2,13 +2,13 @@ DCO.Tier1AndroidNetrunnerRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#50542
   localizedName: "yyy{Android_Netrunner_String}"
+  localizedDescription: "ymca{Android_Netrunner_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidNetrunnerRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidNetrunnerRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1AndroidNetrunnerRecipe_inline1
   tags:
@@ -33,7 +33,7 @@ DCO.Tier1AndroidNetrunnerItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#50542
   localizedName: "yyy{Android_Netrunner_String}"
-  localizedDescription: LocKey#0
+  localizedDescription: "ymca{Android_Netrunner_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -81,14 +81,14 @@ DCO.Tier1AndroidNetrunnerItem_inline3:
 DCO.Tier1AndroidHeavyRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#50538
-  localizedName: "yyy{Techie Android}{}"
+  localizedName: "yyy{Android_Techie_String}"
+  localizedDescription: "ymca{Android_Techie_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidHeavyRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidHeavyRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1AndroidHeavyRecipe_inline1
   tags:
@@ -112,8 +112,8 @@ DCO.Tier1AndroidHeavyRecipePrice:
 DCO.Tier1AndroidHeavyItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#50538
-  localizedName: "yyy{Techie Android}{}"
-  localizedDescription: LocKey#0
+  localizedName: "yyy{Android_Techie_String}"
+  localizedDescription: "ymca{Android_Techie_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -161,14 +161,14 @@ DCO.Tier1AndroidHeavyItem_inline3:
 DCO.Tier1AndroidSniperRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#50536
-  localizedName: "yyy{Sniper Android}{}"
+  localizedName: "yyy{Android_Sniper_String}"
+  localizedDescription: "ymca{Android_Sniper_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidSniperRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1AndroidSniperRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1AndroidSniperRecipe_inline1
   tags:
@@ -192,8 +192,8 @@ DCO.Tier1AndroidSniperRecipePrice:
 DCO.Tier1AndroidSniperItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#50536
-  localizedName: "yyy{Sniper Android}{}"
-  localizedDescription: LocKey#0
+  localizedName: "yyy{Android_Sniper_String}"
+  localizedDescription: "ymca{Android_Sniper_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:

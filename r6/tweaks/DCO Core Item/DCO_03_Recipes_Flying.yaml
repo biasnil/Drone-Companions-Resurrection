@@ -1,13 +1,13 @@
 DCO.Tier1BombusRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#45199
+  localizedDescription: "ymca{Bombus_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1BombusRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1BombusRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1BombusRecipe_inline1
   tags:
@@ -31,7 +31,7 @@ DCO.Tier1BombusRecipePrice:
 DCO.Tier1BombusItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#45199
-  localizedDescription: LocKey#0
+  localizedDescription: "ymca{Bombus_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -79,13 +79,13 @@ DCO.Tier1BombusItem_inline3:
 DCO.Tier1WyvernRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#45200
+  localizedDescription: "ymca{Wyvern_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1WyvernRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1WyvernRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1WyvernRecipe_inline1
   tags:
@@ -109,7 +109,7 @@ DCO.Tier1WyvernRecipePrice:
 DCO.Tier1WyvernItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#45200
-  localizedDescription: LocKey#0
+  localizedDescription: "ymca{Wyvern_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -157,13 +157,13 @@ DCO.Tier1WyvernItem_inline3:
 DCO.Tier1GriffinRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#45201
+  localizedDescription: "ymca{Griffin_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1GriffinRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1GriffinRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1GriffinRecipe_inline1
   tags:
@@ -187,7 +187,7 @@ DCO.Tier1GriffinRecipePrice:
 DCO.Tier1GriffinItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#45201
-  localizedDescription: LocKey#0
+  localizedDescription: "ymca{Griffin_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:

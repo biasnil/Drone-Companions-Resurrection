@@ -1,14 +1,14 @@
 DCO.Tier1OctantArasakaRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#45202
+  localizedName: "yyy{Arasaka_Octant_String}"
+  localizedDescription: "ymca{Arasaka_Octant_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1OctantArasakaRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1OctantArasakaRecipePrice
-  localizedName: "yyy{Arasaka_Octant_String}"
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1OctantArasakaRecipe_inline1
   tags:
@@ -33,7 +33,7 @@ DCO.Tier1OctantArasakaItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#45202
   localizedName: "yyy{Arasaka_Octant_String}"
-  localizedDescription: LocKey#0
+  localizedDescription: "ymca{Arasaka_Octant_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -81,14 +81,14 @@ DCO.Tier1OctantArasakaItem_inline3:
 DCO.Tier1OctantMilitechRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#45202
-  localizedName: "yyy{Militech Octant Drone}"
+  localizedName: "yyy{Militech_Octant_String}"
+  localizedDescription: "ymca{Militech_Octant_Desc}"
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1OctantMilitechRecipePrice
   sellPrice:
     - Price.BasePrice
     - DCO.Tier1OctantMilitechRecipePrice
-  localizedDescription: LocKey#0
   iconPath: DroneModule
   craftingResult: DCO.Tier1OctantMilitechRecipe_inline1
   tags:
@@ -112,8 +112,8 @@ DCO.Tier1OctantMilitechRecipePrice:
 DCO.Tier1OctantMilitechItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#45202
-  localizedName: "yyy{Militech Octant Drone}"
-  localizedDescription: LocKey#0
+  localizedName: "yyy{Militech_Octant_String}"
+  localizedDescription: "ymca{Militech_Octant_Desc}"
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:

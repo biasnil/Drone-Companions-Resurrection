@@ -112,6 +112,7 @@ DCO.DroneHealDuration:
   statModsLimit: -1
   statModifiers:
     - DCO.DroneHealDurationStat
+    - DCO.DroneHealModDuration
 
 DCO.DroneHealDurationStat:
   $type: gamedataConstantStatModifier_Record
@@ -152,3 +153,9 @@ DCO.DroneHealPresentCheck:
   $type: gamedataStatusEffectPrereq_Record
   prereqClassName: StatusEffectAbsentPrereq
   statusEffect: DCO.DroneHealSE
+
+DCO.DroneHealModDuration:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: AdditiveMultiplier
+  statType: BaseStats.MaxDuration
+  value: -0.5
