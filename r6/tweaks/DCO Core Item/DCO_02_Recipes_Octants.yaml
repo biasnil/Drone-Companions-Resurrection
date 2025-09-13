@@ -2,7 +2,7 @@ DCO.Tier1OctantArasakaRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#45202
   localizedName: "yyy{Arasaka_Octant_String}"
-  localizedDescription: "ymca{Arasaka_Octant_Desc}"
+  localizedDescription: LocKey("Arasaka_Octant_Desc")
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1OctantArasakaRecipePrice
@@ -33,7 +33,7 @@ DCO.Tier1OctantArasakaItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#45202
   localizedName: "yyy{Arasaka_Octant_String}"
-  localizedDescription: "ymca{Arasaka_Octant_Desc}"
+  localizedDescription: LocKey("Arasaka_Octant_Desc")
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -54,7 +54,7 @@ DCO.Tier1OctantArasakaItemLogicPackage:
 
 DCO.Tier1OctantArasakaItemLogicPackageDescription:
   $type: gamedataGameplayLogicPackageUIData_Record
-  localizedDescription: "Assemble an Octant Drone companion.\n\nShoots bursts of bullets at its target.\n\nTechHacks applied to this Drone will last 50% longer.\n\nTechHacks will increase this Drone's armor by 30%."
+  localizedDescription: LocKey("Arasaka_Octant_Desc")
 
 DCO.Tier1OctantArasakaItem_inline0:
   $base: Items.TitaniumPlating_inline3
@@ -82,7 +82,7 @@ DCO.Tier1OctantMilitechRecipe:
   $base: Items.Recipe_TitaniumPlating
   displayName: LocKey#45202
   localizedName: "yyy{Militech_Octant_String}"
-  localizedDescription: "ymca{Militech_Octant_Desc}"
+  localizedDescription: LocKey("Militech_Octant_Desc")
   buyPrice:
     - Price.BasePrice
     - DCO.Tier1OctantMilitechRecipePrice
@@ -113,7 +113,7 @@ DCO.Tier1OctantMilitechItem:
   $base: Items.TitaniumPlating
   displayName: LocKey#45202
   localizedName: "yyy{Militech_Octant_String}"
-  localizedDescription: "ymca{Militech_Octant_Desc}"
+  localizedDescription: LocKey("Militech_Octant_Desc")
   iconPath: DroneModule
   itemType: ItemType.Gen_Misc
   OnEquip:
@@ -134,7 +134,7 @@ DCO.Tier1OctantMilitechItemLogicPackage:
 
 DCO.Tier1OctantMilitechItemLogicPackageDescription:
   $type: gamedataGameplayLogicPackageUIData_Record
-  localizedDescription: "Assemble an Octant Drone companion.\n\nShoots bursts of bullets at its target.\n\nBullets explode on impact.\n\nRegenerates 5% health over 3 seconds when struck."
+  localizedDescription: LocKey("Militech_Octant_Desc")
 
 DCO.Tier1OctantMilitechItem_inline0:
   $base: Items.TitaniumPlating_inline3

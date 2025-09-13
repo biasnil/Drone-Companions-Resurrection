@@ -1,3 +1,8 @@
 localization:
   onscreens:
     en-us: drone\localization\en-us.json
+    fr-fr: drone\localization\fr-fr.json
+    de-de: drone\localization\de-de.json
+    ru-ru: drone\localization\ru-ru.json
+    kr-kr: drone\localization\kr-kr.json
+    jp-jp: drone\localization\jp-jp.json
