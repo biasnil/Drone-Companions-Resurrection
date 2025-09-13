@@ -1,0 +1,271 @@
+DCO.TechDeckMod1:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("Optics_Enhancer_String")
+  localizedName: LocKey("Optics_Enhancer_String")
+  localizedDescription: LocKey("Optics_Enhancer_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot1
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Rare
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod1Package
+
+DCO.TechDeckMod1_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHackDamage
+  value: 1
+
+DCO.TechDeckMod1Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod1_inline1
+  UIData: DCO.TechDeckMod1PackageDesc
+
+DCO.TechDeckMod1PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Optics_Enhancer_Desc")
+
+
+DCO.TechDeckMod2:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("Malfunction_Coordinator_String")
+  localizedName: LocKey("Malfunction_Coordinator_String")
+  localizedDescription: LocKey("Malfunction_Coordinator_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot1
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Rare
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod2Package
+
+DCO.TechDeckMod2_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneDeathExplosion
+  value: 0.5
+
+DCO.TechDeckMod2Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod2_inline1
+  UIData: DCO.TechDeckMod2PackageDesc
+
+DCO.TechDeckMod2PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Malfunction_Coordinator_Desc")
+
+DCO.TechDeckMod3:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("Trigger_Software_String")
+  localizedName: LocKey("Trigger_Software_String")
+  localizedDescription: LocKey("Trigger_Software_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot1
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Rare
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod3Package
+  objectActions:
+    - DCO.OpticalZoom
+
+DCO.TechDeckMod3Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats: []
+  UIData: DCO.TechDeckMod3PackageDesc
+
+DCO.TechDeckMod3PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Trigger_Software_Desc")
+
+DCO.TechDeckMod4:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("Plate_Energizer_String")
+  localizedName: LocKey("Plate_Energizer_String")
+  localizedDescription: LocKey("Plate_Energizer_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot2
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Epic
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod4Package
+
+DCO.TechDeckMod4_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneCloakHeal
+  value: 1
+
+DCO.TechDeckMod4Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod4_inline1
+  UIData: DCO.TechDeckMod4PackageDesc
+
+DCO.TechDeckMod4PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Plate_Energizer_Desc")
+
+DCO.TechDeckMod5:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("Extra_Sensory_Processor_String")
+  localizedName: LocKey("Extra_Sensory_Processor_String")
+  localizedDescription: LocKey("Extra_Sensory_Processor_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot2
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Epic
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod5Package
+
+DCO.TechDeckMod5Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats: []
+  UIData: DCO.TechDeckMod5PackageDesc
+
+DCO.TechDeckMod5PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Extra_Sensory_Processor_Desc")
+
+DCO.TechDeckMod6:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("Insta_Repair_Unit_String")
+  localizedName: LocKey("Insta_Repair_Unit_String")
+  localizedDescription: LocKey("Insta_Repair_Unit_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot2
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Epic
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod6Package
+
+DCO.TechDeckMod6_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHealMod
+  value: 1
+
+DCO.TechDeckMod6Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod6_inline1
+  UIData: DCO.TechDeckMod6PackageDesc
+
+DCO.TechDeckMod6PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Insta_Repair_Unit_Desc")
+
+DCO.TechDeckMod7:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("Mass_Distortion_Core_String")
+  localizedName: LocKey("Mass_Distortion_Core_String")
+  localizedDescription: LocKey("Mass_Distortion_Core_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot3
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Legendary
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod7Package
+
+DCO.TechDeckMod7_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneMassCloak
+  value: 1
+
+DCO.TechDeckMod7Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod7_inline1
+  UIData: DCO.TechDeckMod7PackageDesc
+
+DCO.TechDeckMod7PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Mass_Distortion_Core_Desc")
+
+DCO.TechDeckMod8:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("Circuit_Charger_String")
+  localizedName: LocKey("Circuit_Charger_String")
+  localizedDescription: LocKey("Circuit_Charger_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot3
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Legendary
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod8Package
+  objectActions:
+    - DCO.EWS
+
+DCO.TechDeckMod8Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats: []
+  UIData: DCO.TechDeckMod8PackageDesc
+
+DCO.TechDeckMod8PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Circuit_Charger_Desc")
+
+DCO.TechDeckMod9:
+  $base: Items.BerserkFragment1
+  displayName: LocKey("CPU_Overloader_String")
+  localizedName: LocKey("CPU_Overloader_String")
+  localizedDescription: LocKey("CPU_Overloader_Desc")
+  placementSlots:
+    - AttachmentSlots.BotCpuSlot3
+  tags:
+    - itemPart
+    - Fragment
+    - DCOMod
+  quality: Quality.Legendary
+  OnAttach: []
+  OnEquip:
+    - DCO.TechDeckMod9Package
+
+DCO.TechDeckMod9_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneOverdriveSpeed
+  value: 1
+
+DCO.TechDeckMod9Package:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.TechDeckMod9_inline1
+  UIData: DCO.TechDeckMod9PackageDesc
+
+DCO.TechDeckMod9PackageDesc:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("CPU_Overloader_Desc")

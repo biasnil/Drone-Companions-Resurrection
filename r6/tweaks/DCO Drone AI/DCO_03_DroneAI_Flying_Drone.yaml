@@ -1,0 +1,486 @@
+DCO.IsOctantArasaka:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneOctantArasakaStat
+  value: 1
+
+DCO.OctantArasakaTechHackDuration:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneTechHackDuration
+  value: 0.5
+
+DCO.WyvernDisorient:
+  $type: gamedataGameplayAbility_Record
+  abilityPackage: DCO.WyvernDisorient_inline0
+
+DCO.WyvernDisorient_inline0:
+  $type: gamedataGameplayLogicPackage_Record
+  effectors:
+    - DCO.WyvernDisorient_inline1
+    - DCO.WyvernDisorient_inline2
+
+DCO.WyvernDisorient_inline1:
+  $type: gamedataAddStatusEffectToAttackEffector_Record
+  effectorClassName: AddStatusEffectToAttackEffector
+  isRandom: true
+  stacks: 1
+  prereqRecord: Perks.IsAttackRanged
+  statusEffect: BaseStatusEffect.Blind
+
+DCO.WyvernDisorient_inline2:
+  $type: gamedataAddStatusEffectToAttackEffector_Record
+  effectorClassName: AddStatusEffectToAttackEffector
+  isRandom: true
+  stacks: 1
+  prereqRecord: Perks.IsAttackRanged
+  statusEffect: BaseStatusEffect.Stun
+
+DCO.OctantMilitechEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.OctantMilitechEquipment_inline0
+
+DCO.OctantMilitechEquipment_inline0:
+  $base: Character.Drone_Octant_Base_inline1
+  item: DCO.OctantMilitechAutocannon
+  equipSlot: AttachmentSlots.WeaponRight
+
+DCO.OctantMilitechAutocannon:
+  $base: Items.Octant_Autocannon
+  rangedAttacks: DCO.OctantMilitechAutocannon_inline0
+  attacks:
+    - DCO.OctantMilitechAutocannon_inline2
+    - DCO.OctantMilitechAutocannon_inline3
+
+DCO.OctantMilitechAutocannon_inline0:
+  $type: gamedataRangedAttackPackage_Record
+  chargeFire: DCO.OctantMilitechAutocannon_inline1
+  defaultFire: DCO.OctantMilitechAutocannon_inline1
+
+DCO.OctantMilitechAutocannon_inline1:
+  $type: gamedataRangedAttack_Record
+  NPCAttack: DCO.OctantMilitechAutocannon_inline3
+  NPCTimeDilated: DCO.OctantMilitechAutocannon_inline2
+  playerAttack: DCO.OctantMilitechAutocannon_inline3
+  playerTimeDilated: DCO.OctantMilitechAutocannon_inline2
+
+DCO.OctantMilitechAutocannon_inline2:
+  $base: Attacks.NPCBulletProjectile
+  explosionAttack: DCO.OctantMilitechAutocannon_inline4
+  className: Attack_Projectile
+  hitCooldown: 0.1
+  range: 200
+  staminaCost:
+    - Attacks.Bullet_Projectile_inline0
+    - Attacks.Bullet_Projectile_inline1
+    - Attacks.Bullet_Projectile_inline2
+    - Attacks.Bullet_Projectile_inline3
+    - Attacks.Bullet_Projectile_inline4
+  statModifiers:
+    - AttackModifier.PhysicalEnemyDamage
+    - AttackModifier.NPCAttacksPerSecondFactor
+    - Attacks.NPCBulletProjectile_inline0
+    - DCO.OctantMilitechAutocannon_inline6
+
+DCO.OctantMilitechAutocannon_inline3:
+  $base: Attacks.NPCBulletEffect
+  explosionAttack: DCO.OctantMilitechAutocannon_inline4
+  statModifiers:
+    - AttackModifier.PhysicalEnemyDamage
+    - AttackModifier.NPCAttacksPerSecondFactor
+    - DCO.OctantMilitechAutocannon_inline6
+
+DCO.OctantMilitechAutocannon_inline4:
+  $base: Attacks.BulletExplosion
+  statModifiers:
+    - AttackModifier.BaseBulletExplosionDamage
+    - Attacks.BulletExplosion_inline0
+    - Attacks.BulletExplosion_inline1
+    - Attacks.BulletExplosion_inline2
+    - Attacks.BulletExplosion_inline3
+    - Attacks.BulletExplosion_inline4
+    - Attacks.BulletExplosion_inline5
+    - Attacks.BulletExplosion_inline6
+    - Attacks.BulletExplosion_inline7
+    - DCO.OctantMilitechAutocannon_inline5
+
+DCO.OctantMilitechAutocannon_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.1
+
+DCO.OctantMilitechAutocannon_inline6:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.45
+
+DCO.OctantArasakaSmartAutocannon:
+  $base: Items.Octant_Autocannon
+  evolution: WeaponEvolution.Smart
+  npcRPGData: DCO.OctantArasakaSmartAutocannon_inline0
+  rangedAttacks: Attacks.SmartBulletDronePackage
+
+DCO.OctantArasakaSmartAutocannon_inline0:
+  $base: Items.Octant_Autocannon_inline0
+  statModifierGroups:
+    - Items.Octant_Autocannon_Handling_Stats
+    - Items.Wyvern_Rifle_SmartGun_Stats
+    - Items.Wyvern_Rifle_Projectile_Stats
+
+DCO.OctantArasakaPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.OctantArasakaPrimaryPool
+
+DCO.OctantArasakaPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.OctantArasakaPrimaryPoolEntryBasic
+    - DCO.OctantArasakaPrimaryPoolEntryAdvanced
+
+DCO.OctantArasakaPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.OctantArasakaPrimaryPoolEntryBasic_inline1
+
+DCO.OctantArasakaPrimaryPoolEntryBasic_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: Items.Octant_Autocannon
+
+DCO.OctantArasakaPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.OctantArasakaPrimaryPoolEntryAdvanced_inline1
+
+DCO.OctantArasakaPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: DCO.OctantArasakaSmartAutocannon
+
+DCO.AdvancedOctantMilitechAutocannon:
+  $base: DCO.OctantArasakaSmartAutocannon
+  attacks:
+    - DCO.AdvancedOctantMilitechAutocannon_inline2
+    - DCO.AdvancedOctantMilitechAutocannon_inline3
+
+DCO.AdvancedOctantMilitechAutocannon_inline2:
+  $base: Attacks.NPCSmartBullet
+  explosionAttack: DCO.AdvancedOctantMilitechAutocannon_inline4
+  staminaCost:
+    - Attacks.Bullet_Projectile_inline0
+    - Attacks.Bullet_Projectile_inline1
+    - Attacks.Bullet_Projectile_inline2
+    - Attacks.Bullet_Projectile_inline3
+    - Attacks.Bullet_Projectile_inline4
+  statModifiers:
+    - AttackModifier.PhysicalEnemyDamage
+    - AttackModifier.NPCAttacksPerSecondFactor
+    - DCO.AdvancedOctantMilitechAutocannon_inline6
+
+DCO.AdvancedOctantMilitechAutocannon_inline3:
+  $base: Attacks.NPCSmartBullet
+  explosionAttack: DCO.AdvancedOctantMilitechAutocannon_inline4
+  staminaCost:
+    - Attacks.Bullet_Projectile_inline0
+    - Attacks.Bullet_Projectile_inline1
+    - Attacks.Bullet_Projectile_inline2
+    - Attacks.Bullet_Projectile_inline3
+    - Attacks.Bullet_Projectile_inline4
+  statModifiers:
+    - AttackModifier.PhysicalEnemyDamage
+    - AttackModifier.NPCAttacksPerSecondFactor
+    - DCO.AdvancedOctantMilitechAutocannon_inline6
+
+DCO.AdvancedOctantMilitechAutocannon_inline4:
+  $base: Attacks.BulletSmartBulletHighExplosion
+  hitFlags:
+    - Explosion
+    - BulletExplosion
+  statModifiers:
+    - AttackModifier.BaseBulletExplosionDamage
+    - Attacks.BulletSmartBulletHighExplosion_inline0
+    - Attacks.BulletSmartBulletHighExplosion_inline1
+    - Attacks.BulletSmartBulletHighExplosion_inline2
+    - Attacks.BulletSmartBulletHighExplosion_inline3
+    - DCO.AdvancedOctantMilitechAutocannon_inline5
+
+DCO.AdvancedOctantMilitechAutocannon_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.AdvancedOctantMilitechAutocannon_inline6:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.OctantMilitechPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.OctantMilitechPrimaryPool
+
+DCO.OctantMilitechPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.OctantMilitechPrimaryPoolEntryBasic
+    - DCO.OctantMilitechPrimaryPoolEntryAdvanced
+
+DCO.OctantMilitechPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.OctantMilitechPrimaryPoolEntryBasic_inline1
+
+DCO.OctantMilitechPrimaryPoolEntryBasic_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  equipSlot: AttachmentSlots.WeaponRight
+  item: DCO.OctantMilitechAutocannon
+
+DCO.OctantMilitechPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.OctantMilitechPrimaryPoolEntryAdvanced_inline1
+
+DCO.OctantMilitechPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  equipSlot: AttachmentSlots.WeaponRight
+  item: DCO.AdvancedOctantMilitechAutocannon
+
+DCO.AdvancedGriffinRifleRight:
+  $base: Items.Griffin_Rifle_Right
+  attacks:
+    - DCO.AdvancedGriffinRifleRight_inline2
+    - DCO.AdvancedGriffinRifleRight_inline3
+
+DCO.AdvancedGriffinRifleRight_inline2:
+  $base: Attacks.NPCBulletProjectile
+  explosionAttack: DCO.AdvancedGriffinRifleRight_inline4
+  statModifiers:
+    - DCO.AdvancedGriffinRifleRight_inline6
+
+DCO.AdvancedGriffinRifleRight_inline3:
+  $base: Attacks.NPCBulletEffect
+  explosionAttack: DCO.AdvancedGriffinRifleRight_inline4
+  statModifiers:
+    - DCO.AdvancedGriffinRifleRight_inline6
+
+DCO.AdvancedGriffinRifleRight_inline4:
+  $base: Attacks.BulletExplosion
+  effectTag: bullet_explosion
+  hitFlags:
+  - Explosion
+  - BulletExplosion
+  - DetonateGrenades
+  - WeakExplosion
+  - BulletExplosion
+  statModifiers:
+    - DCO.AdvancedGriffinRifleRight_inline5
+    - AttackModifier.BaseBulletExplosionDamage
+    - Attacks.BulletExplosion_inline0
+    - Attacks.BulletExplosion_inline1
+    - Attacks.BulletExplosion_inline2
+    - Attacks.BulletExplosion_inline3
+    - Attacks.BulletExplosion_inline4
+    - Attacks.BulletExplosion_inline5
+    - Attacks.BulletExplosion_inline6
+    - Attacks.BulletExplosion_inline7
+
+DCO.AdvancedGriffinRifleRight_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.AdvancedGriffinRifleRight_inline6:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.GriffinPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.GriffinPrimaryPool
+    - DCO.GriffinLeftPrimaryPool
+
+DCO.GriffinPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.GriffinPrimaryPoolEntryBasic
+    - DCO.GriffinPrimaryPoolEntryAdvanced
+
+DCO.GriffinPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.GriffinPrimaryPoolEntryBasic_inline1
+
+DCO.GriffinPrimaryPoolEntryBasic_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: Items.Griffin_Rifle_Right
+
+DCO.GriffinPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.GriffinPrimaryPoolEntryAdvanced_inline1
+
+DCO.GriffinPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: DCO.AdvancedGriffinRifleRight
+
+DCO.AdvancedGriffinRifleLeft:
+  $base: Items.Griffin_Rifle_Left
+  attacks:
+    - DCO.AdvancedGriffinRifleLeft_inline2
+    - DCO.AdvancedGriffinRifleLeft_inline3
+
+DCO.AdvancedGriffinRifleLeft_inline2:
+  $base: Attacks.NPCBulletProjectile
+  explosionAttack: DCO.AdvancedGriffinRifleLeft_inline4
+  statModifiers:
+    - DCO.AdvancedGriffinRifleLeft_inline6
+
+DCO.AdvancedGriffinRifleLeft_inline3:
+  $base: Attacks.NPCBulletEffect
+  explosionAttack: DCO.AdvancedGriffinRifleLeft_inline4
+  statModifiers:
+    - DCO.AdvancedGriffinRifleLeft_inline6
+
+DCO.AdvancedGriffinRifleLeft_inline4:
+  $base: Attacks.BulletExplosion
+  effectTag: bullet_explosion
+  hitFlags:
+  - Explosion
+  - BulletExplosion
+  - DetonateGrenades
+  - WeakExplosion
+  - BulletExplosion
+  statModifiers:
+    - DCO.AdvancedGriffinRifleLeft_inline5
+    - AttackModifier.BaseBulletExplosionDamage
+    - Attacks.BulletExplosion_inline0
+    - Attacks.BulletExplosion_inline1
+    - Attacks.BulletExplosion_inline2
+    - Attacks.BulletExplosion_inline3
+    - Attacks.BulletExplosion_inline4
+    - Attacks.BulletExplosion_inline5
+    - Attacks.BulletExplosion_inline6
+    - Attacks.BulletExplosion_inline7
+
+DCO.AdvancedGriffinRifleLeft_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.AdvancedGriffinRifleLeft_inline6:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.GriffinLeftPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.GriffinLeftPrimaryPoolEntryBasic
+    - DCO.GriffinLeftPrimaryPoolEntryAdvanced
+
+DCO.GriffinLeftPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.GriffinLeftPrimaryPoolEntryBasic_inline1
+
+DCO.GriffinLeftPrimaryPoolEntryBasic_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: Items.Griffin_Rifle_Left
+  equipSlot: AttachmentSlots.WeaponLeft
+
+DCO.GriffinLeftPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.GriffinLeftPrimaryPoolEntryAdvanced_inline1
+
+DCO.GriffinLeftPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: DCO.AdvancedGriffinRifleLeft
+  equipSlot: AttachmentSlots.WeaponLeft
+
+DCO.AdvancedWyvernRifle:
+  $base: Items.Wyvern_Rifle
+  attacks:
+    - DCO.AdvancedWyvernRifle_inline2
+    - DCO.AdvancedWyvernRifle_inline3
+
+DCO.AdvancedWyvernRifle_inline2:
+  $base: Attacks.NPCSmartBullet
+  explosionAttack: DCO.AdvancedWyvernRifle_inline4
+  statModifiers:
+    - DCO.AdvancedWyvernRifle_inline6
+
+DCO.AdvancedWyvernRifle_inline3:
+  $base: Attacks.NPCSmartBullet
+  explosionAttack: DCO.AdvancedWyvernRifle_inline4
+  statModifiers:
+    - DCO.AdvancedWyvernRifle_inline6
+
+DCO.AdvancedWyvernRifle_inline4:
+  $base: Attacks.BulletSmartBulletHighExplosion
+  hitFlags: []
+  statModifiers:
+    - DCO.AdvancedWyvernRifle_inline5
+
+DCO.AdvancedWyvernRifle_inline5:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.AdvancedWyvernRifle_inline6:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 0.5
+
+DCO.WyvernPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.WyvernPrimaryPool
+
+DCO.WyvernPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.WyvernPrimaryPoolEntryBasic
+    - DCO.WyvernPrimaryPoolEntryAdvanced
+
+DCO.WyvernPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.WyvernPrimaryPoolEntryBasic_inline1
+
+DCO.WyvernPrimaryPoolEntryBasic_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: Items.Wyvern_Rifle
+
+DCO.WyvernPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.WyvernPrimaryPoolEntryAdvanced_inline1
+
+DCO.WyvernPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: DCO.AdvancedWyvernRifle
+
+DroneGriffinActions.ShootCooldown:
+  duration: 0.01

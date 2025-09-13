@@ -1,0 +1,506 @@
+DCO.StreetDeck1:
+  $base: Items.BiotechEpicMKIII
+  displayName: LocKey("Street1_Name")
+  localizedName: LocKey("Street1_Name")
+  localizedDescription: LocKey("Street1_Desc")
+  blueprint: DCO.TechDeckBlueprint
+  objectActions:
+    - DCO.Shutdown
+    - DCO.Explode
+    - DCO.DroneHeal
+  quality: Quality.Rare
+  tags:
+    - Cyberware
+    - HideInBackpackUI
+    - Robot
+  cyberwareType: Techdeck
+  equipPrereqs:
+    - DCO.RareTechStatPrereq
+  OnEquip:
+    - DCO.StreetDeck1OnEquip
+DCO.StreetDeck1_HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 0
+DCO.StreetDeck1_Memory:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 4
+DCO.StreetDeck1_DroneNumber:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNumber
+  value: 2
+DCO.StreetDeck1_DroneHP:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHP
+  value: 0.2
+DCO.StreetDeck1OnEquip:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.StreetDeck1_HasCyberdeck
+    - DCO.StreetDeck1_Memory
+    - DCO.StreetDeck1_DroneNumber
+    - DCO.StreetDeck1_DroneHP
+
+DCO.StreetDeck2:
+  $base: Items.BiotechEpicMKIII
+  displayName: LocKey("Street2_Name")
+  localizedName: LocKey("Street2_Name")
+  localizedDescription: LocKey("Street2_Desc")
+  blueprint: DCO.TechDeckBlueprint
+  objectActions:
+    - DCO.Shutdown
+    - DCO.Explode
+    - DCO.DroneHeal
+    - DCO.DroneCloak
+  quality: Quality.Epic
+  tags:
+    - Cyberware
+    - HideInBackpackUI
+    - Robot
+  cyberwareType: Techdeck
+  equipPrereqs:
+    - DCO.EpicTechStatPrereq
+  OnEquip:
+    - DCO.StreetDeck2OnEquip
+DCO.StreetDeck2_HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 0
+DCO.StreetDeck2_Memory:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 6
+DCO.StreetDeck2_DroneNumber:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNumber
+  value: 2
+DCO.StreetDeck2_DroneAccuracy:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAccuracy
+  value: 0.3
+DCO.StreetDeck2_DroneHP:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHP
+  value: 0.2
+DCO.StreetDeck2_DroneHealOnKill:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHealOnKill
+  value: 1
+DCO.StreetDeck2OnEquip:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.StreetDeck2_HasCyberdeck
+    - DCO.StreetDeck2_Memory
+    - DCO.StreetDeck2_DroneNumber
+    - DCO.StreetDeck2_DroneAccuracy
+    - DCO.StreetDeck2_DroneHP
+    - DCO.StreetDeck2_DroneHealOnKill
+
+DCO.StreetDeck3:
+  $base: Items.BiotechEpicMKIII
+  displayName: LocKey("Street3_Name")
+  localizedName: LocKey("Street3_Name")
+  localizedDescription: LocKey("Street3_Desc")
+  blueprint: DCO.TechDeckBlueprint
+  objectActions:
+    - DCO.Shutdown
+    - DCO.Explode
+    - DCO.DroneHeal
+    - DCO.DroneCloak
+    - DCO.Overdrive
+  quality: Quality.Legendary
+  tags:
+    - Cyberware
+    - HideInBackpackUI
+    - Robot
+  cyberwareType: Techdeck
+  equipPrereqs:
+    - DCO.LegendaryTechStatPrereq
+  OnEquip:
+    - DCO.StreetDeck3OnEquip
+DCO.StreetDeck3_HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 0
+DCO.StreetDeck3_Memory:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 8
+DCO.StreetDeck3_DroneNumber:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNumber
+  value: 3
+DCO.StreetDeck3_DroneHP:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHP
+  value: 0.2
+DCO.StreetDeck3_DroneAccuracy:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAccuracy
+  value: 0.3
+DCO.StreetDeck3_DroneHealOnKill:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHealOnKill
+  value: 1
+DCO.StreetDeck3OnEquip:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.StreetDeck3_HasCyberdeck
+    - DCO.StreetDeck3_Memory
+    - DCO.StreetDeck3_DroneNumber
+    - DCO.StreetDeck3_DroneHP
+    - DCO.StreetDeck3_DroneAccuracy
+    - DCO.StreetDeck3_DroneHealOnKill
+
+DCO.NomadDeck1:
+  $base: Items.BiotechEpicMKIII
+  displayName: LocKey("Nomad1_Name")
+  localizedName: LocKey("Nomad1_Name")
+  localizedDescription: LocKey("Nomad1_Desc")
+  blueprint: DCO.TechDeckBlueprint
+  objectActions:
+    - DCO.Shutdown
+    - DCO.SelfDestruct
+    - DCO.DroneHeal
+  quality: Quality.Rare
+  tags:
+    - Cyberware
+    - HideInBackpackUI
+    - Robot
+  cyberwareType: Techdeck
+  equipPrereqs:
+    - DCO.RareTechStatPrereq
+  OnEquip:
+    - DCO.NomadDeck1OnEquip
+DCO.NomadDeck1_HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 0
+DCO.NomadDeck1_Memory:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 4
+DCO.NomadDeck1_DroneNumber:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNumber
+  value: 2
+DCO.NomadDeck1_DroneArmor:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneArmor
+  value: 20
+DCO.NomadDeck1_DroneNomadCooldown:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNomadCooldown
+  value: 1
+DCO.NomadDeck1OnEquip:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.NomadDeck1_HasCyberdeck
+    - DCO.NomadDeck1_Memory
+    - DCO.NomadDeck1_DroneNumber
+    - DCO.NomadDeck1_DroneArmor
+    - DCO.NomadDeck1_DroneNomadCooldown
+
+DCO.NomadDeck2:
+  $base: Items.BiotechEpicMKIII
+  displayName: LocKey("Nomad2_Name")
+  localizedName: LocKey("Nomad2_Name")
+  localizedDescription: LocKey("Nomad2_Desc")
+  blueprint: DCO.TechDeckBlueprint
+  objectActions:
+    - DCO.Shutdown
+    - DCO.SelfDestruct
+    - DCO.DroneHeal
+    - DCO.DroneCloak
+  quality: Quality.Epic
+  tags:
+    - Cyberware
+    - HideInBackpackUI
+    - Robot
+  cyberwareType: Techdeck
+  equipPrereqs:
+    - DCO.EpicTechStatPrereq
+  OnEquip:
+    - DCO.NomadDeck2OnEquip
+DCO.NomadDeck2_HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 0
+DCO.NomadDeck2_Memory:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 6
+DCO.NomadDeck2_DroneNumber:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNumber
+  value: 2
+DCO.NomadDeck2_DroneHP:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHP
+  value: 0.2
+DCO.NomadDeck2_DroneArmor:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneArmor
+  value: 20
+DCO.NomadDeck2_DroneNomadCooldown:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNomadCooldown
+  value: 1
+DCO.NomadDeck2_TechHackCostReduction:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.TechHackCostReduction
+  value: 0.5
+DCO.NomadDeck2OnEquip:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.NomadDeck2_HasCyberdeck
+    - DCO.NomadDeck2_Memory
+    - DCO.NomadDeck2_DroneNumber
+    - DCO.NomadDeck2_DroneHP
+    - DCO.NomadDeck2_DroneArmor
+    - DCO.NomadDeck2_DroneNomadCooldown
+    - DCO.NomadDeck2_TechHackCostReduction
+
+DCO.NomadDeck3:
+  $base: Items.BiotechEpicMKIII
+  displayName: LocKey("Nomad3_Name")
+  localizedName: LocKey("Nomad3_Name")
+  localizedDescription: LocKey("Nomad3_Desc")
+  blueprint: DCO.TechDeckBlueprint
+  objectActions:
+    - DCO.Shutdown
+    - DCO.SelfDestruct
+    - DCO.DroneHeal
+    - DCO.DroneCloak
+    - DCO.Overdrive
+  quality: Quality.Legendary
+  tags:
+    - Cyberware
+    - HideInBackpackUI
+    - Robot
+  cyberwareType: Techdeck
+  equipPrereqs:
+    - DCO.LegendaryTechStatPrereq
+  OnEquip:
+    - DCO.NomadDeck3OnEquip
+DCO.NomadDeck3_HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 0
+DCO.NomadDeck3_Memory:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 8
+DCO.NomadDeck3_DroneNumber:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNumber
+  value: 3
+DCO.NomadDeck3_DroneHP:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneHP
+  value: 0.2
+DCO.NomadDeck3_DroneArmor:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneArmor
+  value: 20
+DCO.NomadDeck3_DroneNomadCooldown:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNomadCooldown
+  value: 1
+DCO.NomadDeck3_DroneOverdriveAll:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneOverdriveAll
+  value: 1
+DCO.NomadDeck3_TechHackCostReduction:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.TechHackCostReduction
+  value: 0.5
+DCO.NomadDeck3OnEquip:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.NomadDeck3_HasCyberdeck
+    - DCO.NomadDeck3_Memory
+    - DCO.NomadDeck3_DroneNumber
+    - DCO.NomadDeck3_DroneHP
+    - DCO.NomadDeck3_DroneArmor
+    - DCO.NomadDeck3_DroneNomadCooldown
+    - DCO.NomadDeck3_DroneOverdriveAll
+    - DCO.NomadDeck3_TechHackCostReduction
+
+DCO.CorpoDeck1:
+  $base: Items.BiotechEpicMKIII
+  displayName: LocKey("Corpo1_Name")
+  localizedName: LocKey("Corpo1_Name")
+  localizedDescription: LocKey("Corpo1_Desc")
+  blueprint: DCO.TechDeckBlueprint
+  objectActions:
+    - DCO.Shutdown
+    - DCO.SelfDestruct
+    - DCO.DroneHeal
+    - DCO.DroneCloak
+  quality: Quality.Epic
+  tags:
+    - Cyberware
+    - HideInBackpackUI
+    - Robot
+  cyberwareType: Techdeck
+  equipPrereqs:
+    - DCO.EpicTechStatPrereq
+  OnEquip:
+    - DCO.CorpoDeck1OnEquip
+DCO.CorpoDeck1_HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 0
+DCO.CorpoDeck1_Memory:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 6
+DCO.CorpoDeck1_DroneNumber:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNumber
+  value: 2
+DCO.CorpoDeck1_DroneAccuracy:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAccuracy
+  value: 0.3
+DCO.CorpoDeck1_DroneArmor:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneArmor
+  value: 20
+DCO.CorpoDeck1_DroneAndroidRegen:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAndroidRegen
+  value: 1
+DCO.CorpoDeck1_DroneAndroidDilation:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAndroidDilation
+  value: 1
+DCO.CorpoDeck1OnEquip:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.CorpoDeck1_HasCyberdeck
+    - DCO.CorpoDeck1_Memory
+    - DCO.CorpoDeck1_DroneNumber
+    - DCO.CorpoDeck1_DroneAccuracy
+    - DCO.CorpoDeck1_DroneArmor
+    - DCO.CorpoDeck1_DroneAndroidRegen
+    - DCO.CorpoDeck1_DroneAndroidDilation
+
+DCO.CorpoDeck2:
+  $base: Items.BiotechEpicMKIII
+  displayName: LocKey("Corpo2_Name")
+  localizedName: LocKey("Corpo2_Name")
+  localizedDescription: LocKey("Corpo2_Desc")
+  blueprint: DCO.TechDeckBlueprint
+  objectActions:
+    - DCO.Shutdown
+    - DCO.SelfDestruct
+    - DCO.DroneHeal
+    - DCO.DroneCloak
+    - DCO.Overdrive
+  quality: Quality.Legendary
+  tags:
+    - Cyberware
+    - HideInBackpackUI
+    - Robot
+  cyberwareType: Techdeck
+  equipPrereqs:
+    - DCO.LegendaryTechStatPrereq
+  OnEquip:
+    - DCO.CorpoDeck2OnEquip
+DCO.CorpoDeck2_HasCyberdeck:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HasCyberdeck
+  value: 0
+DCO.CorpoDeck2_Memory:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 8
+DCO.CorpoDeck2_DroneNumber:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneNumber
+  value: 3
+DCO.CorpoDeck2_DroneAccuracy:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAccuracy
+  value: 0.3
+DCO.CorpoDeck2_DroneArmor:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneArmor
+  value: 20
+DCO.CorpoDeck2_DroneAndroidRegen:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAndroidRegen
+  value: 1
+DCO.CorpoDeck2_DroneAndroidWeapons:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAndroidWeapons
+  value: 1
+DCO.CorpoDeck2_DroneAndroidDilation:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: DCO.DroneAndroidDilation
+  value: 1
+DCO.CorpoDeck2OnEquip:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.CorpoDeck2_HasCyberdeck
+    - DCO.CorpoDeck2_Memory
+    - DCO.CorpoDeck2_DroneNumber
+    - DCO.CorpoDeck2_DroneAccuracy
+    - DCO.CorpoDeck2_DroneArmor
+    - DCO.CorpoDeck2_DroneAndroidRegen
+    - DCO.CorpoDeck2_DroneAndroidWeapons
+    - DCO.CorpoDeck2_DroneAndroidDilation

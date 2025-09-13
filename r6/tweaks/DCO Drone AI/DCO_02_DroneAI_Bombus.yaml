@@ -1,0 +1,363 @@
+DCO.BombusGLP:
+  $type: gamedataGameplayLogicPackage_Record
+  effectors:
+    - DCO.BombusGLP_inline0
+
+DCO.BombusGLP_inline0:
+  $type: gamedataTriggerAttackEffector_Record
+  effectorClassName: TriggerAttackOnOwnerEffect
+  attackRecord: DCO.BombusDeathExplosion
+  attackPositionSlotName: Chest
+  prereqRecord: Spawn_glp.DroneGriffin_ExplodeOnDeath_inline1
+  removeAfterActionCall: false
+  removeAfterPrereqCheck: false
+  statModifierGroups: []
+
+DCO.BombusDeathExplosion:
+  $base: Attacks.CommonFragGrenade
+  range: 5
+  statModifiers:
+    - DCO.BombusDeathExplosion_inline0
+
+DCO.BombusDeathExplosion_inline0:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 3
+
+DroneBombusActions.ShootBeam_inline2:
+  attackRange: 12
+  attackDuration: 30
+  attackTime: 2
+
+Attacks.BombusFlame:
+  range: 20
+
+DCO.BombusFlameDamage:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 1.25
+
+DroneBombusFastArchetype.WeaponHandlingComposite:
+  nodes:
+    - ItemHandling.SuccessIfEquipping
+    - DroneBombusActions.CommitSuicide
+    - DroneBombusActions.ShootBeam
+    - DCO.BombusLookAtTarget
+    - GenericArchetype.Success
+
+DCO.BombusLookAtTarget:
+  $base: DroneActions.LookAtTargetDuringMoveCommand
+  activationCondition: ""
+  loop: ""
+  lookats:
+    - DroneBombusActions.ShootBeam_inline8
+
+DroneBombusActions.ShootBeamActivationCondition:
+  AND:
+    - DroneBombusActions.ShootBeamActivationCondition_inline0
+    - Condition.TargetBelow15m
+
+DroneBombusActions.ShootBeamDeactivationCondition:
+  OR:
+    - Condition.NotMinAccuracyValue0dot95
+    - Condition.TargetAbove15m
+    - Condition.CombatTargetChanged
+    - Condition.AIUseWorkspotCommand
+    - Condition.HealthBelow50perc
+
+DCO.BombusBeamEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.BombusBeamEquipment_inline0
+
+DCO.BombusBeamEquipment_inline0:
+  $base: Character.sq025_delamain_drone_bombus_suicidal_inline1
+  item: DCO.BombusTorch
+
+DCO.BombusTorch:
+  $base: Items.Bombus_Torch
+  npcRPGData: DCO.BombusTorch_inline0
+  attacks:
+    - Attacks.BombusFlame
+    - DCO.GigaBeam
+
+DCO.BombusTorch_inline0:
+  $type: gamedataRPGDataPackage_Record
+  statModifierGroups:
+    - Items.Bombus_Torch_Handling_Stats
+  statModifiers:
+    - DCO.BombusFlameDamage
+
+Items.Bombus_Torch_Handling_Stats_inline12: { value: 5 }
+Items.Bombus_Torch_Handling_Stats_inline11: { value: 0.12 }
+Items.Bombus_Torch_Handling_Stats_inline2:  { value: 30 }
+Items.Bombus_Torch_Handling_Stats_inline4:  { value: 999999 }
+
+DroneBombusFastArchetype.MovementPolicyCompositeDefault:
+  nodes:
+    - DroneActions.LocomotionMalfunction
+    - DroneBombusActions.FollowTargetFast
+    - DCO.BombusBeamFollowFast
+    - DroneBombusActions.HoldPosition
+    - GenericArchetype.Success
+
+DCO.BombusBeamFollowFast:
+  $base: DroneBombusActions.FollowTargetFast
+  activationCondition: DCO.BombusBeamFollowFast_inline0
+  loop: DCO.BombusBeamFollowFast_inline2
+  animationWrapperOverrides:
+    - Sandevistan
+  subActions:
+    - DCO.BombusBeamSlowdown
+
+DCO.BombusBeamFollowFast_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.BombusBeamFollowFast_inline1
+
+DCO.BombusBeamFollowFast_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - Condition.TargetAbove15m
+    - Condition.NotAIMoveCommand
+    - Condition.NotAIUseWorkspotCommand
+    - Condition.NotIsUsingOffMeshLink
+    - Condition.HealthAbove50perc
+
+DCO.BombusBeamFollowFast_inline2:
+  $base: DroneBombusActions.FollowTargetFast_inline2
+  movePolicy: DCO.BombusBeamFollowFast_inline5
+  toNextPhaseCondition:
+    - DCO.BombusBeamFollowFast_inline3
+
+DCO.BombusBeamFollowFast_inline3:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.BombusBeamFollowFast_inline4
+
+DCO.BombusBeamFollowFast_inline4:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - Condition.TargetBelow15m
+    - Condition.AIMoveCommand
+    - Condition.AIUseWorkspotCommand
+    - Condition.PathFindingFailed
+    - Condition.NotMinAccuracySharedValue1
+    - Condition.HealthBelow50perc
+
+DCO.BombusBeamFollowFast_inline5:
+  $base: DroneBombusActions.FollowTargetFast_inline3
+  dontUseStart: true
+  movementType: Walk
+  distance: 12
+
+DCO.BombusBeamSlowdown:
+  $base: MovementActions.SandevistanCatchUpDistance_inline3
+  easeOut: None
+  multiplier: 2
+  overrideMultiplerWhenPlayerInTimeDilation: 3
+
+DCO.BombusLookAtWeapons:
+  $base: DroneBombusActions.ShootBeam_inline8
+  preset: LookatPreset.DroneHighSpeedWeapons
+
+DCO.BombusLookAtHorizontal:
+  $base: DroneBombusActions.ShootBeam_inline8
+  preset: LookatPreset.DroneHighSpeedHorizontal
+
+DCO.BombusLookAtVertical:
+  $base: DroneBombusActions.ShootBeam_inline8
+  preset: LookatPreset.DroneHighSpeedVertical
+
+DroneBombusActions.ShootBeam:
+  lookats:
+    - DCO.BombusLookAtWeapons
+    - DCO.BombusLookAtHorizontal
+    - DCO.BombusLookAtVertical
+
+DroneBombusSuicideArchetype.MovementPolicyCompositeDefault:
+  nodes:
+    - DroneActions.LocomotionMalfunction
+    - DroneBombusActions.FollowTargetFast
+    - GenericArchetype.Success
+
+DroneBombusActions.FollowTargetFast_inline2:
+  movePolicy: DCO.BombusSuicideMovePolicy
+
+DCO.BombusSuicideMovePolicy:
+  $base: DroneBombusActions.FollowTargetFast_inline3
+  distance: 1
+  dontUseStart: true
+  movementType: Walk
+
+DroneBombusActions.FollowTargetFast:
+  animationWrapperOverrides:
+    - Sandevistan
+  subActions:
+    - DCO.BombusSuicideSlowdown
+
+DCO.BombusSuicideSlowdown:
+  $base: MovementActions.SandevistanCatchUpDistance_inline3
+  easeOut: None
+  multiplier: 4
+  overrideMultiplerWhenPlayerInTimeDilation: 2
+
+DroneBombusActions.FollowTargetFast_inline5:
+  OR:
+    - Condition.TargetBelow1dot5m
+    - Condition.AIMoveCommand
+    - Condition.AIUseWorkspotCommand
+    - Condition.PathFindingFailed
+    - Condition.NotMinAccuracySharedValue1
+
+DroneBombusActions.CommitSuicide_inline1:
+  AND:
+    - Condition.NotAIMoveCommand
+    - Condition.NotAIUseWorkspotCommand
+    - Condition.TargetBelow3dot5m
+    - Condition.HealthBelow50perc
+
+DCO.AdvancedWeaponsSE:
+  $type: gamedataStatusEffect_Record
+  duration: BaseStats.InfiniteDuration
+  statusEffectType: BaseStatusEffectTypes.Misc
+
+DCO.HasAdvancedWeapons:
+  $type: gamedataAIStatusEffectCond_Record
+  statusEffect: DCO.AdvancedWeaponsSE
+  invert: false
+  target: AIActionTarget.Owner
+
+DCO.NotHasAdvancedWeapons:
+  $type: gamedataAIStatusEffectCond_Record
+  statusEffect: DCO.AdvancedWeaponsSE
+  invert: true
+  target: AIActionTarget.Owner
+
+DCO.ShootGigaBeam:
+  $base: DroneBombusActions.ShootBeam
+  activationCondition: DCO.ShootGigaBeam_inline0
+  loop: DCO.ShootGigaBeam_inline5
+  loopSubActions:
+    - DCO.ShootGigaBeam_inline2
+
+DCO.ShootGigaBeam_inline2:
+  $base: DroneBombusActions.ShootBeam_inline2
+  attackDuration: 10
+  attack: DCO.GigaBeam
+
+DCO.ShootGigaBeam_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.ShootGigaBeam_inline1
+
+DCO.ShootGigaBeam_inline1:
+  $base: DroneBombusActions.ShootBeam_inline1
+  AND:
+    - DCO.HasAdvancedWeapons
+    - DCO.ShootGigaBeam_inline4
+
+DCO.ShootGigaBeam_inline3:
+  $type: gamedataAIActionCooldown_Record
+  duration: 60
+  name: HackBuffCamo
+
+DCO.ShootGigaBeam_inline4:
+  $type: gamedataAICooldownCond_Record
+  cooldowns:
+    - DCO.ShootGigaBeam_inline3
+
+DCO.ShootGigaBeam_inline5:
+  $base: DroneBombusActions.ShootBeam_inline5
+  toNextPhaseCondition: []
+  toNextPhaseConditionCheckInterval: 0
+
+DCO.GigaBeamDamage:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.PhysicalDamage
+  value: 1.5
+
+DCO.GigaBeam:
+  $base: Attacks.PlasmaBeam
+  hitCooldown: 0.25
+  attackType: Ranged
+
+DCO.BombusPrimaryEquipment:
+  $type: gamedataNPCEquipmentGroup_Record
+  equipmentItems:
+    - DCO.BombusPrimaryPool
+
+DCO.BombusPrimaryPool:
+  $type: gamedataNPCEquipmentItemPool_Record
+  pool:
+    - DCO.BombusPrimaryPoolEntryBasic
+    - DCO.BombusPrimaryPoolEntryAdvanced
+
+DCO.BombusPrimaryPoolEntryBasic:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 1
+  items:
+    - DCO.BombusPrimaryPoolEntryBasic_inline1
+
+DCO.BombusPrimaryPoolEntryBasic_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: DCO.BombusTorch
+
+DCO.BombusPrimaryPoolEntryAdvanced:
+  $type: gamedataNPCEquipmentItemsPoolEntry_Record
+  weight: 69420
+  items:
+    - DCO.BombusPrimaryPoolEntryAdvanced_inline1
+
+DCO.BombusPrimaryPoolEntryAdvanced_inline1:
+  $base: Character.max_border_guards_baton_inline1
+  item: DCO.AdvancedBombusTorch
+
+DCO.AdvancedBombusTorch:
+  $base: DCO.BombusTorch
+  npcRPGData: DCO.AdvancedBombusTorch_inline0
+
+DCO.AdvancedBombusTorch_inline0:
+  $base: DCO.BombusTorch_inline0
+  statModifiers:
+    - DCO.AdvancedBombusTorch_inline1
+    - DCO.AdvancedBombusTorch_inline2
+    - DCO.AdvancedBombusTorch_inline3
+
+DCO.AdvancedBombusTorch_inline1:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.HitReactionFactor
+  value: 3
+
+DCO.AdvancedBombusTorch_inline2:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.PhysicalImpulse
+  value: 25
+
+DCO.AdvancedBombusTorch_inline3:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.KnockdownImpulse
+  value: 30
+
+DCO.BombusSystemCollapsePackage:
+  $type: gamedataGameplayLogicPackage_Record
+  effectors:
+    - DCO.BombusSystemCollapseEffector
+
+DCO.BombusSystemCollapseEffector:
+  $type: gamedataEffector_Record
+  effectorClassName: ModifyStatPoolValueEffector
+  prereqRecord: DCO.BombusSystemCollapseEffectorPrereq
+  removeAfterActionCall: false
+  removeAfterPrereqCheck: false
+  statModifierGroups: []
+
+DCO.BombusSystemCollapseEffectorStatPool:
+  $base: Condition.HealthBelow50perc
+
+DCO.BombusSystemCollapseEffectorPrereq:
+  $base: Spawn_glp.DroneGriffin_ExplodeOnDeath_inline3
+  prereqClassName: StatusEffectPrereq

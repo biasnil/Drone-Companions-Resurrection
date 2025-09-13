@@ -1,0 +1,161 @@
+DCO.DroneHeal:
+  $type: gamedataObjectAction_Record
+  actionName: DCODroneHeal
+  instigatorPrereqs:
+    - DCO.DroneHealCooldownCheck
+  activationTime:
+    - DCO.DroneHealActivationTime
+  objectActionType: ObjectActionType.PuppetQuickHack
+  interactionLayer: remote
+  priority: 3
+  costs:
+    - DCO.DroneHealCost
+  rewards:
+    - RPGActionRewards.Engineering
+  hackCategory: ""
+  objectActionUI: DCO.DroneHealInteraction
+  startEffects:
+    - DCO.DroneHealCooldownEffect
+  completionEffects:
+    - DCO.DroneHealEffect
+  isQuickHack: true
+  targetPrereqs:
+    - DCO.IsNotMech
+
+DCO.DroneHealCost:
+  $type: gamedataStatPoolCost_Record
+  costMods:
+    - DCO.DroneHealCostStat
+    - DCO.TechHackCostReductionMod
+  statPool: BaseStatPools.Memory
+
+DCO.DroneHealCostStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.Memory
+  value: 4
+
+DCO.DroneHealInteraction:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  caption: LocKey(266)
+  captionIcon: ChoiceCaptionParts.Techie
+
+DCO.DroneHealActivationTime:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+  value: 1
+
+DCO.DroneHealEffect:
+  $base: QuickHack.SystemCollapseLvl3Hack_inline0
+  statusEffect: DCO.DroneHealSE
+
+DCO.DroneHealSE:
+  $base: BaseStatusEffect.Health_Regen
+  duration: DCO.DroneHealDuration
+  gameplayTags: [ Buff, Stealth, Robot ]
+  VFX: []
+  uiData: DCO.DroneHealSEUIData
+  packages:
+    - DCO.DroneHealPackage
+
+DCO.DroneHealSEUIData:
+  $type: gamedataStatusEffectUIData_Record
+  displayName: Repair
+  priority: -9
+  iconPath: regeneration_icon
+
+DCO.DroneHealPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  stats:
+    - DCO.OctantArasakaTechHackArmor
+  effectors:
+    - DCO.DroneHackDamageEffector
+    - DCO.DroneHealEffector
+    - DCO.DroneHealModEffector
+
+DCO.DroneHealEffector:
+  $base: BaseStatusEffect.Health_Regen_inline4
+  prereqRecord: DCO.DroneHealModStatPrereqInv
+  poolModifier: DCO.DroneHealEffector_inline0
+
+DCO.DroneHealEffector_inline0:
+  $base: BaseStatusEffect.Health_Regen_inline5
+  valuePerSec: 3.3
+
+DCO.DroneHealModStatPrereqInv:
+  $type: gamedataStatPrereq_Record
+  prereqClassName: StatPrereq
+  comparisonType: Equal
+  statType: HasTimedImmunity
+  valueToCheck: 0
+
+DCO.DroneHealModStatPrereq:
+  $type: gamedataStatPrereq_Record
+  prereqClassName: StatPrereq
+  comparisonType: Greater
+  statType: HasTimedImmunity
+  valueToCheck: 0
+
+DCO.DroneHealModEffector:
+  $base: BaseStatusEffect.Health_Regen_inline4
+  prereqRecord: DCO.DroneHealModStatPrereq
+  poolModifier: DCO.DroneHealModEffector_inline0
+
+DCO.DroneHealModEffector_inline0:
+  $base: BaseStatusEffect.Health_Regen_inline5
+  valuePerSec: 6.6
+
+DCO.DroneHealDuration:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.DroneHealDurationStat
+    - DCO.DroneHealModDuration
+
+DCO.DroneHealDurationStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+  value: 30
+
+DCO.DroneHealCooldown:
+  $base: BaseStatusEffect.SystemCollapseCooldown
+  duration: DCO.DroneHealCooldownDuration
+  gameplayTags: [ Debuff ]
+  uiData: ""
+
+DCO.DroneHealCooldownDuration:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers:
+    - DCO.DroneHealCooldownDurationStat
+    - DCO.DroneNomadReductionDuration
+
+DCO.DroneHealCooldownDurationStat:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+  value: 60
+
+DCO.DroneHealCooldownEffect:
+  $type: gamedataApplyStatusEffectEffector_Record
+  effectorClassName: ApplyStatusEffectEffector
+  prereqRecord: Prereqs.AlwaysTruePrereq
+  statusEffect: DCO.DroneHealCooldown
+
+DCO.DroneHealCooldownCheck:
+  $base: QuickHack.SystemCollapseHackBase_inline0
+  statusEffect: DCO.DroneHealCooldown
+
+DCO.DroneHealPresentCheck:
+  $type: gamedataStatusEffectPrereq_Record
+  prereqClassName: StatusEffectAbsentPrereq
+  statusEffect: DCO.DroneHealSE
+
+DCO.DroneHealModDuration:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: AdditiveMultiplier
+  statType: BaseStats.MaxDuration
+  value: -0.5

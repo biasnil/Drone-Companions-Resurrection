@@ -1,0 +1,15 @@
+DCO.DroneCore:               { icon: UIIcon.DCODroneCore,            iconPath: DCODroneCore }
+DCO.Tier1AndroidRangedItem:  { icon: UIIcon.DCOAndroidRanged,        iconPath: DCOAndroidRanged }
+DCO.Tier1AndroidMeleeItem:   { icon: UIIcon.DCOAndroidMelee,         iconPath: DCOAndroidMelee }
+DCO.Tier1AndroidShotgunnerItem: { icon: UIIcon.DCOAndroidShotgunner, iconPath: DCOAndroidShotgunner }
+DCO.Tier1AndroidNetrunnerItem:  { icon: UIIcon.DCOAndroidNetrunner,  iconPath: DCOAndroidNetrunner }
+DCO.Tier1AndroidSniperItem:  { icon: UIIcon.DCOAndroidSniper,        iconPath: DCOAndroidSniper }
+DCO.Tier1AndroidHeavyItem:   { icon: UIIcon.DCOAndroidHeavy,         iconPath: DCOAndroidHeavy }
+DCO.Tier1BombusItem:         { icon: UIIcon.DCOBombus,               iconPath: DCOBombus }
+DCO.Tier1WyvernItem:         { icon: UIIcon.DCOWyvern,               iconPath: DCOWyvern }
+DCO.Tier1GriffinItem:        { icon: UIIcon.DCOGriffin,              iconPath: DCOGriffin }
+DCO.Tier1OctantMilitechItem: { icon: UIIcon.DCOOctantMilitech,       iconPath: DCOOctantMilitech }
+DCO.Tier1OctantArasakaItem:  { icon: UIIcon.DCOOctantArasaka,        iconPath: DCOOctantArasaka }
+DCO.Tier1MechNCPDItem:       { icon: UIIcon.DCOMechNCPD,             iconPath: DCOMechNCPD }
+DCO.Tier1MechArasakaItem:    { icon: UIIcon.DCOMechArasaka,          iconPath: DCOMechArasaka }
+DCO.Tier1MechMilitechItem:   { icon: UIIcon.DCOMechMilitech,         iconPath: DCOMechMilitech }

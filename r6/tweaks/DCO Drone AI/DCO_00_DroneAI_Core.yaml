@@ -1,0 +1,15 @@
+DCO.IsDCO:
+  $type: gamedataAIStatusEffectCond_Record
+  statusEffect: DCO.RobotSE
+  target: AIActionTarget.Owner
+
+DCO.IsNotDCO:
+  $type: gamedataAIStatusEffectCond_Record
+  statusEffect: DCO.RobotSE
+  target: AIActionTarget.Owner
+  invert: true
+
+DCO.RobotSE:
+  $type: gamedataStatusEffect_Record
+  duration: BaseStats.InfiniteDuration
+  statusEffectType: BaseStatusEffectTypes.Misc

@@ -1,0 +1,239 @@
+DCO.Tier1AndroidRangedRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey("Android_Ranged_String")
+  localizedName: "yyy{Android_Ranged_String}"
+  localizedDescription: "ymca{Android_Ranged_Desc}"
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1AndroidRangedRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1AndroidRangedRecipePrice
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1AndroidRangedRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+    - DCOCraftsDrone
+  quality: Quality.Rare
+
+DCO.Tier1AndroidRangedRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1AndroidRangedItem
+
+DCO.Tier1AndroidRangedRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 2000
+
+DCO.Tier1AndroidRangedItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey("Android_Ranged_String")
+  localizedName: "yyy{Android_Ranged_String}"
+  localizedDescription: "ymca{Android_Ranged_Desc}"
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1AndroidRangedItemLogicPackage
+  placementSlots: []
+  quality: Quality.Rare
+  CraftingData: DCO.Tier1AndroidRangedItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+    - DCOCraftsDrone
+
+DCO.Tier1AndroidRangedItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1AndroidRangedItemLogicPackageDescription
+
+DCO.Tier1AndroidRangedItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Android_Ranged_Desc")
+
+DCO.Tier1AndroidRangedItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1AndroidRangedItem_inline1
+    - DCO.Tier1AndroidRangedItem_inline2
+    - DCO.Tier1AndroidRangedItem_inline3
+
+DCO.Tier1AndroidRangedItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.UncommonMaterial1
+  amount: 30
+
+DCO.Tier1AndroidRangedItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.RareMaterial1
+  amount: 30
+
+DCO.Tier1AndroidRangedItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 8
+
+DCO.Tier1AndroidMeleeRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey("Android_Melee_String")
+  localizedName: "yyy{Android_Melee_String}"
+  localizedDescription: "ymca{Android_Melee_Desc}"
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1AndroidMeleeRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1AndroidMeleeRecipePrice
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1AndroidMeleeRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+    - DCOCraftsDrone
+  quality: Quality.Rare
+
+DCO.Tier1AndroidMeleeRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1AndroidMeleeItem
+
+DCO.Tier1AndroidMeleeRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 2000
+
+DCO.Tier1AndroidMeleeItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey("Android_Melee_String")
+  localizedName: "yyy{Android_Melee_String}"
+  localizedDescription: "ymca{Android_Melee_Desc}"
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1AndroidMeleeItemLogicPackage
+  placementSlots: []
+  quality: Quality.Rare
+  CraftingData: DCO.Tier1AndroidMeleeItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+    - DCOCraftsDrone
+
+DCO.Tier1AndroidMeleeItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1AndroidMeleeItemLogicPackageDescription
+
+DCO.Tier1AndroidMeleeItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Android_Melee_Desc")
+
+DCO.Tier1AndroidMeleeItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1AndroidMeleeItem_inline1
+    - DCO.Tier1AndroidMeleeItem_inline2
+    - DCO.Tier1AndroidMeleeItem_inline3
+
+DCO.Tier1AndroidMeleeItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.UncommonMaterial1
+  amount: 30
+
+DCO.Tier1AndroidMeleeItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.RareMaterial1
+  amount: 30
+
+DCO.Tier1AndroidMeleeItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 8
+
+DCO.Tier1AndroidShotgunnerRecipe:
+  $base: Items.Recipe_TitaniumPlating
+  displayName: LocKey("Android_Shotgunner_String")
+  localizedName: "yyy{Android_Shotgunner_String}"
+  localizedDescription: "ymca{Android_Shotgunner_Desc}"
+  buyPrice:
+    - Price.BasePrice
+    - DCO.Tier1AndroidShotgunnerRecipePrice
+  sellPrice:
+    - Price.BasePrice
+    - DCO.Tier1AndroidShotgunnerRecipePrice
+  iconPath: DroneModule
+  craftingResult: DCO.Tier1AndroidShotgunnerRecipe_inline1
+  tags:
+    - Recipe
+    - SkipActivityLogOnRemove
+    - Robot
+    - DCOCraftsDrone
+  quality: Quality.Rare
+
+DCO.Tier1AndroidShotgunnerRecipe_inline1:
+  $type: gamedataCraftingResult_Record
+  amount: -1
+  item: DCO.Tier1AndroidShotgunnerItem
+
+DCO.Tier1AndroidShotgunnerRecipePrice:
+  $type: gamedataConstantStatModifier_Record
+  modifierType: Multiplier
+  statType: BaseStats.Price
+  value: 2000
+
+DCO.Tier1AndroidShotgunnerItem:
+  $base: Items.TitaniumPlating
+  displayName: LocKey("Android_Shotgunner_String")
+  localizedName: "yyy{Android_Shotgunner_String}"
+  localizedDescription: "ymca{Android_Shotgunner_Desc}"
+  iconPath: DroneModule
+  itemType: ItemType.Gen_Misc
+  OnEquip:
+    - DCO.Tier1AndroidShotgunnerItemLogicPackage
+  placementSlots: []
+  quality: Quality.Rare
+  CraftingData: DCO.Tier1AndroidShotgunnerItem_inline0
+  tags:
+    - HideAtVendor
+    - HideInBackpackUI
+    - Robot
+    - SkipActivityLog
+    - DCOCraftsDrone
+
+DCO.Tier1AndroidShotgunnerItemLogicPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  UIData: DCO.Tier1AndroidShotgunnerItemLogicPackageDescription
+
+DCO.Tier1AndroidShotgunnerItemLogicPackageDescription:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey("Android_Shotgunner_Desc")
+
+DCO.Tier1AndroidShotgunnerItem_inline0:
+  $base: Items.TitaniumPlating_inline3
+  craftingRecipe:
+    - DCO.Tier1AndroidShotgunnerItem_inline1
+    - DCO.Tier1AndroidShotgunnerItem_inline2
+    - DCO.Tier1AndroidShotgunnerItem_inline3
+
+DCO.Tier1AndroidShotgunnerItem_inline1:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.UncommonMaterial1
+  amount: 30
+
+DCO.Tier1AndroidShotgunnerItem_inline2:
+  $type: gamedataRecipeElement_Record
+  ingredient: Items.RareMaterial1
+  amount: 30
+
+DCO.Tier1AndroidShotgunnerItem_inline3:
+  $type: gamedataRecipeElement_Record
+  ingredient: DCO.DroneCore
+  amount: 8

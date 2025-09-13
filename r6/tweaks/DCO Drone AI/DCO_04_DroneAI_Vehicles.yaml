@@ -1,0 +1,497 @@
+DCO.EquipPrecisionRifle:
+  $base: VehicleActions.EquipAnyRifleFromInventory
+  activationCondition: DCO.EquipPrecisionRifle_inline0
+  loopSubActions: [ DCO.EquipPrecisionRifle_inline4 ]
+
+DCO.EquipPrecisionRifle_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.EquipPrecisionRifle_inline1
+
+DCO.EquipPrecisionRifle_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - DCO.EquipPrecisionRifle_inline8
+    - DCO.EquipPrecisionRifle_inline2
+
+DCO.EquipPrecisionRifle_inline2:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipPrecisionRifle_inline3
+    - DCO.EquipPrecisionRifle_inline5
+
+DCO.EquipPrecisionRifle_inline3:
+  $base: Condition.HasPrimaryEquipmentRifleInInventory
+  itemType: ItemType.Wea_PrecisionRifle
+
+DCO.EquipPrecisionRifle_inline4:
+  $base: VehicleActions.EquipAnyRifleFromInventory_inline5
+  itemType: ItemType.Wea_PrecisionRifle
+
+DCO.EquipPrecisionRifle_inline5:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipPrecisionRifle_inline6
+    - DCO.EquipPrecisionRifle_inline7
+
+DCO.EquipPrecisionRifle_inline6:
+  $base: Condition.HasRifle_inline0
+  itemType: ItemType.Wea_PrecisionRifle
+
+DCO.EquipPrecisionRifle_inline7:
+  $base: Condition.HasRifle_inline1
+  itemType: ItemType.Wea_PrecisionRifle
+
+DCO.EquipPrecisionRifle_inline8:
+  $base: DCO.EquipPrecisionRifle_inline5
+  invert: true
+
+DCO.EquipSniperRifle:
+  $base: VehicleActions.EquipAnyRifleFromInventory
+  activationCondition: DCO.EquipSniperRifle_inline0
+  loopSubActions: [ DCO.EquipSniperRifle_inline4 ]
+
+DCO.EquipSniperRifle_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.EquipSniperRifle_inline1
+
+DCO.EquipSniperRifle_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - DCO.EquipSniperRifle_inline8
+    - DCO.EquipSniperRifle_inline2
+
+DCO.EquipSniperRifle_inline2:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipSniperRifle_inline3
+    - DCO.EquipSniperRifle_inline5
+
+DCO.EquipSniperRifle_inline3:
+  $base: Condition.HasPrimaryEquipmentRifleInInventory
+  itemType: ItemType.Wea_SniperRifle
+
+DCO.EquipSniperRifle_inline4:
+  $base: VehicleActions.EquipAnyRifleFromInventory_inline5
+  itemType: ItemType.Wea_SniperRifle
+
+DCO.EquipSniperRifle_inline5:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipSniperRifle_inline6
+    - DCO.EquipSniperRifle_inline7
+
+DCO.EquipSniperRifle_inline6:
+  $base: Condition.HasRifle_inline0
+  itemType: ItemType.Wea_SniperRifle
+
+DCO.EquipSniperRifle_inline7:
+  $base: Condition.HasRifle_inline1
+  itemType: ItemType.Wea_SniperRifle
+
+DCO.EquipSniperRifle_inline8:
+  $base: DCO.EquipSniperRifle_inline5
+  invert: true
+
+DCO.EquipLightMachineGun:
+  $base: VehicleActions.EquipAnyRifleFromInventory
+  activationCondition: DCO.EquipLightMachineGun_inline0
+  loopSubActions: [ DCO.EquipLightMachineGun_inline4 ]
+
+DCO.EquipLightMachineGun_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.EquipLightMachineGun_inline1
+
+DCO.EquipLightMachineGun_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - DCO.EquipLightMachineGun_inline8
+    - DCO.EquipLightMachineGun_inline2
+
+DCO.EquipLightMachineGun_inline2:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipLightMachineGun_inline3
+    - DCO.EquipLightMachineGun_inline5
+
+DCO.EquipLightMachineGun_inline3:
+  $base: Condition.HasPrimaryEquipmentRifleInInventory
+  itemType: ItemType.Wea_LightMachineGun
+
+DCO.EquipLightMachineGun_inline4:
+  $base: VehicleActions.EquipAnyRifleFromInventory_inline5
+  itemType: ItemType.Wea_LightMachineGun
+
+DCO.EquipLightMachineGun_inline5:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipLightMachineGun_inline6
+    - DCO.EquipLightMachineGun_inline7
+
+DCO.EquipLightMachineGun_inline6:
+  $base: Condition.HasRifle_inline0
+  itemType: ItemType.Wea_LightMachineGun
+
+DCO.EquipLightMachineGun_inline7:
+  $base: Condition.HasRifle_inline1
+  itemType: ItemType.Wea_LightMachineGun
+
+DCO.EquipLightMachineGun_inline8:
+  $base: DCO.EquipLightMachineGun_inline5
+  invert: true
+
+DCO.EquipHeavyMachineGun:
+  $base: VehicleActions.EquipAnyRifleFromInventory
+  activationCondition: DCO.EquipHeavyMachineGun_inline0
+  loopSubActions: [ DCO.EquipHeavyMachineGun_inline4 ]
+
+DCO.EquipHeavyMachineGun_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.EquipHeavyMachineGun_inline1
+
+DCO.EquipHeavyMachineGun_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - DCO.EquipHeavyMachineGun_inline8
+    - DCO.EquipHeavyMachineGun_inline2
+
+DCO.EquipHeavyMachineGun_inline2:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipHeavyMachineGun_inline3
+    - DCO.EquipHeavyMachineGun_inline5
+
+DCO.EquipHeavyMachineGun_inline3:
+  $base: Condition.HasPrimaryEquipmentRifleInInventory
+  itemType: ItemType.Wea_HeavyMachineGun
+
+DCO.EquipHeavyMachineGun_inline4:
+  $base: VehicleActions.EquipAnyRifleFromInventory_inline5
+  itemType: ItemType.Wea_HeavyMachineGun
+
+DCO.EquipHeavyMachineGun_inline5:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipHeavyMachineGun_inline6
+    - DCO.EquipHeavyMachineGun_inline7
+
+DCO.EquipHeavyMachineGun_inline6:
+  $base: Condition.HasRifle_inline0
+  itemType: ItemType.Wea_HeavyMachineGun
+
+DCO.EquipHeavyMachineGun_inline7:
+  $base: Condition.HasRifle_inline1
+  itemType: ItemType.Wea_HeavyMachineGun
+
+DCO.EquipHeavyMachineGun_inline8:
+  $base: DCO.EquipHeavyMachineGun_inline5
+  invert: true
+
+DCO.EquipAssaultRifle:
+  $base: VehicleActions.EquipAnyRifleFromInventory
+  activationCondition: DCO.EquipAssaultRifle_inline0
+  loopSubActions: [ DCO.EquipAssaultRifle_inline4 ]
+
+DCO.EquipAssaultRifle_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.EquipAssaultRifle_inline1
+
+DCO.EquipAssaultRifle_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - DCO.EquipAssaultRifle_inline8
+    - DCO.EquipAssaultRifle_inline2
+
+DCO.EquipAssaultRifle_inline2:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipAssaultRifle_inline3
+    - DCO.EquipAssaultRifle_inline5
+
+DCO.EquipAssaultRifle_inline3:
+  $base: Condition.HasPrimaryEquipmentRifleInInventory
+  itemType: ItemType.Wea_AssaultRifle
+
+DCO.EquipAssaultRifle_inline4:
+  $base: VehicleActions.EquipAnyRifleFromInventory_inline5
+  itemType: ItemType.Wea_AssaultRifle
+
+DCO.EquipAssaultRifle_inline5:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipAssaultRifle_inline6
+    - DCO.EquipAssaultRifle_inline7
+
+DCO.EquipAssaultRifle_inline6:
+  $base: Condition.HasRifle_inline0
+  itemType: ItemType.Wea_AssaultRifle
+
+DCO.EquipAssaultRifle_inline7:
+  $base: Condition.HasRifle_inline1
+  itemType: ItemType.Wea_AssaultRifle
+
+DCO.EquipAssaultRifle_inline8:
+  $base: DCO.EquipAssaultRifle_inline5
+  invert: true
+
+DCO.EquipShotgun:
+  $base: VehicleActions.EquipAnyRifleFromInventory
+  activationCondition: DCO.EquipShotgun_inline0
+  loopSubActions: [ DCO.EquipShotgun_inline4 ]
+
+DCO.EquipShotgun_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.EquipShotgun_inline1
+
+DCO.EquipShotgun_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - DCO.EquipShotgun_inline8
+    - DCO.EquipShotgun_inline2
+
+DCO.EquipShotgun_inline2:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipShotgun_inline3
+    - DCO.EquipShotgun_inline5
+
+DCO.EquipShotgun_inline3:
+  $base: Condition.HasPrimaryEquipmentRifleInInventory
+  itemType: ItemType.Wea_Shotgun
+
+DCO.EquipShotgun_inline4:
+  $base: VehicleActions.EquipAnyRifleFromInventory_inline5
+  itemType: ItemType.Wea_Shotgun
+
+DCO.EquipShotgun_inline5:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipShotgun_inline6
+    - DCO.EquipShotgun_inline7
+
+DCO.EquipShotgun_inline6:
+  $base: Condition.HasRifle_inline0
+  itemType: ItemType.Wea_Shotgun
+
+DCO.EquipShotgun_inline7:
+  $base: Condition.HasRifle_inline1
+  itemType: ItemType.Wea_Shotgun
+
+DCO.EquipShotgun_inline8:
+  $base: DCO.EquipShotgun_inline5
+  invert: true
+
+DCO.EquipShotgunDual:
+  $base: VehicleActions.EquipAnyRifleFromInventory
+  activationCondition: DCO.EquipShotgunDual_inline0
+  loopSubActions: [ DCO.EquipShotgunDual_inline4 ]
+
+DCO.EquipShotgunDual_inline0:
+  $type: gamedataAIActionCondition_Record
+  condition: DCO.EquipShotgunDual_inline1
+
+DCO.EquipShotgunDual_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - DCO.EquipShotgunDual_inline8
+    - DCO.EquipShotgunDual_inline2
+
+DCO.EquipShotgunDual_inline2:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipShotgunDual_inline3
+    - DCO.EquipShotgunDual_inline5
+
+DCO.EquipShotgunDual_inline3:
+  $base: Condition.HasPrimaryEquipmentRifleInInventory
+  itemType: ItemType.Wea_ShotgunDual
+
+DCO.EquipShotgunDual_inline4:
+  $base: VehicleActions.EquipAnyRifleFromInventory_inline5
+  itemType: ItemType.Wea_ShotgunDual
+
+DCO.EquipShotgunDual_inline5:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.EquipShotgunDual_inline6
+    - DCO.EquipShotgunDual_inline7
+
+DCO.EquipShotgunDual_inline6:
+  $base: Condition.HasRifle_inline0
+  itemType: ItemType.Wea_ShotgunDual
+
+DCO.EquipShotgunDual_inline7:
+  $base: Condition.HasRifle_inline1
+  itemType: ItemType.Wea_ShotgunDual
+
+DCO.EquipShotgunDual_inline8:
+  $base: DCO.EquipShotgunDual_inline5
+  invert: true
+
+VehicleActions.PassengerEquipWeapon:
+  nodes:
+    - VehicleActions.PassengerSportEquipAnyHandgun
+    - VehicleActions.PassengerSportFailSafeEquipHandgun
+    - VehicleActions.GunnerEquipRifle
+    - VehicleActions.EquipAnyRifleFromInventory
+    - DCO.EquipPrecisionRifle
+    - DCO.EquipSniperRifle
+    - DCO.EquipLightMachineGun
+    - DCO.EquipHeavyMachineGun
+    - DCO.EquipAssaultRifle
+    - DCO.EquipShotgun
+    - DCO.EquipShotgunDual
+    - VehicleActions.FailSafeEquipRifle
+    - VehicleActions.Success
+
+# --- Vehicle-aware shooting relaxations for drones ---
+DCO.ShootDefault_inline1:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - Condition.FollowerInVehicle
+    - DCO.IsDCO
+
+DCO.ShootDefault_inline0:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - Condition.TargetBelow15deg
+    - DCO.ShootDefault_inline1
+
+DroneActions.ShootDefault_inline1:
+  AND:
+    - DCO.ShootDefault_inline0
+    - DroneActions.ShootDefault_inline2
+    - DroneActions.ShootDefault_inline3
+    - Condition.OptimalDistance10mTolerance
+    - Condition.NotFriendlyFire
+
+DCO.ShootDefault_inline4:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - Condition.FollowerInVehicle
+    - DCO.IsDCO
+
+DCO.ShootDefault_inline3:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - Condition.TargetBelow45deg
+    - DCO.ShootDefault_inline4
+
+DroneGriffinActions.ShootDefault_inline1:
+  AND:
+    - DroneGriffinActions.ShootDefault_inline2
+    - Condition.NotAIMoveCommand
+    - Condition.NotAIUseWorkspotCommand
+    - Condition.NotIsUsingOffMeshLink
+    - Condition.DroneGriffinShootCooldown
+    - DroneGriffinActions.ShootDefault_inline3
+    - DroneGriffinActions.ShootDefault_inline4
+    - DCO.ShootDefault_inline3
+
+DCO.ShootDefault_inline7:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - Condition.FollowerInVehicle
+    - DCO.IsDCO
+
+DCO.ShootDefault_inline6:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - Condition.TargetBelow35deg
+    - DCO.ShootDefault_inline7
+
+DroneOctantActions.ShootDefault_inline1:
+  AND:
+    - DCO.ShootDefault_inline6
+    - DroneOctantActions.ShootDefault_inline2
+    - DroneOctantActions.ShootDefault_inline3
+    - Condition.MaxVisibilityToTargetDistance3m
+    - Condition.NotFriendlyFire
+
+DCO.ShootDefault_inline2:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - DCO.IsNotDCO
+    - Condition.TargetAbove90deg
+
+DroneActions.ShootDefault_inline13:
+  OR:
+    - DroneActions.ShootDefault_inline14
+    - Condition.CombatTargetChanged
+    - Condition.FriendlyFire
+    - DCO.ShootDefault_inline2
+
+DroneActions.ShootDefault_inline6:
+  OR:
+    - DroneActions.ShootDefault_inline7
+    - Condition.DontShootCombatTarget
+    - Condition.FriendlyFire
+    - DCO.ShootDefault_inline2
+
+DroneGriffinActions.ShootBurstStatic_inline15:
+  OR:
+    - Condition.NotMinAccuracyValue0dot95
+    - Condition.CombatTargetChanged
+    - DCO.ShootDefault_inline2
+    - Condition.AIMoveCommand
+    - Condition.AIUseWorkspotCommand
+    - Condition.FriendlyFire
+    - DroneGriffinActions.ShootBurstStatic_inline16
+
+DroneGriffinActions.ShootBurstStatic_inline4:
+  OR:
+    - DCO.ShootDefault_inline2
+    - Condition.DontShootCombatTarget
+    - Condition.FriendlyFire
+    - DroneGriffinActions.ShootBurstStatic_inline5
+
+DroneGriffinActions.ShootBurstStatic_inline8:
+  OR:
+    - DCO.ShootDefault_inline2
+    - Condition.DontShootCombatTarget
+    - Condition.FriendlyFire
+    - DroneGriffinActions.ShootBurstStatic_inline9
+
+DroneOctantActions.ShootDefault_inline13:
+  OR:
+    - Condition.NotMinAccuracyValue0dot95
+    - Condition.CombatTargetChanged
+    - DCO.ShootDefault_inline2
+    - Condition.AIMoveCommand
+    - Condition.AIUseWorkspotCommand
+    - Condition.FriendlyFire
+    - DroneOctantActions.ShootDefault_inline14
+
+DroneOctantActions.ShootDefault_inline8:
+  OR:
+    - DCO.ShootDefault_inline2
+    - Condition.DontShootCombatTarget
+    - Condition.FriendlyFire
+    - DroneOctantActions.ShootDefault_inline9
+
+# --- Reposition condition records (appended via Lua shim) ---
+DCO.RepositionCond:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.RepositionCond_inline0
+    - DCO.IsNotDCO
+
+DCO.RepositionCond_inline0:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - Condition.NotFollowerInVehicle
+    - DCO.IsDCO
+
+VehicleActions.PassengerEquipWeapon.nodes:
+  - VehicleActions.PassengerSportEquipAnyHandgun
+  - VehicleActions.PassengerSportFailSafeEquipHandgun
+  - VehicleActions.GunnerEquipRifle
+  - VehicleActions.EquipAnyRifleFromInventory
+  - DCO.EquipPrecisionRifle
+  - DCO.EquipSniperRifle
+  - DCO.EquipLightMachineGun
+  - DCO.EquipHeavyMachineGun
+  - DCO.EquipAssaultRifle
+  - DCO.EquipShotgun
+  - DCO.EquipShotgunDual
+  - VehicleActions.FailSafeEquipRifle
+  - VehicleActions.Success

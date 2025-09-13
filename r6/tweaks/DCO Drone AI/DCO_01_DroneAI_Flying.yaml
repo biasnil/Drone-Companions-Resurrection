@@ -1,0 +1,47 @@
+DCO.ShootDefault_inline11:
+  $type: gamedataAIActionAND_Record
+  AND:
+    - Condition.OptimalDistance10mTolerance
+    - Condition.NotFriendlyFire
+
+DCO.ShootDefault_inline10:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.IsDCO
+    - DCO.ShootDefault_inline11
+
+DroneActions.ShootDefault_inline1:
+  AND:
+    - DCO.ShootDefault_inline0
+    - DroneActions.ShootDefault_inline2
+    - DroneActions.ShootDefault_inline3
+    - DCO.ShootDefault_inline10
+
+DroneGriffinActions.ShootDefault_inline4:
+  OR:
+    - Condition.NotFriendlyFire
+    - DCO.IsDCO
+
+DCO.OctantShootDefault_inline0:
+  $type: gamedataAIActionOR_Record
+  OR:
+    - DCO.IsDCO
+    - Condition.NotFriendlyFire
+
+DroneOctantActions.ShootDefault_inline1:
+  AND:
+    - DCO.ShootDefault_inline6
+    - DroneOctantActions.ShootDefault_inline2
+    - DroneOctantActions.ShootDefault_inline3
+    - Condition.MaxVisibilityToTargetDistance3m
+    - DCO.OctantShootDefault_inline0
+
+DroneActions.StrafeSelectorActivationCondition:
+  AND:
+    - Condition.NotStatusEffectWhistle
+    - Condition.NotIsUsingOffMeshLink
+    - Condition.NotAIMoveCommand
+    - Condition.NotAIUseWorkspotCommand
+    - Condition.NotIsNPCUnderLocomotionMalfunctionQuickhack
+    - Condition.CanMoveInRegardsToShooting
+    - Condition.NotTargetInVehicle
